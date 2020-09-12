@@ -1,0 +1,9 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText":"案例展示",
+  "navigationBarBackgroundColor":"#000",
+  "navigationBarTextStyle":"white",
+  "enablePullDownRefresh":true,
+  "backgroundTextStyle":"dark",
+  "backgroundColorTop":"pink"
+}

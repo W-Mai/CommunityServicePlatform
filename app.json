@@ -1,0 +1,52 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/one/one",
+    "pages/many/many",
+    
+    "pages/logs/logs",
+    "pages/search/search",
+    "pages/main/main",
+    
+    "pages/bao/bao",
+    "pages/list/list",
+    "pages/sign/sign",
+    "pages/verify/verify",
+
+    "pages/news/news",
+    "pages/corporation/corporation",
+    "pages/demo/demo",
+    "pages/forget/forget",
+    "pages/warn/warn",
+    "pages/center/center",
+    "pages/inform/inform"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#6699FF",
+    "navigationBarTitleText": "郑轻社团招新",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar":{
+    "list":[
+      {
+         "pagePath":"pages/index/index",
+         "iconPath": "images/home.png",
+        "selectedIconPath": "images/_home.png",
+         "text":"社团"
+      },{
+        "pagePath":"pages/verify/verify",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/_my.png",
+        "text":"审核"
+      },{
+        "pagePath":"pages/news/news",
+        "iconPath": "images/search.png",
+        "selectedIconPath": "images/_search.png",
+        "text":"个人中心"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

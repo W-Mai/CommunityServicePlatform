@@ -1,0 +1,17 @@
+.SuoJin{
+  margin-top: 50rpx;
+  margin-left: 40rpx;
+}
+.inputBlock{
+  margin-left: 5%;
+  margin-top: 40rpx;
+  margin-right: 5%;
+}
+.underline_input{
+  border-bottom: 1rpx solid #666;
+  padding-bottom: 20rpx;
+  width: 100%;
+}
+.buttonStyle{
+  margin-top: 50rpx;
+}

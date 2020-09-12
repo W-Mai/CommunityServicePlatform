@@ -1,0 +1,56 @@
+/* pages/verify/verify.wxss */
+page{
+  background-color: #727272;
+}
+.btn {
+    margin-left: 140rpx;
+    margin-top: 30rpx;
+    font-size: 25rpx;
+    background:gold;
+    color:red;
+  }
+  .ptc{
+      width:560rpx;
+      height: 336rpx;
+    margin-top:50rpx;
+      margin-left:100rpx;
+     
+  }
+  .addButton{
+      margin-top: 100rpx;
+  }
+  .row{
+    margin-top: 20rpx;
+    /* overflow: hidden; */
+    line-height: 100rpx; 
+    border-bottom: 1rpx solid #ccc;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    
+    background: rgb(128, 128, 128);
+    
+    border:  1px solid red;
+    border-radius: 5px;
+  }
+  .info-input{
+     height:100rpx; 
+    margin-left: 50rpx;
+    color: yellowgreen
+  }
+  
+  .buttonl{
+    font-size: 20rpx;
+    background: #33FF99;
+    position: absolute; 
+    margin-top:10rpx;
+    margin-left:10rpx;
+    color: rgb(255, 255, 255);
+  }
+  .buttonr{
+    font-size: 20rpx;
+    background: #33FF99;
+    position: absolute; 
+    margin-top: 10rpx;
+    margin-left:400rpx;
+    color: rgb(255, 255, 255);
+  }

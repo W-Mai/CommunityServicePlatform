@@ -1,0 +1,49 @@
+image{
+  width: 100%;
+}
+.ForgetPassward{
+  color: blue;
+  width: auto;
+  height: auto;
+  position: absolute;
+  right: 3rpx;
+  top: 3rpx;
+}
+.whitePic{
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  margin-top: 150rpx;
+  width: 200rpx;
+  height: 200rpx;
+}
+.lefttext{
+  margin-left: 40rpx;
+  margin-top: 40rpx;
+}
+.inputBlock{
+  margin-left: 5%;
+  margin-top: 40rpx;
+  margin-right: 5%;
+}
+.line{
+  margin-top: 18rpx;
+  margin-left: 5%;
+  /* margin-right: 10px; */
+  width:90%;
+  height:2rpx;
+  background:#aaa;
+}
+.fontRed{
+  color: red;
+  margin-left: 40rpx;
+  margin-top: 10rpx;
+}
+.underline_input{
+  border-bottom: 1rpx solid #666;
+  padding-bottom: 20rpx;
+  width: 100%;
+}
+.submitbutton{
+  margin-top: 50rpx;
+}

@@ -1,0 +1,40 @@
+.blocks{
+  display: flex;
+  background-color: lightblue;
+  height: 200rpx;
+}
+.name{
+  color: white;
+  padding-top: 40rpx;
+  margin-left: 60rpx;
+}
+.college{
+  color: white;
+  margin-top: 40rpx;
+  margin-left: 60rpx;
+}
+.whitePic{
+  flex: 1;
+  /* margin: 0 auto; */
+  margin-top: 20%;
+  margin-left: 20%;
+  width: 150rpx;
+  height: 150rpx;
+}
+.Names{
+  flex: 3;
+}
+.perfect{
+  height: 60rpx;
+  background-color: lightblue;
+}
+.chink{
+  margin-top: 10rpx;
+}
+.note{
+  /* text-align: center; */
+  padding-top: 10rpx;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}

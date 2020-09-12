@@ -1,0 +1,13 @@
+	<view class = "top">
+	<image src = "/image/3.jpg"  mode = "aspectFit"></image>
+	</view>
+  
+  	<view class="box">
+			<navigator class="boxmore"  url = "/pages/main/main" wx:for="{{5}}"  wx:key = "*this">
+				<view class="pic">
+					<image src="/image/4.jpg"  mode = "aspectFit"></image>
+				</view>
+				<view class="txt">社团名称</view>
+			</navigator>
+		</view>
+	

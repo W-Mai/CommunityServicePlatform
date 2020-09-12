@@ -1,0 +1,9 @@
+{
+  
+    "backgroundColor": "#0000ff",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#cccccc",
+    "navigationBarTitleText": "社团列表",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh":true
+}

@@ -1,0 +1,40 @@
+<!-- 轮播图 -->
+<swiper class="banner">
+  <swiper-item>
+    <image mode="widthFix" src="https://i0.hdslb.com/bfs/archive/03864886c8381ef9cbe071b36f43a743904c150e.jpg@880w_388h_1c_95q"></image>
+  </swiper-item>
+  <swiper-item>
+    <image mode="widthFix" src="https://i0.hdslb.com/bfs/sycp/creative_img/202008/5af11c35f559cc910cb66bf61d123c89.jpg@880w_388h_1c_95q"></image>
+  </swiper-item>
+  <swiper-item>
+    <image mode="widthFix" src="https://i0.hdslb.com/bfs/archive/b04848ae5e2e0b85eea41f7eebd36b4f58d9d5f8.jpg@880w_388h_1c_95q"></image>
+  </swiper-item>
+</swiper>
+
+<view class="out">
+  <button class="bt1" type="primary" plain>按钮</button>
+  <button class="bt1">退出登录</button>
+  <button class="bt1" type="primary" size="mini">支付</button>
+  <button class="bt1" loading>登陆中 请稍后</button>
+  <button open-type="contact">联系客服</button>
+
+  <form bindsubmit="onSubmit">
+    <input class="ipt" placeholder="请输入用户名" placeholder-style="color:pink"></input>
+    <input class="ipt" placeholder="请输入用户名" placeholder-class="iptPlace"></input>
+    <button form-type="submit">提交</button>
+  </form>
+
+  <checkbox>
+    hhh
+  </checkbox> 
+  <view>
+    <icon type="succes" size="100"></icon>
+    <view>请教乘车</view>
+  </view>
+  <view style="padding:50px" >
+    <progress percent="50" show-info border-radius="10" font-size="15"></progress>
+  </view>
+
+
+
+</view>

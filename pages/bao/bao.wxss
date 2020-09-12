@@ -1,0 +1,103 @@
+page{
+    background: #F0F0F0 ;
+ }
+ .row{
+   margin-top: 20rpx;
+   overflow: hidden;
+   /* line-height: 100rpx; */
+   border-bottom: 1rpx solid #ccc;
+   margin-left: 20rpx;
+   margin-right: 20rpx;
+   color: #777;
+   background: #fff;
+ }
+ .row1{
+    overflow: hidden;
+    border-bottom: 1rpx solid #ccc;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    color: #777;
+    background: #fff;
+  }
+ .info-input1{
+     margin-top: 15rpx;
+     margin-bottom: 15rpx;
+    height: 70rpx;
+    margin-left: 50rpx;
+    margin-right: 50rpx;
+    color: #777;
+    border-bottom:  1px solid rgb(255, 170, 170);
+    border-radius: 5px;
+  }
+  .info-input2{
+    padding-top: 15rpx;
+
+    margin-top: 15rpx;
+    margin-bottom: 15rpx;
+   height: 70rpx;
+   margin-left: 50rpx;
+   margin-right: 50rpx;
+   color: #777;
+   border-bottom:  1px solid rgb(255, 170, 170);
+   border-radius: 5px;
+ }
+  .info-input{    /*  无边框 */
+    margin-top: 15rpx;
+    margin-bottom: 15rpx;
+   height: 70rpx;
+   margin-left: 50rpx;
+   margin-right: 50rpx;
+   color: #777;
+ }
+  .tip{
+      margin-top: 10rpx;
+      color: black;
+  }
+
+ .submit{
+   margin-top: 50rpx;
+   margin-left: 20rpx;
+   margin-right: 20rpx;
+   margin-bottom: 50rpx;
+   background: #00CCFF;
+    color: #FFFFFF;
+ }
+ .success{
+   background: #ffffff;
+  
+ }
+ .cheer{
+   text-align: center;
+   line-height: 400rpx;
+   font-size: 60rpx;
+   position: relative;
+ }
+ .return{
+   margin: 20rpx;
+  
+ }
+ /* @import "style.wxss"; */
+
+
+.f{
+    display: flex;
+  }
+  
+  .f-end{
+    justify-content: flex-end;
+  }
+  
+  .text-count-display{
+    padding: 2%;
+  }
+  
+  .textarea-count {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 15rpx;
+    margin-bottom: 15rpx;
+  }
+  
+  .textarea-count textarea{
+    width: 100%;
+  }

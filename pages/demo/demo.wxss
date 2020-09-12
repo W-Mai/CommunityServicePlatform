@@ -1,0 +1,21 @@
+.banner{
+  height: 387rpx;
+  border: 1px solid red;
+}
+
+.banner image{
+  width: 100%;
+  height: 387rpx;
+}
+button{
+  margin: 10rpx 0;
+}
+.ipt{
+  border: 1px solid #ddd;
+  height: 78rpx;
+  /* background: #aaa; */
+}
+.iptPlace{
+  color: #aaa;
+  font-size: 22rpx;
+}

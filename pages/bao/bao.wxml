@@ -1,0 +1,79 @@
+ <view wx:if="{{!success}}">
+     
+ <view class='row1'>
+ <view class="tip" >姓名:</view>
+        <view class='info'>
+               <input  class= 'info-input1'  placeholder="请输入你的姓名" />
+        </view>       
+ </view>
+  
+ <view class='row'>
+     <view class="tip" >性别:</view>
+        <view class='info'>
+            <radio-group class='info-input'>
+    <radio value="男">男</radio>
+    <radio value="女">女</radio>
+</radio-group>
+ </view>
+ </view>
+
+
+ <view class='row'>
+        
+ <picker mode="date" value="{{date}}" start="1995-01-01" end="2005-12-31" bindchange="changeDate">
+ <view class="tip">
+  出生日期: 
+ </view>
+ <view class='info-input2'>{{date}}</view>   <!--这个地方时间显示的位置不太好，不居中 -->
+ </picker>
+</view>
+
+
+<view wx:for="{{list}}"
+    wx:key="id"
+>
+
+ <view class='row'>  
+     <view class="tip" >{{item.name}}:</view>
+       <view class='info'>
+               <input  class= 'info-input1'  placeholder="请输入你的{{item.name}}" />
+        </view> 
+ </view>
+
+</view>
+
+<view class='row'>
+     <view class="tip" >是否服从调剂:</view>
+        <view class='info'>
+            <radio-group class='info-input'>
+    <radio value="是">是</radio>
+    <radio value="否">否</radio>
+</radio-group>
+ </view>
+ </view>
+
+<view class="row">
+    <view class="tip" >自我评定（思想，工作，学习和获奖情况等）:</view>
+    <view class='textarea-count '>
+   <textarea placeholder='请输入文字' bindinput="getWords" maxlength='{{maxTextLen}}'></textarea>
+   <view class='text-count-display f f-end'>{{textLen}}/{{maxTextLen}}</view>
+</view>
+</view>
+
+<view class="row">
+    <view class="tip" >个人在校任职履历（如是否在高中班级，学生会，社团等任职）</view>
+    <view class='textarea-count '>
+   <textarea placeholder='请输入文字' bindinput="getWords" maxlength='{{maxTextLen}}'></textarea>
+   <view class='text-count-display f f-end'>{{textLen}}/{{maxTextLen}}</view>
+</view>
+</view>
+
+ 
+
+ <button class='submit' bindtap='submit'>报名</button>
+ 
+ <view class = 'success' wx:if="{{success}}">
+ <view class='cheer'><icon type="success" size="24"/> 恭喜您注册成功!</view>
+ <button type = "default" class = 'return' bindtap='return_home'>返回首页</button>
+ </view>
+ </view>

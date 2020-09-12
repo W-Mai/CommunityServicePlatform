@@ -1,0 +1,22 @@
+<!--pages/inform/inform.wxml-->
+<view>
+  <view>姓名</view>
+  <input></input>
+</view>
+<view>
+  <view>学号</view>
+  <input></input>
+</view>
+<view>
+  <view>学院</view>
+  <input></input>
+</view>
+<view>
+  <view>班级</view>
+  <input></input>
+</view>
+<view>
+  <view>学生证照片</view>
+  <input></input>
+</view>
+

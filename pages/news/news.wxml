@@ -1,0 +1,24 @@
+<view>
+  <image class="whitePic" src="/images/ZZULI Logo Blue.png"></image>
+</view>
+<navigator url="/pages/forget/forget">
+  <view class="ForgetPassward">忘记密码？</view>
+</navigator>
+<view>
+  <view class="lefttext">用户名</view>
+  <view class="inputBlock">
+    <input type="username" class="underline_input" placeholder="用户名"></input>
+  </view>
+  <!-- <view class="line"></view> -->
+  <view class="lefttext">密码</view>
+  <view class="inputBlock">
+    <input type="password" class="underline_input" placeholder="密码"></input>
+  </view>
+  <!-- <view class="line"></view> -->
+  <navigator url="/pages/sign/sign">
+    <view class="fontRed">没有账号？点此注册</view>
+  </navigator>
+  <navigator url="/pages/center/center">
+    <button class="submitbutton" form-type="submit" type="primary">登录</button>
+  </navigator>
+</view>
