@@ -2,45 +2,51 @@ page{
     background: #F0F0F0 ;
  }
  .row{
-   margin-top: 20rpx;
+   margin-top: 25rpx;
    overflow: hidden;
    line-height: 100rpx;
    border-bottom: 1rpx solid #ccc;
    margin-left: 20rpx;
    margin-right: 20rpx;
-   color: #777;
+   
    background: #fff;
    
-   border:  1px solid red;
-   border-radius: 5px;
+   box-shadow: 15rpx 10rpx 20rpx rgba(44, 40, 40, 0.404);
+   border-radius: 15px;
  }
  .info-input{
    height: 100rpx;
    margin-left: 50rpx;
-   color: #777;
+   
+   color: black;
      float: left;
  }
  .info-input1{
    height: 100rpx;
    margin-left: 50rpx;
-   color: #777;
+  
+   color: black;
      float: left;
      width: 420rpx;
  }
  .button{
    /*line-height: 70rpx;*/ 
    font-size: 20rpx;
-   background: #33FF99;
+   font-weight: 100;
+   background: #c471ed;
    position: absolute; 
-   top:36rpx;
+   top:43rpx;
+   border-radius: 10px;
    right:25rpx;
-   color: black;
+   color: white;
+   box-shadow: -5rpx 5rpx 10rpx rgba(189, 43, 226, 0.41);
  }
  .submit{
    margin-top: 50rpx;
    margin-left: 20rpx;
    margin-right: 20rpx;
    background: #00CCFF;
+   border-radius: 15px;
     color: #FFFFFF;
  }
  .success{

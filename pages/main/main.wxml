@@ -1,52 +1,40 @@
 <view class="top">
-	<image src="/image/1.jpg" mode="aspectFit"></image>
+	<image src="/image/1.jpg" mode="aspectFill"></image>
 </view>
 
 <view class="middle">
 	<view class="txtbox">
-	
+		<view class="txt-title">
+			<text >社团名称：{{info.name}}</text>
+		</view>
+		
 		<text class="txt">
-	  	社团名称：广播站
-		 大会开始一段非常老师开会看似简单hi与黑色的机会参加圣诞节活动计划书
-	  	贷款还款
-	  	计划客户还款计划书的会计师的考试
-		  按季度就死US子一UC环境科技都是奇偶奇偶的借记卡宿建德江
-		  信息信息系信息嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻
-		  嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻
-		  嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻
-		  嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻
-		  嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻
-		  嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻嘻
-		  嘻嘻嘻嘻嘻嘻嘻
-		  嘻嘻嘻嘻嘻嘻嘻
-	  	嘻嘻嘻嘻嘻嘻嘻
-		  嘻嘻嘻嘻嘻嘻嘻
-		  嘻嘻嘻嘻嘻嘻嘻
+			{{info.information}}
 	  </text>
 	</view>
 
 	<view class="middlend">
 		<view class="QQ">
-			<view class="QQGroupText">
-				QQ群号：1580759961
-			</view>
+			<block>
+				<view class="QQGroupText">
+					QQ群号：<text user-select="true" >{{info.qqgroup_num?info.qqgroup_num:"暂时没有提供哦"}}</text>
+				</view>
 
-			<view class="box">
-				<button type="primary" size="mini">加群</button>
-			</view>
+				<view class="box" wx:if="{{info.qqgroup_num}}">
+					<button type="primary" size="mini">加群</button>
+				</view>
+			</block>
+			
 
 		</view>
 	</view>
 </view>
-<!-- <view class="bottom">
-	<view class="qq">
-		QQ群号：1580759961
-		<button class="box" type = "primary" size= "mini">加群</button>
-	</view>
-</view> -->
 
 <view class="base">
 	<navigator url="">
-		<button class="register" type="primary">报名</button>
+		<view>
+			<button class="register" >报名</button>
+		</view>
+		
 	</navigator>
 </view>

@@ -1,18 +1,35 @@
 // pages/main/main.js
+const db = wx.cloud.database()
+
 Page({
 
+  
   /**
    * 页面的初始数据
    */
   data: {
-
+    info:{
+      name : "正在加载中……",
+      information : "正在加载中……",
+     
+    }
   },
 
+  async fetchData(id){
+    
+    let res = await db.collection('ASInformations').where({
+      _id:id
+    }).get()
+    this.setData({
+      info:res.data[0]
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let id = options.id
+    this.fetchData(id)
   },
 
   /**

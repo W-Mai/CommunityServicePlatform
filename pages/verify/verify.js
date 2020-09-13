@@ -2,7 +2,7 @@
 Page({
 
   data:{
-    success:true,
+    success:false,
     //初始化数组
      addPrice: [{
           Name: "空社团1",
@@ -61,11 +61,7 @@ Page({
           })
       },
 
-      submitHandler:function(){
-        wx.switchTab({
-          url: '../../pages/news/news',//要跳转到的页面路径
-          })
-      }
+
      
      
     /**获取输入框信息**/

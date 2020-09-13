@@ -1,28 +1,39 @@
 <view class="banner">
 	<swiper indicator-dots indicator-dots="rgba(255,255,255,0.5)" indicator-active-color="#fff" circular autoplay>
 		<swiper-item>
-			<image src="/image/1.jpg"></image>
+			<image src="/image/1.jpg" mode="aspectFill"></image>
 		</swiper-item>
 		<swiper-item>
-			<image src="/image/2.jpg"></image>
+			<image src="/image/2.jpg" mode="aspectFill"></image>
 		</swiper-item>
 		<swiper-item>
-			<image src="/image/3.jpg"></image>
+			<image src="/image/3.jpg" mode="aspectFill"></image>
 		</swiper-item>
 	</swiper>
 </view>
 
 <view class="major">
-	<view class="majordif">
-		<navigator class="box" url="/pages/one/one">
-			<image class="pic" src="/image/one.png" />
-			<view class="text">院级社团</view>
-		</navigator>
-		<navigator class="box" url="/pages/many/many">
-			<image class="pic" src="/image/many.png" />
-			<view class="text">校级社团</view>
-		</navigator>
-	</view>
+	<scroll-view scroll-x class="majordif"  scroll-with-animation="true">
+		<view class="box">
+			<navigator  url="/pages/one/one">
+				<image class="pic" src="/image/one.png" />
+				<view class="text">院级社团</view>
+			</navigator>
+		</view>
+		<view class="box">
+			<navigator  url="/pages/many/many">
+				<image class="pic" src="/image/many.png" />
+				<view class="text">校级社团</view>
+			</navigator>
+		</view>
+		<block wx:for="{{ascategories}}" wx:key="*this"><view class="box">
+				<navigator url="/pages/one/one">
+					<image class="pic" src="{{item.url}}" />
+					<view class="text">{{item.name}}</view>
+				</navigator>
+			</view>
+		</block></scroll-view>
+
 </view>
 
 <!-- <view class="put">
@@ -44,19 +55,32 @@
 </view>
 
 <view class="dynamic">
-	<view class="container">
+	<view class="toast-wrapper">
 		<view class="pubTile">
 			<view class="txt">社团简介</view>
 			<navigator class="more">更多...></navigator>
 		</view>
 
 		<view class="dyMain">
-			<navigator class="dyItem"  url = "/pages/main/main" wx:for="{{5}}" wx:key = "*this">
-				<view class="pic">
-					<image src="/image/4.jpg"  mode = "aspectFit"></image>
+			<block wx:for="{{infoData}}" wx:key="*this">
+				<view class="info-toast">
+					<navigator class="dyItem"  url = "/pages/main/main?id={{item._id}}" >
+					<view class="pic">
+						<image src="{{ item.thumbnail }}"  mode = "aspectFit"></image>
+					</view>
+					<view class="text">
+						<view class="title"> 
+							{{ item.name }}
+						</view>
+						<view class="content">
+							{{ item.information }}
+						</view>
+					</view>
+				
+				</navigator>
 				</view>
-				<view class="txt">社团名称</view>
-			</navigator>
+				
+			</block>
 		</view>
 	</view>
 </view>

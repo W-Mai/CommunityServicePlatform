@@ -8,49 +8,33 @@ page{
    border-bottom: 1rpx solid #ccc;
    margin-left: 20rpx;
    margin-right: 20rpx;
-   color: #777;
+   /* color: #777; */
    background: #fff;
+   border-radius: 30rpx;
+   box-shadow: 15rpx 10rpx 20rpx rgba(44, 40, 40, 0.404);
  }
- .row1{
-    overflow: hidden;
-    border-bottom: 1rpx solid #ccc;
-    margin-left: 20rpx;
-    margin-right: 20rpx;
-    color: #777;
-    background: #fff;
-  }
+ 
  .info-input1{
      margin-top: 15rpx;
      margin-bottom: 15rpx;
     height: 70rpx;
     margin-left: 50rpx;
     margin-right: 50rpx;
-    color: #777;
-    border-bottom:  1px solid rgb(255, 170, 170);
-    border-radius: 5px;
+    color:black;
+    border-bottom:  1px solid #bbb;
+    
   }
-  .info-input2{
-    padding-top: 15rpx;
-
-    margin-top: 15rpx;
-    margin-bottom: 15rpx;
-   height: 70rpx;
-   margin-left: 50rpx;
-   margin-right: 50rpx;
-   color: #777;
-   border-bottom:  1px solid rgb(255, 170, 170);
-   border-radius: 5px;
- }
   .info-input{    /*  无边框 */
     margin-top: 15rpx;
     margin-bottom: 15rpx;
    height: 70rpx;
    margin-left: 50rpx;
    margin-right: 50rpx;
-   color: #777;
+   color:black;
  }
   .tip{
-      margin-top: 10rpx;
+      margin-top: 15rpx;
+      margin-left: 10rpx;
       color: black;
   }
 
@@ -58,14 +42,14 @@ page{
    margin-top: 50rpx;
    margin-left: 20rpx;
    margin-right: 20rpx;
-   margin-bottom: 50rpx;
    background: #00CCFF;
     color: #FFFFFF;
+    margin-bottom: 15rpx;
  }
- .success{
-   background: #ffffff;
-  
- }
+.success{
+  background: #ffffff;
+  padding-bottom: 30rpx;
+}
  .cheer{
    text-align: center;
    line-height: 400rpx;
@@ -73,10 +57,11 @@ page{
    position: relative;
  }
  .return{
-   margin: 20rpx;
-  
+   margin: 66rpx;
+   background-color: #558ad8;
+   color: white;
  }
- /* @import "style.wxss"; */
+
 
 
 .f{
@@ -94,8 +79,11 @@ page{
   .textarea-count {
     border: 1px solid #ddd;
     border-radius: 5px;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
     margin-top: 15rpx;
     margin-bottom: 15rpx;
+    padding: 2%;
   }
   
   .textarea-count textarea{

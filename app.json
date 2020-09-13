@@ -28,6 +28,7 @@
     "navigationBarTextStyle":"white"
   },
   "tabBar":{
+    "borderStyle": "black",
     "list":[
       {
          "pagePath":"pages/index/index",

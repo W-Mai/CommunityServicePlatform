@@ -1,6 +1,6 @@
  <view wx:if="{{!success}}">
      
- <view class='row1'>
+ <view class='row'>
  <view class="tip" >姓名:</view>
         <view class='info'>
                <input  class= 'info-input1'  placeholder="请输入你的姓名" />
@@ -24,7 +24,7 @@
  <view class="tip">
   出生日期: 
  </view>
- <view class='info-input2'>{{date}}</view>   <!--这个地方时间显示的位置不太好，不居中 -->
+ <view class='info-input1'>{{date}}</view>   <!--这个地方时间显示的位置不太好，不居中 -->
  </picker>
 </view>
 
@@ -71,9 +71,10 @@
  
 
  <button class='submit' bindtap='submit'>报名</button>
- 
+ </view>
+
  <view class = 'success' wx:if="{{success}}">
- <view class='cheer'><icon type="success" size="24"/> 恭喜您注册成功!</view>
- <button type = "default" class = 'return' bindtap='return_home'>返回首页</button>
+ <view class='cheer'><icon type="success" size="30"/> 恭喜您报名成功!</view>
+ <button  class='return' bindtap='return_home'>返回社团页</button>
  </view>
- </view>
+ 

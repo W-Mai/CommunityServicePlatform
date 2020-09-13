@@ -4,6 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    success:true,
     date: '2000-01-01',
     maxTextLen:200,
     textLen:0,
@@ -66,10 +67,10 @@ Page({
            });
           },
  
-  //  返回登陆界面
+  //  返回界面
   return_home: function (e) {
-    wx.navigateTo({
-      url: '/pages/login/login',
+    wx.switchTab({
+      url: '../../pages/verify/verify',
     })
  
   },

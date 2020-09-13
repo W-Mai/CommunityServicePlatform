@@ -1,8 +1,8 @@
 {
-  
-    "backgroundColor": "#0000ff",
+    "usingComponents": {},
+    "backgroundColor": "#888",
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#cccccc",
+    "navigationBarBackgroundColor": "#ecc7bf",
     "navigationBarTitleText": "社团列表",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh":true

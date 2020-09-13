@@ -1,9 +1,9 @@
 {
   "usingComponents": {},
-    "backgroundColor": "#99ffcc",
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#cccc66",
-    "navigationBarTitleText": "注册界面",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh":true
+  "backgroundColor": "#888",
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#3366ff",
+  "navigationBarTitleText": "注册页面",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh":false
 }

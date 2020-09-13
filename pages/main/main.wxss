@@ -1,8 +1,28 @@
-.top image{width:100%;height:350rpx; }
+.top image{
+  width:100%;
+  height:350rpx; 
+
+}
 
 .middle{padding:10rpx;background-color: aliceblue;}
 /* .txt{padding: 20rpx 20rpx;} */
-.txtbox{ border: 1px solid #fff; background-color: #fff;padding: 20rpx 20rpx;}
+.txtbox{ 
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  border: 1px solid #fff; 
+  background-color: #fff;
+  padding: 20rpx 20rpx;
+  padding-top: 10rpx;
+  box-shadow:3rpx 6rpx 10rpx #04adf01e;
+}
+.txt-title{
+  font-size: x-large;
+  padding: 30rpx;
+  border-bottom: 1rpx solid rgba(102, 102, 102, 0.534);
+}
+.txt{
+  text-indent: 2em;
+}
 .middlend{padding:20rpx;}
 .middlend .QQ{
   display: flex;
@@ -11,8 +31,8 @@
   border: 1px solid #fff;
   background-color: #fff;
   padding: 4px 10px;
-  box-shadow: 0px 2px 6px rgba(253, 185, 185, 0.289);
-  border-bottom-style :ridge;
+  box-shadow:3rpx 6rpx 10rpx #04adf01e;
+  /* border-bottom-style :ridge; */
 } 
 .QQGroupText{
   flex: 8;
@@ -23,4 +43,13 @@
   right: 0px;
 }
 
-.base{padding: 30rpx 0;background-color: rgb(244, 241, 226);}
+.base{
+  display: flex;
+  justify-content: center;
+  padding: 30rpx 0;
+  background-color: rgba(255, 255, 255, 0.829);
+}
+.register{
+  background-color: #558ad8;
+  color: white;
+}

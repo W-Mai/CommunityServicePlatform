@@ -5,7 +5,8 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    wx.cloud.init()
+    
     // 登录
     wx.login({
       success: res => {
@@ -32,8 +33,11 @@ App({
         }
       }
     })
+    
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    as_infos: null,
+    is_logged_in:false
   }
 })

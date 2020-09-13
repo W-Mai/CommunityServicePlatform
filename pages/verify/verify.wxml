@@ -3,17 +3,16 @@
     <view class="price-detail" wx:for="{{addPrice}}" wx:key="id">
 
     <view class='row'>
-        
-               <view  class= 'info-input' >
-                   <view >社团名称：{{item.Name}}</view>
-               </view>
-               <view  class= 'info-input' >
-                   <view >当前状态：{{item.Statu}}</view>
-               </view>
-               <view class= 'info-input'>
-                   <button class='buttonl' size="mini" bindtap='baoming' disabled='{{disabled}}' style="background-color:{{color}}" >{{text1}}</button>
-                    <button class='buttonr' size="mini" bindtap='delete' data-index="{{index}}" disabled='{{disabled}}' style="background-color:{{color}}" >{{text2}}</button>
-               </view>
+        <view  class= 'info-input' >
+            <text class="small-fuck">社团名称：{{item.Name}}</text>
+        </view>
+        <view  class= 'info-input' >
+            <text class="small-fuck"> 当前状态：{{item.Statu}}</text>
+        </view>
+        <view class= 'info-input-button'>
+            <button class='buttonl' size="mini" bindtap='baoming' disabled='{{disabled}}' style="background-color:{{color}}" >{{text1}}</button>
+            <button class='buttonr' size="mini" bindtap='delete' data-index="{{index}}" disabled='{{disabled}}' style="background-color:{{color}}" >{{text2}}</button>
+        </view>
                
    </view>
     

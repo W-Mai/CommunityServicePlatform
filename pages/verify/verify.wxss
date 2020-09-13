@@ -1,6 +1,6 @@
 /* pages/verify/verify.wxss */
 page{
-  background-color: #727272;
+  background-color: aliceblue;
 }
 .btn {
     margin-left: 140rpx;
@@ -20,37 +20,44 @@ page{
       margin-top: 100rpx;
   }
   .row{
-    margin-top: 20rpx;
-    /* overflow: hidden; */
-    line-height: 100rpx; 
-    border-bottom: 1rpx solid #ccc;
-    margin-left: 20rpx;
-    margin-right: 20rpx;
+    margin: 20rpx;
+    padding: 25rpx;
+    box-shadow: 8rpx 8rpx 30rpx rgba(44, 40, 40, 0.12);
+    background: #fff;
     
-    background: rgb(128, 128, 128);
-    
-    border:  1px solid red;
-    border-radius: 5px;
+    /* border:  1px solid red; */
+    border-radius: 30rpx;
   }
   .info-input{
-     height:100rpx; 
-    margin-left: 50rpx;
-    color: yellowgreen
+    margin:30rpx 50rpx;
+    color:black;
   }
-  
+  .small-fuck{
+    padding: 20rpx 10rpx;
+    padding-left: 2em;
+    display: block;
+    /* height: 70rpx; */
+    box-shadow: 5rpx 5rpx 20rpx rgba(44, 40, 40, 0.15);
+    border-radius: 15rpx;
+  }
+ .info-input-button{
+  display: flex;
+  justify-content: space-between;
+
+  margin:0rpx 50rpx; 
+}
+
   .buttonl{
     font-size: 20rpx;
-    background: #33FF99;
-    position: absolute; 
-    margin-top:10rpx;
-    margin-left:10rpx;
-    color: rgb(255, 255, 255);
+    background: #339cff;
+
+    border-radius: 15rpx;
+    color: #FFFFFF;
   }
   .buttonr{
     font-size: 20rpx;
-    background: #33FF99;
-    position: absolute; 
-    margin-top: 10rpx;
-    margin-left:400rpx;
-    color: rgb(255, 255, 255);
+    background: #339cff;
+ 
+    border-radius: 15rpx;
+    color: #FFFFFF;
   }
