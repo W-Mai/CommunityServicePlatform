@@ -1,4 +1,5 @@
 // pages/main/main.js
+var app = getApp();
 const db = wx.cloud.database()
 
 Page({
@@ -12,7 +13,8 @@ Page({
       name : "正在加载中……",
       information : "正在加载中……",
      
-    }
+    },
+    is_logged_in:false
   },
 
   async fetchData(id){
@@ -29,6 +31,9 @@ Page({
    */
   onLoad: function (options) {
     let id = options.id
+    this.setData({
+      is_logged_in:app.globalData.is_logged_in
+    })
     this.fetchData(id)
   },
 

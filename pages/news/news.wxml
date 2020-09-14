@@ -1,24 +1,34 @@
+<view class="blueMask"></view>
 <view>
-  <image class="whitePic" src="/images/ZZULI Logo Blue.png"></image>
+  <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/图书馆图层.png" mode="widthFix"></image>
 </view>
-<navigator url="/pages/forget/forget">
-  <view class="ForgetPassward">忘记密码？</view>
-</navigator>
+
 <view>
-  <view class="lefttext">用户名</view>
+  <image class="whitePic" src="/images/白色.png"></image>
+  <image class="writing" src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/hb字.png"></image>
+</view>
+
+<view>
+  <view class="lefttext">学号</view>
   <view class="inputBlock">
-    <input type="username" class="underline_input" placeholder="用户名"></input>
+    <input type="username" class="underline_input" adjust-position="true" placeholder="请输入学号" bindinput="bindNameInput"></input>
   </view>
   <!-- <view class="line"></view> -->
   <view class="lefttext">密码</view>
   <view class="inputBlock">
-    <input type="password" class="underline_input" placeholder="密码"></input>
+    <input type="password" class="underline_input" adjust-position="true" placeholder="请输入密码" bindinput="bindPasswordInput"></input>
   </view>
   <!-- <view class="line"></view> -->
+<view class="samelevel">
   <navigator url="/pages/sign/sign">
     <view class="fontRed">没有账号？点此注册</view>
   </navigator>
-  <navigator url="/pages/center/center">
-    <button class="submitbutton" form-type="submit" type="primary">登录</button>
+  <navigator url="/pages/forget/forget">
+    <view class="ForgetPassward">忘记密码？</view>
   </navigator>
+</view>
+
+  <!-- <navigator url="/pages/center/center"> -->
+    <button class="submitbutton" form-type="submit" type="primary" bindtap='bindingSuccess'>登录</button>
+  <!-- </navigator> -->
 </view>

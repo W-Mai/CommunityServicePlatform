@@ -1,3 +1,4 @@
+var app = getApp();
 // pages/verify/verify.js
 Page({
 
@@ -61,9 +62,15 @@ Page({
           })
       },
 
-
-     
-     
     /**获取输入框信息**/
-      
+    onLoad: function (options) {
+      this.setData({
+        success:!(app.globalData.is_logged_in)
+      })
+    },
+    submitHandler(event){
+      wx.switchTab({
+        url: '../news/news',
+      })
+    }
 })

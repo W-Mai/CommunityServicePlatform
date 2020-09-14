@@ -1,65 +1,65 @@
 page{
-    background: #F0F0F0 ;
- }
- .row{
-   margin-top: 25rpx;
-   overflow: hidden;
-   line-height: 100rpx;
-   border-bottom: 1rpx solid #ccc;
-   margin-left: 20rpx;
-   margin-right: 20rpx;
-   
-   background: #fff;
-   
-   box-shadow: 15rpx 10rpx 20rpx rgba(44, 40, 40, 0.404);
-   border-radius: 15px;
- }
- .info-input{
-   height: 100rpx;
-   margin-left: 50rpx;
-   
-   color: black;
-     float: left;
- }
- .info-input1{
-   height: 100rpx;
-   margin-left: 50rpx;
-  
-   color: black;
-     float: left;
-     width: 420rpx;
- }
- .button{
-   /*line-height: 70rpx;*/ 
-   font-size: 20rpx;
-   font-weight: 100;
-   background: #c471ed;
-   position: absolute; 
-   top:43rpx;
-   border-radius: 10px;
-   right:25rpx;
-   color: white;
-   box-shadow: -5rpx 5rpx 10rpx rgba(189, 43, 226, 0.41);
- }
- .submit{
-   margin-top: 50rpx;
-   margin-left: 20rpx;
-   margin-right: 20rpx;
-   background: #00CCFF;
-   border-radius: 15px;
-    color: #FFFFFF;
- }
- .success{
-   background: #ffffff;
-  
- }
- .cheer{
-   text-align: center;
-   line-height: 400rpx;
-   font-size: 60rpx;
-   position: relative;
- }
- .return{
-   margin: 20rpx;
-  
- }
+  background: #F0F0F0 ;
+}
+.row{
+ margin-top: 25rpx;
+ overflow: hidden;
+ line-height: 100rpx;
+ border-bottom: 1rpx solid #ccc;
+ margin-left: 20rpx;
+ margin-right: 20rpx;
+ 
+ background: #fff;
+ 
+ box-shadow: 15rpx 10rpx 20rpx rgba(44, 40, 40, 0.404);
+ border-radius: 15px;
+}
+.info-input{
+ height: 100rpx;
+ margin-left: 50rpx;
+ 
+ color: black;
+   float: left;
+}
+.info-input1{
+ height: 100rpx;
+ margin-left: 50rpx;
+
+ color: black;
+   float: left;
+   width: 420rpx;
+}
+.button{
+ /*line-height: 70rpx;*/ 
+ font-size: 20rpx;
+ font-weight: 100;
+ background: #c471ed;
+ position: absolute; 
+ top:43rpx;
+ border-radius: 10px;
+ right:25rpx;
+ color: white;
+ box-shadow: -5rpx 5rpx 10rpx rgba(189, 43, 226, 0.41);
+}
+.submit{
+ margin-top: 50rpx;
+ margin-left: 20rpx;
+ margin-right: 20rpx;
+ background: #00CCFF;
+ border-radius: 15px;
+  color: #FFFFFF;
+}
+.success{
+ background: #ffffff;
+
+}
+.cheer{
+ text-align: center;
+ line-height: 400rpx;
+ font-size: 60rpx;
+ position: relative;
+}
+.return{
+ margin: 20rpx;
+
+}

@@ -1,22 +1,46 @@
-<!--pages/inform/inform.wxml-->
-<view>
-  <view>姓名</view>
-  <input></input>
-</view>
-<view>
-  <view>学号</view>
-  <input></input>
-</view>
-<view>
-  <view>学院</view>
-  <input></input>
-</view>
-<view>
-  <view>班级</view>
-  <input></input>
-</view>
-<view>
-  <view>学生证照片</view>
-  <input></input>
+<!-- 完善信息按钮 -->
+<view class="moreButton">
+  <view>
+   <button size="mini" type="primary"> 完善信息</button>
+  </view>
 </view>
 
+<!-- 姓名行 -->
+<view class="contents">
+  <view class="name"><text>姓名:</text></view>
+  <view class='row'><text>如果之前提交过姓名则在此显示，若没有为空</text></view>
+</view>
+
+<!-- 学号行 -->
+<view class="contents">
+  <view class="name">学号:</view>
+  <view class='row'>从后端获取学号，在此显示</view>
+</view>
+
+<!-- 学院行 -->
+<view class="contents">
+  <view class="name">学院:</view>
+  <view class='row'>如果之前提交过学院则在此显示，若没有为空</view>
+</view>
+
+<!-- 班级 -->
+<view class="contents">
+  <view class="name">班级:</view>
+  <view class='row'>从后端获取学号，在此显示</view>
+</view>
+
+<!-- 校区 -->
+<view class="contents">
+  <view class="name">校区:</view>
+  <view class='row'>如果之前提交过学院则在此显示，若没有为空</view>
+</view>
+
+<view>
+  <view>
+    <view class="name_2">提交学生证照片</view>
+    <button>样例</button>
+    <image src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071010.png"></image>
+  </view>
+</view>
+
+<button class="button" type="primary">提交</button>

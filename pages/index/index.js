@@ -12,18 +12,24 @@ Page({
     infoData: [],
     currentPage:0,
     ascategories:[
-      {"name":"志愿公益","url":"/image/one.png"},
-      {"name":"学术科技","url":"/image/one.png"},
-      {"name":"文化体育","url":"/image/one.png"},
-      {"name":"思想政治","url":"/image/one.png"},
-      {"name":"创新创业","url":"/image/one.png"},
-    ]
+      {"name":"志愿公益","url":"/image/同事群组.png","cate":"志愿公益类"},
+      {"name":"学术科技","url":"/image/专家人才.png","cate":"学术科技类"},
+      {"name":"文化体育","url":"/image/运动比赛.png","cate":"文化体育类"},
+      {"name":"思想政治","url":"/image/更新变更.png","cate":"思想政治类"},
+      {"name":"创新创业","url":"/image/企业公司.png","cate":"创新创业类"},
+      {"name":"修身养性","url":"/image/健康安全.png","cate":"修身养性类"},
+    ],
+    currentFilterIndex: -1,
+    is_logged_in:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      is_logged_in:app.globalData.is_logged_in
+    })
     this.fetchData()
   },
 
@@ -82,12 +88,38 @@ Page({
   },
   async fetchData(){
     try {
-      let res = await db.collection('ASInformations').limit(MAX_LIMIT).skip(this.data.currentPage*MAX_LIMIT).get()
+      let res = null;
+      if(this.data.currentFilterIndex == -1){
+        res = await db.collection('ASInformations')
+        .limit(MAX_LIMIT)
+        .skip(this.data.currentPage*MAX_LIMIT).get()
+      }else{
+        console.log(this.data.ascategories[this.data.currentFilterIndex].cate)
+        res = await db.collection('ASInformations')
+        .where({
+          category:this.data.ascategories[this.data.currentFilterIndex].cate
+        })
+        .limit(MAX_LIMIT)
+        .skip(this.data.currentPage*MAX_LIMIT).get()
+      }
+      
       this.setData({
         infoData:this.data.infoData.concat(res.data)
       })
     } catch (error) {
       console.log(error);
     }
+  },
+  filterOnClick(event){
+    let target = event.currentTarget.dataset;
+    let id = target.id;
+    if(this.data.currentFilterIndex == id) this.setData({currentFilterIndex:-1})
+    else this.setData({currentFilterIndex:id})
+
+    this.setData({
+      infoData:[],
+      currentPage:0
+    })
+    this.fetchData()
   }
 })

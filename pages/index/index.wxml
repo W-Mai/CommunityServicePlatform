@@ -14,23 +14,12 @@
 
 <view class="major">
 	<scroll-view scroll-x class="majordif"  scroll-with-animation="true">
-		<view class="box">
-			<navigator  url="/pages/one/one">
-				<image class="pic" src="/image/one.png" />
-				<view class="text">院级社团</view>
-			</navigator>
-		</view>
-		<view class="box">
-			<navigator  url="/pages/many/many">
-				<image class="pic" src="/image/many.png" />
-				<view class="text">校级社团</view>
-			</navigator>
-		</view>
-		<block wx:for="{{ascategories}}" wx:key="*this"><view class="box">
-				<navigator url="/pages/one/one">
+		<block wx:for="{{ascategories}}" wx:key="*this">
+			<view class="box {{currentFilterIndex==index?'filter-selected':'filter-not-selected'}}" bindtap="filterOnClick" data-id="{{index}}">
+				<!-- <navigator url="/pages/one/one"> -->
 					<image class="pic" src="{{item.url}}" />
 					<view class="text">{{item.name}}</view>
-				</navigator>
+				<!-- </navigator> -->
 			</view>
 		</block></scroll-view>
 
@@ -50,7 +39,16 @@
 		<image src="/images/_search.png"></image>
 	</view>
 	<view class="input">
-		<input class="txt" placeholder="社团搜索" auto-focus cursor-spacing="100" confirm-type="search"></input>
+		<input class="txt" placeholder="社团搜索" cursor-spacing="100" confirm-type="search"></input>
+	</view>
+</view>
+
+<view class="order-selector">
+	<view>
+		<text>排序方式</text>
+	</view>
+	<view class="order-selector-img">
+		<image src="/image/火.png" class="order-fire"></image>
 	</view>
 </view>
 
@@ -58,7 +56,6 @@
 	<view class="toast-wrapper">
 		<view class="pubTile">
 			<view class="txt">社团简介</view>
-			<navigator class="more">更多...></navigator>
 		</view>
 
 		<view class="dyMain">

@@ -1,1 +1,42 @@
-/* pages/inform/inform.wxss */
+.row{
+
+  overflow: hidden;
+  /* line-height: 80rpx; */
+  border-bottom: 1rpx solid #ccc;
+  margin: 20rpx;
+
+  padding: 20rpx;
+
+  background: #fff;
+  
+  box-shadow: 15rpx 10rpx 20rpx rgba(112, 196, 207, 0.404);
+  border-radius: 10px;
+}
+.info-input{
+  height: 100rpx;
+  margin-left: 50rpx;
+  
+  color: black;
+    float: left;
+}
+.button{
+  margin-top: 30rpx;
+}
+.moreButton{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30rpx;
+  margin-right: 20rpx;
+}
+.contents{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.name{
+  margin-left: 20rpx;
+}
+.name_2{
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+}

@@ -2,6 +2,11 @@
 	<image src="/image/1.jpg" mode="aspectFill"></image>
 </view>
 
+<block>
+
+	
+</block>
+
 <view class="middle">
 	<view class="txtbox">
 		<view class="txt-title">
@@ -13,7 +18,8 @@
 	  </text>
 	</view>
 
-	<view class="middlend">
+	<block wx:if="{{is_logged_in}}">
+		<view class="middlend">
 		<view class="QQ">
 			<block>
 				<view class="QQGroupText">
@@ -24,12 +30,12 @@
 					<button type="primary" size="mini">加群</button>
 				</view>
 			</block>
-			
-
 		</view>
 	</view>
-</view>
+	</block>
 
+</view>
+<block wx:if="{{is_logged_in}}">
 <view class="base">
 	<navigator url="">
 		<view>
@@ -38,3 +44,4 @@
 		
 	</navigator>
 </view>
+</block>

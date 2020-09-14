@@ -1,30 +1,65 @@
+page{
+  background-color: #000066;
+}
 image{
   width: 100%;
 }
 .ForgetPassward{
-  color: blue;
+  color: white;
   width: auto;
   height: auto;
-  position: absolute;
-  right: 3rpx;
-  top: 3rpx;
+  /* position: absolute; */
+
+  /* right: 3rpx;
+  top: 3rpx; */
+  padding-top: 6rpx;
+  padding-right: 20rpx;
 }
+/* .blueMask{
+  position: absolute;
+  width: 100%;
+  height: 268rpx;
+  background-color: rgba(0, 26, 255, 0.233);
+} */
 .whitePic{
+  position: absolute;
   text-align: center;
   display: block;
-  margin: 0 auto;
-  margin-top: 150rpx;
-  width: 200rpx;
-  height: 200rpx;
+  top:40rpx;
+  left:300rpx;
+  /* margin: 0 auto;
+  margin-top: 150rpx; */
+  width: 150rpx;
+  height: 150rpx;
+}
+.writing{
+  position: absolute;
+  top: 220rpx;
+  left: 180rpx;
+  height: 70rpx;
+  width: 400rpx;
 }
 .lefttext{
+  color: white;
   margin-left: 40rpx;
   margin-top: 40rpx;
 }
 .inputBlock{
-  margin-left: 5%;
+  
+  margin-left: 10%;
   margin-top: 40rpx;
-  margin-right: 5%;
+  margin-right: 10%;
+  flex:9;
+  border-radius:25rpx;
+  box-shadow: 0rpx 20rpx 20rpx #02025e;
+  border-bottom: #02025e;
+  background-color: #0808a0;
+
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+  transition: 0.45s;
 }
 .line{
   margin-top: 18rpx;
@@ -35,15 +70,31 @@ image{
   background:#aaa;
 }
 .fontRed{
-  color: red;
+  color: white;
   margin-left: 40rpx;
   margin-top: 10rpx;
 }
 .underline_input{
-  border-bottom: 1rpx solid #666;
+  /* border: 1rpx solid #666;
   padding-bottom: 20rpx;
+  
+  border-radius:25rpx;padding-left: 25rpx;padding-top: 10rpx; */
+  padding-left: 20rpx;
   width: 100%;
+  margin: 20rpx 25rpx;
+  color: white;
 }
 .submitbutton{
-  margin-top: 50rpx;
+  margin-top: 12vh;
+}
+.samelevel{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+
+.inputBlock:hover{
+  /* border: 1rpx solid white; */
+  margin-right: 5%;
+  transition: 0.45s;
 }
