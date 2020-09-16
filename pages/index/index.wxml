@@ -1,14 +1,10 @@
 <view class="banner">
 	<swiper indicator-dots indicator-dots="rgba(255,255,255,0.5)" indicator-active-color="#fff" circular autoplay>
-		<swiper-item>
-			<image src="/image/1.jpg" mode="aspectFill"></image>
-		</swiper-item>
-		<swiper-item>
-			<image src="/image/2.jpg" mode="aspectFill"></image>
-		</swiper-item>
-		<swiper-item>
-			<image src="/image/3.jpg" mode="aspectFill"></image>
-		</swiper-item>
+		<block wx:for="{{banner_srcs}}">
+			<swiper-item>
+				<image src="{{item}}" mode="aspectFill"></image>
+			</swiper-item>
+		</block>
 	</swiper>
 </view>
 

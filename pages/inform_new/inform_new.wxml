@@ -1,0 +1,79 @@
+<!--pages/inform_new/inform_new.wxml-->
+<view class="top-block">
+  <view class="one-row">
+    <view class="one-row-key">头像</view>
+    <view>
+      <view class="one-row-value">
+        <view>
+          <image class="profile" src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/ASLogos/ZZULI Logo Blue.png" mode="aspectFit"></image>
+        </view>
+      <view class="one-row-more-button">›</view></view>
+    </view>
+  </view>
+
+  <view class="one-row">
+    <view class="one-row-key">姓名</view>
+    <view>
+      <view class="one-row-value"><view>{{name}}</view><view class="one-row-more-button">›</view></view>
+    </view>
+  </view>
+
+  <view class="one-row">
+    <view class="one-row-key">电话号</view>
+    <view>
+      <view class="one-row-value"><view>{{name}}</view><view class="one-row-more-button">›</view></view>
+    </view>
+  </view>
+
+  <view class="one-row">
+    <view class="one-row-key">学院</view>
+    <view>
+      <view class="one-row-value"><view>{{name}}</view><view class="one-row-more-button">›</view></view>
+    </view>
+  </view>
+
+  <view class="one-row">
+    <view class="one-row-key">班级</view>
+    <view>
+      <view class="one-row-value"><view>{{name}}</view><view class="one-row-more-button">›</view></view>
+    </view>
+  </view>
+
+  <view class="one-row">
+    <view class="one-row-key">校区</view>
+    <view>
+      <view class="one-row-value"><view>{{name}}</view><view class="one-row-more-button">›</view></view>
+    </view>
+  </view>
+
+</view>
+
+<view class="medium-block">
+  <view class="one-row">
+    <view class="one-row-key">学号</view>
+    <view>
+      <view class="one-row-value-name"><view>{{name}}</view>
+        <!-- <view class="one-row-more-button">›</view> -->
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="bottom-block">
+  <view class="one-row-studentidcard">
+    <view>
+      <text>学生证</text>
+    </view>
+  </view>
+  <view class="one-row-studentidcard-img">
+    <view >
+      <image class="profile" src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/ASLogos/ZZULI Logo Blue.png" mode="aspectFit"></image>
+    </view>
+    <view>
+     <image class="profile" src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/ASLogos/ZZULI Logo Blue.png" mode="aspectFit"></image>
+    </view>
+  </view>
+</view>
+
+
+

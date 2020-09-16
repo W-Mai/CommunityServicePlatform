@@ -1,11 +1,11 @@
-// pages/corporation/corporation.js
+// pages/inform_new/inform_new.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    name:"朱晗蕾"
   },
 
   /**

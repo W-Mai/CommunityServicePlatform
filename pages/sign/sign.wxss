@@ -1,18 +1,38 @@
 page{
   background: #F0F0F0 ;
 }
+
+.top-form{
+  margin: 50rpx 5%;
+  margin-top: 100rpx;
+  padding-bottom: 50rpx;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  background-color: white;
+   
+  box-shadow: 0rpx 5rpx 10rpx rgba(104, 104, 114, 0.164);
+  border-radius: 15rpx;
+}
+
+.top-title text{
+  display: flex;
+  justify-content: center;
+  padding: 30rpx 0;
+  padding-top: 50rpx;
+  font-size: x-large;
+}
 .row{
- margin-top: 25rpx;
+ margin-top: 10rpx;
  overflow: hidden;
  line-height: 100rpx;
- border-bottom: 1rpx solid #ccc;
+ border-bottom: 1rpx solid #EEE;
  margin-left: 20rpx;
  margin-right: 20rpx;
  
  background: #fff;
  
- box-shadow: 15rpx 10rpx 20rpx rgba(44, 40, 40, 0.404);
- border-radius: 15px;
+ /* box-shadow: 15rpx 10rpx 20rpx rgba(44, 40, 40, 0.404); */
+ border-radius: 10rpx;
 }
 .info-input{
  height: 100rpx;
@@ -21,14 +41,11 @@ page{
  color: black;
    float: left;
 }
-.info-input1{
- height: 100rpx;
- margin-left: 50rpx;
-
- color: black;
-   float: left;
-   width: 420rpx;
+.phcolor{
+ color: #CCC;
 }
+
+
 .button{
  /*line-height: 70rpx;*/ 
  font-size: 20rpx;
@@ -41,25 +58,42 @@ page{
  color: white;
  box-shadow: -5rpx 5rpx 10rpx rgba(189, 43, 226, 0.41);
 }
+
+.bottom-submit{
+  display: flex;
+  height: 300rpx;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #AAA;
+  
+}
+.bottom-submit checkbox{
+  margin-top: 20rpx;
+  transform: scale(0.6,0.6);
+  font-size: normal;
+  /* margin-top: -30rpx; */
+}
+
 .submit{
- margin-top: 50rpx;
+ margin-top: 20rpx;
  margin-left: 20rpx;
  margin-right: 20rpx;
  background: #00CCFF;
- border-radius: 15px;
-  color: #FFFFFF;
+ border-radius: 15rpx;
+color: #FFFFFF;
 }
 .success{
- background: #ffffff;
-
+  background: #ffffff;
+  height: 100vh;
 }
 .cheer{
  text-align: center;
- line-height: 400rpx;
+ line-height: 800rpx;
  font-size: 60rpx;
  position: relative;
 }
 .return{
- margin: 20rpx;
+ padding-bottom: 50rpx;
 
 }

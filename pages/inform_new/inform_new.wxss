@@ -1,0 +1,76 @@
+/* pages/inform_new/inform_new.wxss */
+.top-block{
+  box-shadow: 0rpx 3rpx 10rpx #DDD;
+}
+
+.bottom-block{
+  margin-top: 50rpx;
+  margin-bottom: 100rpx;
+  box-shadow: 0rpx 3rpx 10rpx #DDD;
+
+}
+
+.medium-block{
+  margin-top: 50rpx;
+  box-shadow: 0rpx 3rpx 10rpx #DDD;
+}
+
+.one-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid #DDD;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  box-sizing: border-box;
+}
+
+.one-row-value .profile{
+  margin-top: -15rpx;
+  margin-bottom: -15rpx;
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.one-row-key{
+  padding-left: 30rpx;
+  /* font-weight: bold; */
+}
+.one-row-value{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #AAA;
+}
+.one-row-more-button{
+  font-size: 50rpx;
+  margin-top: -10rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.one-row-studentidcard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80rpx;
+}
+.one-row-studentidcard-img{
+  display: flex;
+  justify-content: space-around;
+ 
+}
+.one-row-studentidcard-img image{
+  width: 300rpx;
+
+}
+.one-row-value-name{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #AAA;
+  /* font-size: 50rpx; */
+  margin-top: -10rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}

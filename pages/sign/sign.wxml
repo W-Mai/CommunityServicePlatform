@@ -1,39 +1,60 @@
 <view wx:if="{{!success}}">
-       <view class='row'>
-              <view class='info'>
-                     <input class='info-input1' bindinput="handleInputPhone" placeholder="请输入你的手机号" />
-                     <!-- <button class='button' size="mini" bindtap='doGetCode' disabled='{{disabled}}' style="background-color:{{color}}">
+       <view class="top-form">
+              <view class="top-title">
+                     <text>新用户注册</text>
+              </view>
+              <view class='row'>
+                     <view class='info'>
+                            <input class='info-input' placeholder-class="phcolor" bindinput="handleInputPhone" placeholder="请输入你的手机号" />
+                            <!-- <button class='button' size="mini" bindtap='doGetCode' disabled='{{disabled}}' style="background-color:{{color}}">
                             {{text}}
                      </button> -->
+                     </view>
               </view>
-       </view>
-       <!-- <view class='row'>
+              <!-- <view class='row'>
               <view class='info'>
                      <input class='info-input' bindinput="handleVerificationCode" placeholder="请输入你的验证码" />
               </view>
        </view> -->
-       <view class='row'>
-              <view class='info'>
-                     <input class='info-input' placeholder="请输入你的学号" bindinput="bindUserNameInput" />
-                     <!-- 判断学号是否正确的事件 -->
+              <view class='row'>
+                     <view class='info'>
+                            <input class='info-input' placeholder="请输入你的学号" placeholder-class="phcolor" bindinput="bindUserNameInput" />
+                            <!-- 判断学号是否正确的事件 -->
+                     </view>
+              </view>
+              <view class='row'>
+                     <view class='info'>
+                            <input type='password' class='info-input' placeholder-class="phcolor" bindinput="handleNewChanges"
+                                   placeholder="请输入你的密码" />
+                     </view>
+              </view>
+              <view class='row'>
+                     <view class='info'>
+                            <input type='password' class='info-input' placeholder-class="phcolor" bindinput="handleNewChangesAgain"
+                                   placeholder="请重新输入你的密码" />
+                     </view>
+              </view>
+
+       </view>
+       <view class="bottom-submit">
+              
+              <view>
+                     <button class='submit' bindtap='submit'>注册</button>
+              </view>
+              <view>
+                     <checkbox value="cb" >您要同意不存在的《用户协议》嘛</checkbox>
               </view>
        </view>
-       <view class='row'>
-              <view class='info'>
-                     <input type='password' class='info-input' bindinput="handleNewChanges" placeholder="请输入你的密码" />
-              </view>
-       </view>
-       <view class='row'>
-              <view class='info'>
-                     <input type='password' class='info-input' bindinput="handleNewChangesAgain" placeholder="请重新输入你的密码" />
-              </view>
-       </view>
-       <button class='submit' bindtap='submit'>注册</button>
+
+
 </view>
-<view class='success' wx:if="{{success}}">
+
+<view class='success' wx:else>
        <view class='cheer'>
               <icon type="success" size="24" />
               恭喜您注册成功!
        </view>
-       <button type="default" class='return' bindtap='return_home'>返回首页</button>
+       <view class="return">
+              <button type="default" bindtap='return_home'>返回首页</button>
+       </view>
 </view>

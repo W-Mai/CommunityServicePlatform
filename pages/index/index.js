@@ -11,6 +11,7 @@ Page({
   data: {
     infoData: [],
     currentPage:0,
+    db_filter:{},
     ascategories:[
       {"name":"志愿公益","url":"/image/同事群组.png","cate":"志愿公益类"},
       {"name":"学术科技","url":"/image/专家人才.png","cate":"学术科技类"},
@@ -20,7 +21,13 @@ Page({
       {"name":"修身养性","url":"/image/健康安全.png","cate":"修身养性类"},
     ],
     currentFilterIndex: -1,
-    is_logged_in:false
+    is_logged_in:false,
+
+    banner_srcs:[
+      "cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/IMG_0030.jpg",
+      "cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/IMG_0028.jpg",
+      "cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/IMG_0029.jpg"
+    ]
   },
 
   /**
@@ -89,20 +96,14 @@ Page({
   async fetchData(){
     try {
       let res = null;
-      if(this.data.currentFilterIndex == -1){
-        res = await db.collection('ASInformations')
-        .limit(MAX_LIMIT)
-        .skip(this.data.currentPage*MAX_LIMIT).get()
-      }else{
-        console.log(this.data.ascategories[this.data.currentFilterIndex].cate)
-        res = await db.collection('ASInformations')
-        .where({
-          category:this.data.ascategories[this.data.currentFilterIndex].cate
-        })
-        .limit(MAX_LIMIT)
-        .skip(this.data.currentPage*MAX_LIMIT).get()
-      }
+      console.log(this.data.currentFilterIndex == -1)
+
       
+      res = await db.collection('ASInformations')
+      .where(this.data.db_filter)
+      .limit(MAX_LIMIT)
+      .skip(this.data.currentPage*MAX_LIMIT).get()
+
       this.setData({
         infoData:this.data.infoData.concat(res.data)
       })
@@ -113,8 +114,19 @@ Page({
   filterOnClick(event){
     let target = event.currentTarget.dataset;
     let id = target.id;
-    if(this.data.currentFilterIndex == id) this.setData({currentFilterIndex:-1})
-    else this.setData({currentFilterIndex:id})
+    if(this.data.currentFilterIndex == id) {
+      this.setData({
+        currentFilterIndex:-1,
+        db_filter:{}
+      })
+    } else{
+      this.setData({
+        currentFilterIndex:id,
+        db_filter:{
+          category:this.data.ascategories[id].cate
+        }
+      })
+    }
 
     this.setData({
       infoData:[],

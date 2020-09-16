@@ -1,7 +1,15 @@
-page{
+/* page {
+  background-color: #000066;
+} */
+.info-page{
+  height: 100vh;
+  background-color: #EEE;
+}
+.loggin-page{
+  height: 100vh;
   background-color: #000066;
 }
-image{
+.loggin-page image {
   width: 100%;
 }
 .ForgetPassward{
@@ -21,7 +29,7 @@ image{
   height: 268rpx;
   background-color: rgba(0, 26, 255, 0.233);
 } */
-.whitePic{
+.loggin-page .whitePic {
   position: absolute;
   text-align: center;
   display: block;
@@ -32,7 +40,11 @@ image{
   width: 150rpx;
   height: 150rpx;
 }
-.writing{
+.loggin-page .top-bg {
+  height: 268rpx;
+  margin-bottom: 150rpx;
+}
+.loggin-page .writing {
   position: absolute;
   top: 220rpx;
   left: 180rpx;
@@ -47,13 +59,13 @@ image{
 .inputBlock{
   
   margin-left: 10%;
-  margin-top: 40rpx;
+  margin-top: 80rpx;
   margin-right: 10%;
   flex:9;
-  border-radius:25rpx;
+  border-radius:15rpx;
   box-shadow: 0rpx 20rpx 20rpx #02025e;
   border-bottom: #02025e;
-  background-color: #0808a0;
+  background-color: white;
 
   display: flex;
   align-items: center;
@@ -82,7 +94,7 @@ image{
   padding-left: 20rpx;
   width: 100%;
   margin: 20rpx 25rpx;
-  color: white;
+  color: black;
 }
 .submitbutton{
   margin-top: 12vh;
@@ -97,4 +109,94 @@ image{
   /* border: 1rpx solid white; */
   margin-right: 5%;
   transition: 0.45s;
+}
+
+/*登陆后*/
+
+.info-page .blocks {
+  display: flex;
+  background-color: white;
+  /* height: 220rpx; */
+  padding-bottom: 20rpx;
+
+  box-shadow: 0rpx 6rpx 10rpx rgba(209, 209, 209, 0.39);
+}
+
+.info-page .top-logo .whitePic {
+  flex: 1;
+  /* margin: 0 auto; */
+  margin-top: 20%;
+  margin-left: 20%;
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.info-page .top-logo {
+  flex: 1;
+}
+
+.info-page .top-Names {
+  flex: 4;
+}
+
+.info-page .name {
+  margin-top: 10rpx;
+  font-weight: bolder;
+  font-size: larger;
+  color: black;
+  padding-top: 40rpx;
+  margin-left: 60rpx;
+}
+
+.info-page .college {
+  color: grey;
+  margin-top: 20rpx;
+  margin-left: 60rpx;
+  font-size: small;
+}
+
+.top-editbox {
+  flex: 1;
+  display: flex;
+  align-items:center;
+  margin-top: 20rpx;
+  color: gray;
+  
+  font-size: small;
+}
+
+.info-page .perfect {
+  height: 100rpx;
+  background-color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-page .first-row{
+  margin-top: 30rpx;
+  box-shadow: 0rpx 6rpx 15rpx rgba(192, 192, 192, 0.205);
+}
+.info-page .exit-row{
+  margin-top: 30vh;
+}
+
+.info-page .chink {
+  /* margin-top: 10rpx; */
+  margin-top: 1rpx;
+}
+
+.info-page .note {
+  /* text-align: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-page .right {
+  margin-top: 25rpx;
+  margin-right: 25rpx;
+  height: 70rpx;
+  width: 70rpx;
 }

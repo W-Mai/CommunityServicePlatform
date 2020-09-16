@@ -1,5 +1,6 @@
 {
   "pages":[
+
     "pages/index/index",
     "pages/one/one",
     "pages/many/many",
@@ -11,14 +12,14 @@
     "pages/bao/bao",
     "pages/list/list",
     "pages/sign/sign",
+    
     "pages/verify/verify",
 
     "pages/news/news",
-    "pages/corporation/corporation",
     "pages/demo/demo",
     "pages/forget/forget",
     "pages/warn/warn",
-    "pages/center/center",
+
     "pages/inform/inform"
   ],
   "window":{

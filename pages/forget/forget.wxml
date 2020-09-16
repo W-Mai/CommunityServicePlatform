@@ -1,9 +1,9 @@
 <!--pages/忘记密码/忘记密码.wxml-->
 
 <view>
-  <view class="SuoJin">用户名</view>
+  <view class="SuoJin">我好像忘记了我的密码？</view>
   <view class="inputBlock">
-    <input type="username" class="underline_input" placeholder="请输入您的用户名"></input>
+    <input type="username" class="underline_input" placeholder="请输入您的手机号"></input>
   </view>
   <navigator url="/pages/warn/warn">
     <button class="buttonStyle" form-type="submit" type="primary">一键重置</button>

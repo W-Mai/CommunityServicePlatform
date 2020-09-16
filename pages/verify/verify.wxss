@@ -9,17 +9,17 @@ page{
     background:gold;
     color:red;
   }
-  .ptc{
+.ptc{
       width:560rpx;
       height: 336rpx;
     margin-top:50rpx;
       margin-left:100rpx;
      
   }
-  .addButton{
+.addButton{
       margin-top: 100rpx;
   }
-  .row{
+.row{
     margin: 20rpx;
     padding: 25rpx;
     box-shadow: 8rpx 8rpx 30rpx rgba(44, 40, 40, 0.12);

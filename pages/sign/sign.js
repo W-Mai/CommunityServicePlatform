@@ -16,7 +16,7 @@ Page({
     success: false,
     state: '',
     userName:'',
-    passWord:''
+    passWord: '',
   },
   /**
     * 获取验证码
@@ -24,8 +24,8 @@ Page({
 
   //  返回登陆界面
   return_home: function (e) {
-    wx.navigateTo({
-      url: '/pages/login/login',
+    wx.navigateBack({
+     
     })
 
   },
@@ -149,38 +149,42 @@ Page({
       }
     })
   },
-  submit: function (e) {
+  async submit(e) {
 
     var userName = this.data.userName;
     var NewChanges = this.data.NewChanges;
-     if (this.data.NewChanges == '') {
+    if (this.data.NewChanges == '') {
       wx.showToast({
         title: '请输入密码',
-        image: '/images/error.png',
+        icon:'none',
         duration: 2000
       })
       return
     } else if (this.data.NewChangesAgain != this.data.NewChanges) {
       wx.showToast({
         title: '两次密码不一致',
-        image: '/images/error.png',
+        icon:'none',
         duration: 2000
       })
       return
-    } else {      
-      db.collection('Stu').add({
+    }
+
+    await db.collection('Stu').add({
       data: {
         username: userName,
         password: NewChanges,
       },
-  })
+    })
 
-    }
+    this.setData({
+      success: true
+    })
+
   },
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
 
-  }
+  },
 })

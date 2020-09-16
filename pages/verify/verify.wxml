@@ -1,4 +1,4 @@
- <view wx:if="{{!success}}">
+ <view wx:if="{{is_logged_in}}">
      
     <view class="price-detail" wx:for="{{addPrice}}" wx:key="id">
 
@@ -27,10 +27,7 @@
 
 
 
-
-
-
-<view wx:if="{{success}}">
+<view wx:else>
 
 <view >
 <image src="https://s1.ax1x.com/2020/09/12/waiVqs.jpg" class="ptc"/>

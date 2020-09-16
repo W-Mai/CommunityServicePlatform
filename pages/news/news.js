@@ -10,7 +10,9 @@ Page({
     bindName: '',
     bindPassword: '',
     isChecked: false,
-    userId: ''
+    userId: '',
+    is_logged_in:false,
+
   },
 
   // 获取用户名
@@ -101,6 +103,23 @@ Page({
         
     }
   },
+  onShow() {
+    this.setData({
+      is_logged_in : app.globalData.is_logged_in
+    })
 
+    console.log(this.data)
+  },
+  logoutOnClick(event) {
+    app.globalData.is_logged_in = false;
+    this.setData({
+      is_logged_in: app.globalData.is_logged_in
+    })
+  },
+  blocksBtOnClick(){
+    wx.navigateTo({
+      url: '../inform_new/inform_new',
+    })
+  }
 
 })

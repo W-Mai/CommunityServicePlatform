@@ -3,7 +3,7 @@ var app = getApp();
 Page({
 
   data:{
-    success:false,
+    is_logged_in:false,
     //初始化数组
      addPrice: [{
           Name: "空社团1",
@@ -63,9 +63,9 @@ Page({
       },
 
     /**获取输入框信息**/
-    onLoad: function (options) {
+    onShow: function (options) {
       this.setData({
-        success:!(app.globalData.is_logged_in)
+        is_logged_in:app.globalData.is_logged_in
       })
     },
     submitHandler(event){

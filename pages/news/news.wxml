@@ -1,34 +1,91 @@
-<view class="blueMask"></view>
-<view>
-  <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/图书馆图层.png" mode="widthFix"></image>
-</view>
-
-<view>
-  <image class="whitePic" src="/images/白色.png"></image>
-  <image class="writing" src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/hb字.png"></image>
-</view>
-
-<view>
-  <view class="lefttext">学号</view>
-  <view class="inputBlock">
-    <input type="username" class="underline_input" adjust-position="true" placeholder="请输入学号" bindinput="bindNameInput"></input>
+<view class="info-page" wx:if="{{is_logged_in}}">
+  <!-- pages/center/center.wxml -->
+  <view class="blocks" bindtap="blocksBtOnClick">
+    <view class="top-logo">
+      <image class="whitePic" src="/images/ZZULI Logo Blue.png"></image>
+    </view>
+    <view class="top-Names">
+      <view class="name">朱晗蕾</view>
+      <view class="college">计算机与通信工程学院</view>
+    </view>
+    <view class="top-editbox">
+      <text>编辑 ></text>
+      <!-- <image class="right" src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/右箭头_白.png"></image> -->
+    </view>
   </view>
-  <!-- <view class="line"></view> -->
-  <view class="lefttext">密码</view>
-  <view class="inputBlock">
-    <input type="password" class="underline_input" adjust-position="true" placeholder="请输入密码" bindinput="bindPasswordInput"></input>
+
+  <view class="first-row">
+    <navigator url="/pages/inform_new/inform_new">
+      <view class="chink">
+        <view class="perfect">
+          <text class="note">我的社团</text>
+        </view>
+      </view>
+    </navigator>
   </view>
-  <!-- <view class="line"></view> -->
-<view class="samelevel">
-  <navigator url="/pages/sign/sign">
-    <view class="fontRed">没有账号？点此注册</view>
-  </navigator>
-  <navigator url="/pages/forget/forget">
-    <view class="ForgetPassward">忘记密码？</view>
-  </navigator>
+
+  <view class="first-row">
+    <navigator url="">
+      <view class="chink">
+        <view class="perfect">
+          <text class="note">帮助</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+
+  <navigator url="">
+      <view class="chink">
+        <view class="perfect">
+          <text class="note">关于</text>
+        </view>
+      </view>
+    </navigator>
+
+  <view class="exit-row">
+    <view class="chink">
+      <view class="perfect">
+        <text class="note" bindtap="logoutOnClick">退出登录</text>
+      </view>
+    </view>
+  </view>
 </view>
 
-  <!-- <navigator url="/pages/center/center"> -->
-    <button class="submitbutton" form-type="submit" type="primary" bindtap='bindingSuccess'>登录</button>
-  <!-- </navigator> -->
+<view class="loggin-page" wx:else>
+  <view class="top-bg">
+    <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/图书馆图层.png"
+      mode="widthFix"></image>
+  </view>
+  <view>
+    <image class="whitePic" src="/images/白色.png"></image>
+    <image class="writing"
+      src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/hb字.png"></image>
+  </view>
+  <view class="middle-form">
+    <!-- <view class="lefttext">学号</view> -->
+    <view class="inputBlock">
+      <input type="username" class="underline_input" adjust-position="true" placeholder="请输入学号"
+        bindinput="bindNameInput"></input>
+    </view>
+    <!-- <view class="line"></view> -->
+    <!-- <view class="lefttext">密码</view> -->
+    <view class="inputBlock">
+      <input type="password" class="underline_input" adjust-position="true" placeholder="请输入密码"
+        bindinput="bindPasswordInput"></input>
+    </view>
+    <!-- <view class="line"></view> -->
+    <view class="samelevel">
+      <navigator url="/pages/sign/sign">
+        <view class="fontRed">没有账号？点此注册</view>
+      </navigator>
+      <navigator url="/pages/forget/forget">
+        <view class="ForgetPassward">忘记密码？</view>
+      </navigator>
+    </view>
+    <!-- <navigator url="/pages/center/center"> -->
+    <button class="submitbutton" form-type="submit" type="primary" bindtap='bindingSuccess'>
+      登录
+    </button>
+    <!-- </navigator> -->
+  </view>
 </view>
