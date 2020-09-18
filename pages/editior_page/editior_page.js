@@ -1,24 +1,21 @@
-// pages/inform_new/inform_new.js
+// pages/editior_page/editior_page.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name:"朱晗蕾",
-
-    college_index :0,
-    college_array:[
-      "科学校区",
-      "东风校区"
-    ]
+    info : ""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    this.setData({
+      info:options.info
+    })
   },
 
   /**
@@ -68,10 +65,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  bindPickerChange(e){
-    this.setData({
-      college_index: e.detail.value
-    })
   }
 })

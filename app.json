@@ -1,6 +1,6 @@
 {
   "pages":[
-
+    
     "pages/index/index",
     "pages/one/one",
     "pages/many/many",
@@ -9,7 +9,7 @@
     "pages/search/search",
     "pages/main/main",
     
-    "pages/bao/bao",
+    
     "pages/list/list",
     "pages/sign/sign",
     
@@ -19,8 +19,10 @@
     "pages/demo/demo",
     "pages/forget/forget",
     "pages/warn/warn",
-
-    "pages/inform/inform"
+    "pages/bao/bao",
+    "pages/inform/inform",
+    "pages/help/help",
+    "pages/editior_page/editior_page"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -156,7 +156,7 @@
 }
 
 .top-editbox {
-  flex: 1;
+  flex: 1.2;
   display: flex;
   align-items:center;
   margin-top: 20rpx;
@@ -165,7 +165,16 @@
   font-size: small;
 }
 
-.info-page .perfect {
+.info-page .first-row .perfect {
+  height: 100rpx;
+  background-color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-page .exit-row .perfect {
   height: 100rpx;
   background-color: white;
 
@@ -187,11 +196,14 @@
   margin-top: 1rpx;
 }
 
-.info-page .note {
-  /* text-align: center; */
+.info-page .first-row .note {
+  padding-left: 30rpx;
+}
+
+.info-page .first-row .row-left {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .info-page .right {
@@ -199,4 +211,18 @@
   margin-right: 25rpx;
   height: 70rpx;
   width: 70rpx;
+}
+
+.editmark{
+  font-size: 50rpx;
+  margin-top: -2rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  /* flex: 1; */
+}
+.info-page .icon{
+  /* flex: 1; */
+  width: 50rpx;
+  height: 50rpx;
+  padding-left: 20rpx;
 }

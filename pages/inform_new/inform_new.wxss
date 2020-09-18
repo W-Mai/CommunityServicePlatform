@@ -1,4 +1,8 @@
 /* pages/inform_new/inform_new.wxss */
+page{
+  background-color: #EEE;
+}
+
 .top-block{
   box-shadow: 0rpx 3rpx 10rpx #DDD;
 }
@@ -7,7 +11,7 @@
   margin-top: 50rpx;
   margin-bottom: 100rpx;
   box-shadow: 0rpx 3rpx 10rpx #DDD;
-
+  background-color: white;
 }
 
 .medium-block{
@@ -23,6 +27,7 @@
   padding-top: 30rpx;
   padding-bottom: 30rpx;
   box-sizing: border-box;
+  background-color: white;
 }
 
 .one-row-value .profile{

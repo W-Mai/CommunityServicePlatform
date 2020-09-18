@@ -3,6 +3,7 @@
   "packOptions": {
     "ignore": []
   },
+  "cloudfunctionRoot": "cloud/",
   "setting": {
     "urlCheck": true,
     "es6": true,
@@ -45,6 +46,7 @@
   "isGameTourist": false,
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "search": {
       "current": -1,
@@ -101,6 +103,13 @@
           "id": -1,
           "name": "main",
           "pathName": "pages/main/main",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "完善信息",
+          "pathName": "pages/center/center",
           "scene": null
         }
       ]

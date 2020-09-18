@@ -4,6 +4,6 @@
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#3366ff",
     "navigationBarTitleText": "报名页面",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh":true
+    "navigationBarTextStyle": "black"
+
 }

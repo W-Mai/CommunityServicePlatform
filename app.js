@@ -1,11 +1,14 @@
 //app.js
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-    wx.cloud.init()
+    wx.cloud.init({
+      env:"zzuli-as-open-plt-qfh5y"
+    })
     
     // 登录
     wx.login({
@@ -35,9 +38,28 @@ App({
     })
     
   },
+  async loadJointASList(userid){
+    const db = wx.cloud.database();
+    let res = await db.collection("Stu")
+    .where({
+      _id: userid
+    })
+    .field({
+      join_ids:true
+    }).get()
+
+    // console.log(res.data)
+    if(!res.data[0].join_ids) return
+    this.globalData.user_joint_ids = res.data[0].join_ids
+  }
+  ,
   globalData: {
     userInfo: null,
     as_infos: null,
-    is_logged_in:false
+    is_logged_in:false,
+    user_Id:"",
+    user_name:"",
+
+    user_joint_ids:[]
   }
 })

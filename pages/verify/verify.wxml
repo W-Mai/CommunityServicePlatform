@@ -1,40 +1,40 @@
- <view wx:if="{{is_logged_in}}">
-     
-    <view class="price-detail" wx:for="{{addPrice}}" wx:key="id">
+<view wx:if="{{is_logged_in}}">
 
-    <view class='row'>
-        <view  class= 'info-input' >
-            <text class="small-fuck">社团名称：{{item.Name}}</text>
+    <view class="price-detail" wx:for="{{ASVerifiedList}}" wx:key="*this">
+        <view class='row'>
+            <view class='info-input'>
+                <text class="small-fuck">社团名称：{{item.name}}</text>
+            </view>
+            <view class='info-input'>
+                <text class="small-fuck">当前状态：
+                    {{item.status}}</text>
+            </view>
+            <view class='info-input-button'>
+                <button class='buttonl' size="mini" bindtap='baoming' disabled='{{disabled}}'
+                    style="background-color:{{color}}" data-id="{{nameList[index]}}">{{text1}}</button>
+                <button class='buttonr' size="mini" bindtap='delete' data-index="{{index}}" disabled='{{disabled}}'
+                    style="background-color:{{color}}">{{text2}}</button>
+            </view>
+
         </view>
-        <view  class= 'info-input' >
-            <text class="small-fuck"> 当前状态：{{item.Statu}}</text>
-        </view>
-        <view class= 'info-input-button'>
-            <button class='buttonl' size="mini" bindtap='baoming' disabled='{{disabled}}' style="background-color:{{color}}" >{{text1}}</button>
-            <button class='buttonr' size="mini" bindtap='delete' data-index="{{index}}" disabled='{{disabled}}' style="background-color:{{color}}" >{{text2}}</button>
-        </view>
-               
-   </view>
-    
 
     </view>
 
-     <view class="addButton" data-index="{{index}}" bindtap='addNewPrice'>+新增收费项目</view>
+</view>
 
- </view>
- 
 
 
 
 
 <view wx:else>
 
-<view >
-<image src="https://s1.ax1x.com/2020/09/12/waiVqs.jpg" class="ptc"/>
-</view>
+    <view>
+        <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/waiVqs.jpg"
+            class="ptc" />
+    </view>
 
-<view >
-<button  bindtap="submitHandler" size="mini" class="btn">您还未登录，点击跳转登录面</button>
-</view>
+    <view>
+        <button bindtap="submitHandler" size="mini" class="btn">您还未登录，点击跳转登录面</button>
+    </view>
 
 </view>

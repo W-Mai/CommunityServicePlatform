@@ -1,5 +1,11 @@
 <view class="top">
-	<image src="/image/1.jpg" mode="aspectFill"></image>
+	<swiper indicator-dots indicator-dots="rgba(255,255,255,0.5)" indicator-active-color="#fff" circular autoplay>
+		<block wx:for="{{info.imgs}}">
+			<swiper-item>
+				<image src="{{item}}" mode="aspectFill"></image>
+			</swiper-item>
+		</block>
+	</swiper>
 </view>
 
 <block>
@@ -23,10 +29,10 @@
 		<view class="QQ">
 			<block>
 				<view class="QQGroupText">
-					QQ群号：<text user-select="true" >{{info.qqgroup_num?info.qqgroup_num:"暂时没有提供哦"}}</text>
+					QQ群号：<text user-select="true" >{{info.qqgroup?info.qqgroup:"暂时没有提供哦"}}</text>
 				</view>
 
-				<view class="box" wx:if="{{info.qqgroup_num}}">
+				<view class="box" wx:if="{{info.qqgroup}}">
 					<button type="primary" size="mini">加群</button>
 				</view>
 			</block>
@@ -37,11 +43,11 @@
 </view>
 <block wx:if="{{is_logged_in}}">
 <view class="base">
-	<navigator url="">
+	<!-- <navigator url=""> -->
 		<view>
-			<button class="register" >报名</button>
+			<button class="register" bindtap="bindRegister" disabled="{{joint}}">{{joint?"已报名":"报名"}}</button>
 		</view>
 		
-	</navigator>
+	<!-- </navigator> -->
 </view>
 </block>

@@ -1,13 +1,16 @@
+const app = getApp()
+
+
 Page({
  
   /**
    * 页面的初始数据
    */
   data: {
-    success:true,
+    success:false,
     date: '2000-01-01',
-    maxTextLen:200,
-    textLen:0,
+    maxTextLen:[200, 200],
+    textLen:[0, 0],
     list:[
       {
         id:0,
@@ -39,33 +42,43 @@ Page({
       },
       {
         id:7,
-        name:"所报组织名称"    /*这里可以自动获取*/
+        name:"组织名称"    /*这里可以自动获取*/
       },
       {
         id:8,
-        name:"部门名称一"
+        name:"部门一"
       },
       {
         id:9,
-        name:"部门名称二"
+        name:"部门二"
       }
     ],
+
+    as_id:"",
+    user_id:""
   },
+  async onLoad(option){
+    this.setData({
+      as_id:option.id,
+      user_id:app.globalData.user_Id
+    })
+
+  } ,
   changeDate(e){
     this.setData({ date:e.detail.value});
-    },
-    getWords(e) {
-          let page = this;
-           // 设置最大字符串长度(为-1时,则不限制)
-           let maxTextLen = page.data.maxTextLen;
-           // 文本长度
-           let textLen = e.detail.value.length;
-       
-          page.setData({
-            maxTextLen: maxTextLen,
-             textLen: textLen
-           });
-          },
+  },
+
+  getWords(e) {
+    let id = e.currentTarget.dataset.id
+          // 设置最大字符串长度(为-1时,则不限制)
+          // 文本长度
+    let textLen = this.data.textLen;
+    textLen[id-1] = e.detail.value.length
+
+    this.setData({
+      textLen: textLen
+    });
+  },
  
   //  返回界面
   return_home: function (e) {
@@ -139,5 +152,8 @@ Page({
    */
   onShareAppMessage: function () {
  
+  },
+  formSubmit(e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
   }
 })

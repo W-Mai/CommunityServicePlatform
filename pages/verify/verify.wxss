@@ -1,63 +1,74 @@
 /* pages/verify/verify.wxss */
-page{
+page {
   background-color: aliceblue;
 }
+
 .btn {
-    margin-left: 140rpx;
-    margin-top: 30rpx;
-    font-size: 25rpx;
-    background:gold;
-    color:red;
-  }
-.ptc{
-      width:560rpx;
-      height: 336rpx;
-    margin-top:50rpx;
-      margin-left:100rpx;
-     
-  }
-.addButton{
-      margin-top: 100rpx;
-  }
-.row{
-    margin: 20rpx;
-    padding: 25rpx;
-    box-shadow: 8rpx 8rpx 30rpx rgba(44, 40, 40, 0.12);
-    background: #fff;
-    
-    /* border:  1px solid red; */
-    border-radius: 30rpx;
-  }
-  .info-input{
-    margin:30rpx 50rpx;
-    color:black;
-  }
-  .small-fuck{
-    padding: 20rpx 10rpx;
-    padding-left: 2em;
-    display: block;
-    /* height: 70rpx; */
-    box-shadow: 5rpx 5rpx 20rpx rgba(44, 40, 40, 0.15);
-    border-radius: 15rpx;
-  }
- .info-input-button{
+  margin-left: 140rpx;
+  margin-top: 30rpx;
+  font-size: 25rpx;
+  background: gold;
+  color: red;
+}
+
+.ptc {
+  width: 560rpx;
+  height: 336rpx;
+  margin-top: 50rpx;
+  margin-left: 100rpx;
+
+}
+
+.addButton {
+  margin-top: 100rpx;
+}
+
+.row {
+  margin: 20rpx;
+  padding: 25rpx;
+  box-shadow: 8rpx 8rpx 30rpx rgba(44, 40, 40, 0.12);
+  background: #fff;
+
+  /* border:  1px solid red; */
+  border-radius: 30rpx;
+}
+
+.info-input {
+  margin: 30rpx 50rpx;
+  color: black;
+}
+
+.small-fuck {
+  padding: 20rpx 10rpx;
+  padding-left: 2em;
+  display: block;
+  /* height: 70rpx; */
+  box-shadow: 5rpx 5rpx 20rpx rgba(44, 40, 40, 0.15);
+  border-radius: 15rpx;
+  text-overflow:ellipsis;
+
+  word-wrap:break-word
+}
+
+.info-input-button {
   display: flex;
   justify-content: space-between;
 
-  margin:0rpx 50rpx; 
+  margin: 0rpx 50rpx;
 }
 
-  .buttonl{
-    font-size: 20rpx;
-    background: #339cff;
+.buttonl {
+  font-size: 20rpx;
+  background: #339cff;
 
-    border-radius: 15rpx;
-    color: #FFFFFF;
-  }
-  .buttonr{
-    font-size: 20rpx;
-    background: #339cff;
- 
-    border-radius: 15rpx;
-    color: #FFFFFF;
-  }
+  border-radius: 15rpx;
+  color: #FFFFFF;
+}
+
+.buttonr {
+  font-size: 20rpx;
+  background: #339cff;
+
+  border-radius: 15rpx;
+  color: #FFFFFF;
+}

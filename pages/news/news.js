@@ -65,7 +65,6 @@ Page({
         username: bindName,
         password: bindPassword
       }).field({
-        username:false,
         password:false
       }).get().catch(res => {
         wx.showToast({
@@ -89,10 +88,13 @@ Page({
         })
         // 保存手机号，真实姓名，身份证号，邮箱 保存用户名
         that.setData({
-          userName: res.data[0].userName,
+          username: res.data[0].userName,
         })
+        app.globalData.user_Id = res.data[0]._id;
+        app.globalData.user_name= res.data[0].username;
         app.globalData.is_logged_in = true
- 
+        await app.loadJointASList(res.data[0]._id)
+        console.log(res.data[0])
         setTimeout(() => {
           wx.switchTab({
             url:'../index/index'
