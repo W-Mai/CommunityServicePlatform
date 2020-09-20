@@ -1,0 +1,15 @@
+[
+  {
+    "name": "测试1",
+    "value": {
+      "form_info": {
+        "user_id": null,
+        "join_id": null
+      },
+      "form_data": {},
+      "status": 0,
+      "msg": "",
+      "op": "set"
+    }
+  }
+]

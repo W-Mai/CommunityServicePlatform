@@ -26,9 +26,83 @@
     </view>
   </navigator>
 
+  <picker bindchange="bindPickerChange" value="{{gender_index}}" range="{{gender_array}}" data-id="gender">
+    <view class="one-row">
+      <view class="one-row-key">性别</view>
+      <view>
+        <view class="one-row-value">
+          {{gender_array[gender_index]}}
+          <view class="one-row-more-button">›</view>
+        </view>
+        <!-- <view class="one-row-value"><view>{{name}}</view><view class="one-row-more-button">›</view></view> -->
+      </view>
+    </view>
+  </picker>
+
+  <picker mode="date" bindchange="bindPickerChange" value="{{currentDate}}" data-id="birthday" start="1995-01-01" end="2099-12-31">
+    <view class="one-row">
+      <view class="one-row-key">出生日期</view>
+      <view>
+        <view class="one-row-value">
+          {{currentDate}}
+          <view class="one-row-more-button">›</view>
+        </view>
+        <!-- <view class="one-row-value"><view>{{name}}</view><view class="one-row-more-button">›</view></view> -->
+      </view>
+    </view>
+  </picker>
+
+  <navigator url="/pages/editior_page/editior_page?info=政治面貌">
+    <view class="one-row">
+      <view class="one-row-key">政治面貌</view>
+      <view>
+        <view class="one-row-value">
+          <view>{{name}}</view>
+          <view class="one-row-more-button">›</view>
+        </view>
+      </view>
+    </view>
+  </navigator>
+
+  <navigator url="/pages/editior_page/editior_page?info=籍贯">
+    <view class="one-row">
+      <view class="one-row-key">籍贯</view>
+      <view>
+        <view class="one-row-value">
+          <view>{{name}}</view>
+          <view class="one-row-more-button">›</view>
+        </view>
+      </view>
+    </view>
+  </navigator>
+
+  <navigator url="/pages/editior_page/editior_page?info=民族">
+    <view class="one-row">
+      <view class="one-row-key">民族</view>
+      <view>
+        <view class="one-row-value">
+          <view>{{name}}</view>
+          <view class="one-row-more-button">›</view>
+        </view>
+      </view>
+    </view>
+  </navigator>
+  
   <navigator url="/pages/editior_page/editior_page?info=手机号">
     <view class="one-row">
       <view class="one-row-key">手机号</view>
+      <view>
+        <view class="one-row-value">
+          <view>{{name}}</view>
+          <view class="one-row-more-button">›</view>
+        </view>
+      </view>
+    </view>
+  </navigator>
+
+  <navigator url="/pages/editior_page/editior_page?info=QQ">
+    <view class="one-row">
+      <view class="one-row-key">QQ</view>
       <view>
         <view class="one-row-value">
           <view>{{name}}</view>
@@ -63,7 +137,7 @@
   </navigator>
 
   <!-- <navigator url="/pages/editior_page/editior_page?info=校区"> -->
-  <picker bindchange="bindPickerChange" value="{{college_index}}" range="{{college_array}}">
+  <picker bindchange="bindPickerChange" value="{{college_index}}" range="{{college_array}}" data-id="campus">
     <view class="one-row">
       <view class="one-row-key">校区</view>
       <view>

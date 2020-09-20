@@ -55,14 +55,47 @@ Page({
     ],
 
     as_id:"",
-    user_id:""
+    user_id:"",
+
+    user_form:{},
+    need_disable:false,
+    msg : "报名"
   },
+  
   async onLoad(option){
     this.setData({
       as_id:option.id,
       user_id:app.globalData.user_Id
     })
 
+    let user_id = this.data.user_id
+    let join_id = this.data.as_id
+
+    wx.showLoading({
+      title: '请求中……'
+    })
+
+    let res = await wx.cloud.callFunction({
+      name: "manageApplication",
+      data:{
+        "form_info":{
+            "user_id": user_id,
+            "join_id": join_id
+        },
+        "op":"get"
+    }
+    })
+    console.log(res)
+    if(!res.result) {
+      wx.hideLoading()
+      return;
+    }
+    this.setData({
+      user_form : res.result.form_data,
+      need_disable:true,
+      msg : res.result.msg
+    })
+    wx.hideLoading()
   } ,
   changeDate(e){
     this.setData({ date:e.detail.value});
@@ -153,7 +186,35 @@ Page({
   onShareAppMessage: function () {
  
   },
-  formSubmit(e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+  async formSubmit(e) {
+    let form_data = e.detail.value
+    let user_id = this.data.user_id
+    let join_id = this.data.as_id
+
+    wx.showLoading({
+      title: '请求中……'
+    })
+
+    let res = await wx.cloud.callFunction({
+      name: "manageApplication",
+      data:{
+        "form_info":{
+            "user_id": user_id,
+            "join_id": join_id
+        },
+        "form_data": form_data,
+        "status": 0,
+        "msg" : "待审核……",
+        "op":"create"
+    }
+    })
+
+    wx.hideLoading()
+    this.setData({
+      need_disable:true,
+      msg:"待审核……"
+    })
+
+    console.log('form发生了submit事件，携带数据为：', form_data)
   }
 })

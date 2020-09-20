@@ -11,7 +11,14 @@ Page({
     college_array:[
       "科学校区",
       "东风校区"
-    ]
+    ],
+    gender_index :0,
+    gender_array:[
+      "女",
+      "男",
+      "其他"
+    ],
+    currentDate:"1999-04-04"
   },
 
   /**
@@ -70,8 +77,19 @@ Page({
 
   },
   bindPickerChange(e){
-    this.setData({
-      college_index: e.detail.value
-    })
+    let pickerId = e.currentTarget.dataset.id
+    if(pickerId == "campus"){
+      this.setData({
+        college_index: e.detail.value
+      })
+    }else if(pickerId == "gender"){
+      this.setData({
+        gender_index: e.detail.value
+      })
+    }else if(pickerId == "birthday"){
+      this.setData({
+        currentDate : e.detail.value
+      })
+    }
   }
 })

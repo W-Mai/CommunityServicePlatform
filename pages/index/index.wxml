@@ -9,7 +9,7 @@
 </view>
 
 <view class="major">
-	<scroll-view scroll-x class="majordif"  scroll-with-animation="true">
+	<scroll-view scroll-x class="majordif"  scroll-with-animation="true" scroll-left="{{scrollView_left}}">
 		<block wx:for="{{ascategories}}" wx:key="*this">
 			<view class="box {{currentFilterIndex==index?'filter-selected':'filter-not-selected'}}" bindtap="filterOnClick" data-id="{{index}}">
 				<!-- <navigator url="/pages/one/one"> -->

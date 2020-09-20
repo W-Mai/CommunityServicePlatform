@@ -70,6 +70,13 @@ page {
 
 }
 
+/* 设置不可用状态的背景色 */
+.info-input1[disabled]{
+  color: #AAA;
+  /* background-color: #ccc; */
+}
+
+
 .info-input {
   /*  无边框 */
   /* margin-top: 15rpx; */
@@ -79,8 +86,15 @@ page {
   margin-right: 50rpx;
   color: black;
 }
+/* 设置不可用状态的背景色 */
+.info-input[disabled]{
+  color: #AAA;
+  /* background-color: #ccc; */
+}
 
-
+.big-area[disabled]{
+  color: #AAA;
+}
 
 .submit {
   margin-top: 50rpx;
