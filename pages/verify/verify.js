@@ -60,8 +60,10 @@ Page({
 
     baoming:function(e){
       let id = e.currentTarget.dataset.id
+      let name = e.currentTarget.dataset.name
+      
       wx.navigateTo({
-        url: `../../pages/bao/bao?id=${id}`,//要跳转到的页面路径
+        url: `../../pages/bao/bao?id=${id}&name=${name}`,//要跳转到的页面路径
       })
     },
 
@@ -92,7 +94,8 @@ Page({
         tmpList.push(
           {
             name : element.name,
-            status : "待审核收取那哦i回家oaks的法兰克偶就喀什酱豆腐"
+            status : "待审核收取那哦i回家oaks的法兰克偶就喀什酱豆腐",
+            join_id : element._id
           }
         )
       });

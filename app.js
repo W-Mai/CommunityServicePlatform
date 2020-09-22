@@ -59,7 +59,7 @@ App({
     is_logged_in:false,
     user_Id:"",
     user_name:"",
-
+    user_info:{},
     user_joint_ids:[]
   }
 })

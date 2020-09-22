@@ -58,6 +58,7 @@ Page({
     user_id:"",
 
     user_form:{},
+    userInfo:{},
     need_disable:false,
     msg : "报名"
   },
@@ -65,7 +66,26 @@ Page({
   async onLoad(option){
     this.setData({
       as_id:option.id,
-      user_id:app.globalData.user_Id
+      user_id:app.globalData.user_Id,
+      userInfo:app.globalData.user_info
+    })
+
+    let tmpUserForm = {
+      "姓名":this.data.userInfo["姓名"],
+      "性别":["女", "男", "其他"][this.data.userInfo["性别"]],
+      "出生日期":this.data.userInfo["生日"],
+      "政治面貌":this.data.userInfo["政治面貌"],
+      "籍贯":this.data.userInfo["籍贯"],
+      "民族":this.data.userInfo["民族"],
+      "学院":this.data.userInfo["学院"],
+      "专业班级":this.data.userInfo["班级"],
+      "联系方式":this.data.userInfo["手机号"],
+      "QQ号":this.data.userInfo["QQ"],
+      "组织名称":option.name
+    }
+
+    this.setData({
+      user_form : tmpUserForm
     })
 
     let user_id = this.data.user_id

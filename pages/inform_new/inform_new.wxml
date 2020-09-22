@@ -14,12 +14,12 @@
     </view>
   </view>
 
-  <navigator url="/pages/editior_page/editior_page?info=姓名">
+  <navigator url="/pages/editior_page/editior_page?info=姓名&data={{userInfo['姓名']}}">
     <view class="one-row">
       <view class="one-row-key">姓名</view>
       <view>
         <view class="one-row-value">
-          <view>{{name}}</view>
+          <view>{{userInfo["姓名"]}}</view>
           <view class="one-row-more-button">›</view>
         </view>
       </view>
@@ -52,84 +52,84 @@
     </view>
   </picker>
 
-  <navigator url="/pages/editior_page/editior_page?info=政治面貌">
+  <navigator url="/pages/editior_page/editior_page?info=政治面貌&data={{userInfo['政治面貌']}}">
     <view class="one-row">
       <view class="one-row-key">政治面貌</view>
       <view>
         <view class="one-row-value">
-          <view>{{name}}</view>
+          <view>{{userInfo["政治面貌"]}}</view>
           <view class="one-row-more-button">›</view>
         </view>
       </view>
     </view>
   </navigator>
 
-  <navigator url="/pages/editior_page/editior_page?info=籍贯">
+  <navigator url="/pages/editior_page/editior_page?info=籍贯&data={{userInfo['籍贯']}}">
     <view class="one-row">
       <view class="one-row-key">籍贯</view>
       <view>
         <view class="one-row-value">
-          <view>{{name}}</view>
+          <view>{{userInfo["籍贯"]}}</view>
           <view class="one-row-more-button">›</view>
         </view>
       </view>
     </view>
   </navigator>
 
-  <navigator url="/pages/editior_page/editior_page?info=民族">
+  <navigator url="/pages/editior_page/editior_page?info=民族&data={{userInfo['民族']}}">
     <view class="one-row">
       <view class="one-row-key">民族</view>
       <view>
         <view class="one-row-value">
-          <view>{{name}}</view>
+          <view>{{userInfo["民族"]}}</view>
           <view class="one-row-more-button">›</view>
         </view>
       </view>
     </view>
   </navigator>
   
-  <navigator url="/pages/editior_page/editior_page?info=手机号">
+  <navigator url="/pages/editior_page/editior_page?info=手机号&data={{userInfo['手机号']}}">
     <view class="one-row">
       <view class="one-row-key">手机号</view>
       <view>
         <view class="one-row-value">
-          <view>{{name}}</view>
+          <view>{{userInfo["手机号"]}}</view>
           <view class="one-row-more-button">›</view>
         </view>
       </view>
     </view>
   </navigator>
 
-  <navigator url="/pages/editior_page/editior_page?info=QQ">
+  <navigator url="/pages/editior_page/editior_page?info=QQ&data={{userInfo['QQ']}}">
     <view class="one-row">
       <view class="one-row-key">QQ</view>
       <view>
         <view class="one-row-value">
-          <view>{{name}}</view>
+          <view>{{userInfo["QQ"]}}</view>
           <view class="one-row-more-button">›</view>
         </view>
       </view>
     </view>
   </navigator>
 
-  <navigator url="/pages/editior_page/editior_page?info=学院">
+  <navigator url="/pages/editior_page/editior_page?info=学院&data={{userInfo['学院']}}">
     <view class="one-row">
       <view class="one-row-key">学院</view>
       <view>
         <view class="one-row-value">
-          <view>{{name}}</view>
+          <view>{{userInfo["学院"]}}</view>
           <view class="one-row-more-button">›</view>
         </view>
       </view>
     </view>
   </navigator>
 
-  <navigator url="/pages/editior_page/editior_page?info=班级">
+  <navigator url="/pages/editior_page/editior_page?info=班级&data={{userInfo['班级']}}">
     <view class="one-row">
       <view class="one-row-key">班级</view>
       <view>
         <view class="one-row-value">
-          <view>{{name}}</view>
+          <view>{{userInfo["班级"]}}</view>
           <view class="one-row-more-button">›</view>
         </view>
       </view>
@@ -158,7 +158,7 @@
     <view class="one-row-key">学号</view>
     <view>
       <view class="one-row-value-name">
-        <view>{{name}}</view>
+        <view>{{userInfo["学号"]}}</view>
         <!-- <view class="one-row-more-button">›</view> -->
       </view>
     </view>
@@ -184,3 +184,9 @@
     </view>
   </view>
 </view>
+
+<!-- <view class="bottom-block"> -->
+  <view class="button-submit">
+    <button bindtap="submit_info">提交审核</button>
+  </view>
+<!-- </view> -->

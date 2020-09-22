@@ -3,10 +3,10 @@
 <view>
   <view class="SuoJin">我好像忘记了我的密码？</view>
   <view class="inputBlock">
-    <input type="username" class="underline_input" placeholder="请输入您的手机号"></input>
+    <input type="username" class="underline_input" placeholder="请输入您的手机号" bindinput="bindTel"></input>
   </view>
-  <navigator url="/pages/warn/warn">
-    <button class="buttonStyle" form-type="submit" type="primary">一键重置</button>
-  </navigator>
+  <!-- <navigator url="/pages/warn/warn"> -->
+    <button class="buttonStyle" form-type="submit" type="primary" bindtap="bindreset">一键重置</button>
+  <!-- </navigator> -->
 
 </view>

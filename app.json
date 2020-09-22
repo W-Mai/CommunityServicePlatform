@@ -22,7 +22,8 @@
     "pages/bao/bao",
     "pages/inform/inform",
     "pages/help/help",
-    "pages/editior_page/editior_page"
+    "pages/editior_page/editior_page",
+    "pages/about/about"
   ],
   "window":{
     "backgroundTextStyle":"light",

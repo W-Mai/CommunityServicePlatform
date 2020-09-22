@@ -1,4 +1,7 @@
 // pages/inform_new/inform_new.js
+const app = getApp()
+
+
 Page({
 
   /**
@@ -18,14 +21,19 @@ Page({
       "男",
       "其他"
     ],
-    currentDate:"1999-04-04"
+    currentDate:"1999-04-04",
+
+    userInfo:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      userInfo:app.globalData.user_info
+    })
+    console.log(this.data.userInfo)
   },
 
   /**
@@ -91,5 +99,32 @@ Page({
         currentDate : e.detail.value
       })
     }
+  },
+  submit_info(){
+    wx.showLoading({
+      title: '提交中……',
+    })
+    let user_id = app.globalData.user_Id
+    wx.cloud.callFunction({
+      name: "update",
+      data: {
+        user_id: user_id,
+        userInfo: this.data.userInfo,
+      }
+    })
+
+    wx.hideLoading()
+    wx.showLoading({
+      title: '审核中……',
+    })
+    setTimeout(() => {
+      wx.hideLoading({
+        success: (res) => {
+          wx.showToast({
+            title: '审核完毕',
+          })
+        },
+      })
+    }, 2000);
   }
 })

@@ -93,6 +93,18 @@ Page({
         app.globalData.user_Id = res.data[0]._id;
         app.globalData.user_name= res.data[0].username;
         app.globalData.is_logged_in = true
+        app.globalData.user_info = res.data[0].userInfo
+
+        db.collection('Stu').doc(res.data[0]._id).watch({
+          onChange: function(snapshot) {
+            console.log('snapshot', snapshot)
+          },
+          onError: function(err) {
+            console.error('the watch closed because of error', err)
+          }
+        })
+        
+
         await app.loadJointASList(res.data[0]._id)
         console.log(res.data[0])
         setTimeout(() => {
@@ -110,6 +122,16 @@ Page({
       is_logged_in : app.globalData.is_logged_in
     })
 
+    if(this.data.is_logged_in){
+      let tmpUserinfo = {
+        name : app.globalData.user_info["姓名"],
+        college : app.globalData.user_info["学院"]
+      }
+
+      this.setData({
+        userInfo : tmpUserinfo
+      })
+    }
     console.log(this.data)
   },
   logoutOnClick(event) {

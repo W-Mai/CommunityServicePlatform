@@ -79,3 +79,12 @@ page{
   margin-left: 30rpx;
   margin-right: 30rpx;
 }
+
+.button-submit{
+  margin-bottom: 90rpx;
+}
+
+.button-submit button{
+  background-color: rgb(81, 36, 185);
+  color: white;
+}

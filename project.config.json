@@ -107,9 +107,10 @@
           "scene": null
         },
         {
-          "id": -1,
-          "name": "完善信息",
-          "pathName": "pages/center/center",
+          "id": 5,
+          "name": "pages/inform_new/inform_new",
+          "pathName": "pages/inform_new/inform_new",
+          "query": "",
           "scene": null
         }
       ]

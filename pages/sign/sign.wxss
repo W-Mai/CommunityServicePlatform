@@ -97,3 +97,32 @@ color: #FFFFFF;
  padding-bottom: 50rpx;
 
 }
+.one-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid #DDD;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  box-sizing: border-box;
+  background-color: white;
+}
+/* .one-row-key{
+  padding-left: 30rpx;
+  
+
+} */
+
+.one-row-value{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #AAA;
+}
+
+.one-row-more-button{
+  font-size: 50rpx;
+  /* margin-top: -30rpx; */
+  /* margin-left: 30rpx; */
+  margin-right: 60rpx;
+}

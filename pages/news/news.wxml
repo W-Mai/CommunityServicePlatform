@@ -5,8 +5,8 @@
       <image class="whitePic" src="/images/ZZULI Logo Blue.png"></image>
     </view>
     <view class="top-Names">
-      <view class="name">朱晗蕾</view>
-      <view class="college">计算机与通信工程学院</view>
+      <view class="name">{{userInfo.name}}</view>
+      <view class="college">{{userInfo.college}}</view>
     </view>
     <view class="top-editbox">
       <text>编辑</text>
@@ -21,11 +21,12 @@
         <view class="perfect">
           <view class="row-left">
             <view>
-              <image class="icon" src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/社团.png"></image>
+              <image class="icon"
+                src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/社团.png"></image>
             </view>
             <view>
               <text class="note">我的社团</text>
-            </view> 
+            </view>
           </view>
           <text class="editmark">›</text>
         </view>
@@ -38,23 +39,26 @@
       <view class="chink">
         <view class="perfect">
           <view class="row-left">
-            <image class="icon" src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/帮助.png"></image>
+            <image class="icon"
+              src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/帮助.png"></image>
             <view>
               <text class="note">帮助</text>
-            </view>  
+            </view>
           </view>
           <text class="editmark">›</text>
         </view>
       </view>
     </navigator>
-    <navigator url="">
+
+    <navigator url="/pages/about/about">
       <view class="chink">
         <view class="perfect">
           <view class="row-left">
-            <image class="icon" src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/关于.png"></image>
+            <image class="icon"
+              src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/关于.png"></image>
             <view>
               <text class="note">关于</text>
-            </view>  
+            </view>
           </view>
           <text class="editmark">›</text>
         </view>

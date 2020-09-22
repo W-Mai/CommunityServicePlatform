@@ -11,7 +11,7 @@
             </view>
             <view class='info-input-button'>
                 <button class='buttonl' size="mini" bindtap='baoming' disabled='{{disabled}}'
-                    style="background-color:{{color}}" data-id="{{nameList[index]}}">{{text1}}</button>
+                    style="background-color:{{color}}" data-id="{{item.join_id}}" data-name="{{item.name}}">{{text1}}</button>
                 <button class='buttonr' size="mini" bindtap='delete' data-index="{{index}}" disabled='{{disabled}}'
                     style="background-color:{{color}}">{{text2}}</button>
             </view>

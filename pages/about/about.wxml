@@ -1,0 +1,107 @@
+<view class="topbox1">
+
+	<view class="box1">
+		<view class="pic">
+			<image src="/image/2.jpg"></image>
+			<text class = "title">项目经理
+			新兵南</text>
+			<!-- <text class = "name">新兵南</text> -->
+		</view>
+	  	<view class="txt">
+			<text>强迫症带师
+			                     ----Foggy</text>
+	  	</view>
+	</view>
+
+<view class="box2">
+		<view class="pic">
+			<image src="/image/2.jpg"></image>
+			<text class = "title">前端设计
+			朱猪</text>
+			<!-- <text class = "name">新兵南</text> -->
+		</view>
+	  	<view class="txt">
+			<text>欢迎找我在线撸猫
+			                     ----朱帅</text>
+	  	</view>
+	</view>
+
+</view>
+
+<view class="topbox1">
+
+	<view class="box3">
+		<view class="pic">
+			<image src="/image/2.jpg"></image>
+			<text class = "title">前端设计
+			小耗子</text>
+			<!-- <text class = "name">新兵南</text> -->
+		</view>
+	  	<view class="txt">
+			<text>我一天要背200个单词
+			                     ----耗子</text>
+	  	</view>
+	</view>
+
+<view class="box4">
+		<view class="pic">
+			<image src="/image/2.jpg"></image>
+			<text class = "title">后端设计
+			大虾</text>
+			<!-- <text class = "name">新兵南</text> -->
+		</view>
+	  	<view class="txt">
+			<text>爷有腹肌
+			                     ----大虾</text>
+	  	</view>
+	</view>
+
+</view>
+
+<view class="topbox1">
+
+	<view class="box5">
+		<view class="pic">
+			<image src="/image/2.jpg"></image>
+			<text class = "title">后端设计
+			嘉嘉</text>
+			<!-- <text class = "name">新兵南</text> -->
+		</view>
+	  	<view class="txt">
+			<text>我的普通发是最标准的
+		  ---嘉嘉</text>
+	  	</view>
+	</view>
+
+	<view class="box6">
+		<view class="pic">
+			<image src="/image/2.jpg"></image>
+			<text class = "title">后端设计
+			心心</text>
+			<!-- <text class = "name">新兵南</text> -->
+		</view>
+	  	<view class="txt">
+			<text>我不要再打代码了我想看电视剧
+			---心心</text>
+	  	</view>
+	</view>
+
+</view>
+
+<view class="topbox1">
+
+	<view class="box7">
+		<view class="pic">
+			<image src="/image/2.jpg"></image>
+			<text class = "title">划水带师
+			梦梦</text>
+			<!-- <text class = "name">新兵南</text> -->
+		</view>
+	  	<view class="txt">
+			<text>没错我就是最划水的一个（叉腰）
+			---梦梦</text>
+	  	</view>
+	</view>
+
+
+</view>

@@ -17,10 +17,10 @@ exports.main = async (event, context) => {
   const _ = cloud.command;
   const db = cloud.database();
   // 重置密码
-  db.collection('Stu').doc(event.user_id)
+  db.collection('Stu').doc(event.stuid)
     .update({
       data: {
-        userInfo: event.userInfo
+        password: event.newpassword
       }
     })
 }

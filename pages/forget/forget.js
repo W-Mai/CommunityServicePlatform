@@ -1,11 +1,11 @@
-// pages/forget/forget.js
+const db = wx.cloud.database();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    inputTel: ""
   },
 
   /**
@@ -14,53 +14,79 @@ Page({
   onLoad: function (options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  bindTel: function (e) {
+    this.setData({
+      inputTel: e.detail.value
+    })
   },
+  bindreset: function (e) {
+    var isExistTel = "";
+    let res = db.collection('Stu').where({
+      userInfo:{
+        "手机号":  this.data.inputTel
+      }
+    }).get().then(res => {
+      // 手机号已被注册则可以重置
+      if (res.data.length != 0) {
+        isExistTel = this.data.inputTel
+      } else {
+        wx.showToast({
+          title: "该手机号不存在！",
+          icon: 'none',
+          duration: 2000
+        })
+        return
+      }
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+      // 手机号已被注册则可以重置
+      if (isExistTel != "") {
+        var stu_id = "";
+        var stuID = "";
+        // 获取该手机号所有者的_id
+        let res = db.collection('Stu').where({
+          userInfo:{
+            "手机号": this.data.inputTel
+          }
+        }).get().then(res => {
+          console.log("数据：", res.data)
+          stu_id = res.data[0]._id
+          stuID = res.data[0].username
+          console.log("学生_id", stu_id);
+          console.log("学号:", stuID);
 
-  },
+          var newPassword = stuID.slice(-6)
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+          // 学号.slice(-6) 重置为学号后六位
+          console.log("后六位", newPassword);
+          wx.cloud.callFunction({
+            name: "resetPassword",
+            data: {
+              stuid: stu_id,
+              newpassword: newPassword,
+            }
+          })
+        })
+        wx.showToast({
+          title: "重置成功！",
+          icon: 'none',
+          duration: 2000
+        })
 
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 0,
+          })
+        }, 2000);
+        
+        return
+      } else {
+        wx.showToast({
+          title: "该手机号不存在！",
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
   }
+
 })

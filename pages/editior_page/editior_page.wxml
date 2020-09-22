@@ -3,10 +3,10 @@
 <view>
   <view class="SuoJin">修改{{info}}？</view>
   <view class="inputBlock">
-    <input type="username" class="underline_input" placeholder="请输入您的{{info}}"></input>
+    <input type="username" class="underline_input" placeholder="请输入您的{{info}}" value="{{passback}}" bindinput="updateValue"></input>
   </view>
   <!-- <navigator url="/pages/warn/warn"> -->
-    <button class="buttonStyle" form-type="submit" type="primary">保存</button>
+    <button class="buttonStyle" form-type="submit" type="primary" bindtap="onClick">保存</button>
   <!-- </navigator> -->
 
 </view>

@@ -7,38 +7,27 @@
             <view class='row'>
                 <view class="tip">姓名:</view>
                 <view class='info'>
-                    <input name="用户名" class='info-input1' placeholder="请输入你的姓名" value="{{user_form['用户名']}}"
+                    <input name="姓名" class='info-input1' placeholder="请输入你的姓名" value="{{user_form['姓名']}}"
+                        disabled="true" />
+                </view>
+            </view>
+
+            
+            <view class='row'>
+                <view class="tip">性别:</view>
+                <view class='info'>
+                    <input name="性别" class='info-input1' placeholder="请输入你的性别" value="{{user_form['性别']}}"
                         disabled="true" />
                 </view>
             </view>
 
             <view class='row'>
-                <view class="tip">性别:</view>
+                <view class="tip">出生日期:</view>
                 <view class='info'>
-                    <radio-group name="性别" class='info-input' disabled="true">
-                        <radio value="男" checked="{{user_form['性别'] == '男'}}" disabled="{{need_disable}}">男</radio>
-                        <radio value="女" checked="{{user_form['性别'] == '女'}}" disabled="{{need_disable}}">女</radio>
-                    </radio-group>
+                    <input name="出生日期" class='info-input1' placeholder="请输入你的出生日期" value="{{user_form['出生日期']}}"
+                        disabled="true" />
                 </view>
             </view>
-
-
-            <picker name="出生日期" mode="date" start="1995-01-01" end="2099-12-31" bindchange="changeDate"
-                value="{{user_form['出生日期']}}" disabled="true">
-                <view class='row'>
-
-                    <view class="tip">出生日期:</view>
-
-                    <view class="info-input">
-                        {{user_form['出生日期']}}
-                    </view>
-
-
-
-                    <!--这个地方时间显示的位置不太好，不居中 -->
-
-                </view>
-            </picker>
 
 
             <view wx:for="{{list}}" wx:key="id">
@@ -49,7 +38,6 @@
                             value="{{user_form[item.name]}}" disabled="{{index <= 7 ? true : need_disable}}" />
                     </view>
                 </view>
-
             </view>
 
             <view class='row'>

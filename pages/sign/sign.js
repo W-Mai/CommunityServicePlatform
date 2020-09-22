@@ -17,6 +17,13 @@ Page({
     state: '',
     userName:'',
     passWord: '',
+    warn:null,
+
+    college_index :0,
+    college_array:[
+      "科学校区",
+      "东风校区"
+    ],
   },
   /**
     * 获取验证码
@@ -68,10 +75,8 @@ Page({
 
     var phone = that.data.phone;
     var currentTime = that.data.currentTime //把手机号跟倒计时值变例成js值
-    var warn = null; //warn为当手机号为空或格式不正确时提示用户的文字，默认为空
-    var phone = that.data.phone;
+    // var phone = that.data.phone;
     var currentTime = that.data.currentTime //把手机号跟倒计时值变例成js值
-    var warn = null; //warn为当手机号为空或格式不正确时提示用户的文字，默认为空
     wx.request({
       url: '', //后端判断是否已被注册， 已被注册返回1 ，未被注册返回0
       method: "GET",
@@ -79,80 +84,48 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
+        console.log("成功")
         that.setData({
           state: res.data
         })
-        if (phone == '') {
-          warn = "号码不能为空";
-        } else if (phone.trim().length != 11 || !/^1[3|4|5|6|7|8|9]\d{9}$/.test(phone)) {
-          warn = "手机号格式不正确";
-        } //手机号已被注册提示信息
-        else if (that.data.state == 1) {  //判断是否被注册
-          warn = "手机号已被注册";
-        }
-        else {
-          wx.request({
-            url: '', //填写发送验证码接口
-            method: "POST",
-            data: {
-              coachid: that.data.phone
-            },
-            header: {
-              'content-type': 'application/x-www-form-urlencoded'
-            },
-            success: function (res) {
-              console.log(res.data)
-              that.setData({
-                VerificationCode: res.data.verifycode
-              })
-
-
-              //当手机号正确的时候提示用户短信验证码已经发送
-              wx.showToast({
-                title: '短信验证码已发送',
-                icon: 'none',
-                duration: 2000
-              });
-              //设置一分钟的倒计时
-              var interval = setInterval(function () {
-                currentTime--; //每执行一次让倒计时秒数减一
-                that.setData({
-                  text: currentTime + 's', //按钮文字变成倒计时对应秒数
-
-                })
-                //如果当秒数小于等于0时 停止计时器 且按钮文字变成重新发送 且按钮变成可用状态 倒计时的秒数也要恢复成默认秒数 即让获取验证码的按钮恢复到初始化状态只改变按钮文字
-                if (currentTime <= 0) {
-                  clearInterval(interval)
-                  that.setData({
-                    text: '重新发送',
-                    currentTime: 61,
-                    disabled: false,
-                    color: '#33FF99'
-                  })
-                }
-              }, 100);
-            }
-          })
-        };
-        //判断 当提示错误信息文字不为空 即手机号输入有问题时提示用户错误信息 并且提示完之后一定要让按钮为可用状态 因为点击按钮时设置了只要点击了按钮就让按钮禁用的情况
-        if (warn != null) {
-          wx.showModal({
-            title: '提示',
-            content: warn
-          })
-          that.setData({
-            disabled: false,
-            color: '#33FF99'
-          })
-          return;
-        }
+        
       }
     })
   },
   async submit(e) {
+    console.log("warn",this.data.warn)
 
     var userName = this.data.userName;
     var NewChanges = this.data.NewChanges;
+    var phone = this.data.phone;
+    var isPhone = "";
+    var isExistStuID = "";
+
+    // 判断电话是否注册过
+    console.log("电话", phone)
+    let res = await db.collection('Stu').where({
+      stuPhone:phone
+    }).get().then(res => {
+      console.log("查询手机号是否被注册",res.data)
+      console.log("查询的数据长度", res.data.length)
+      if(res.data.length != 0){
+        isPhone = res.data[0].stuPhone;
+      }
+      // console.log("phone:", isPhone);
+    })
+
+    // 查询学号是否被注册过
+    let ans = await db.collection('Stu').where({
+      username:userName
+    }).get().then(ans => {
+      console.log("查询学号号是否被注册",ans.data)
+      console.log("查询的数据长度", ans.data.length)
+      if(ans.data.length != 0){
+        isExistStuID = ans.data[0].userName;
+      }
+    })
+
+
     if (this.data.NewChanges == '') {
       wx.showToast({
         title: '请输入密码',
@@ -168,16 +141,64 @@ Page({
       })
       return
     }
+    else if(this.data.NewChangesAgain.length < 6){
+      wx.showToast({
+        title:"密码过短（不能低于6位）！",
+        icon:'none',
+        duration: 2000
+      })
+      return
+    }
+    else if(isPhone != ""){
+        wx.showToast({
+          title:"该手机号已被注册！",
+          icon:'none',
+          duration: 2000
+        })
+        return
+    }
+    else if(isExistStuID != ""){
+      wx.showToast({
+        title:"该学号已被注册！",
+        icon:'none',
+        duration: 2000
+      })
+      return
+  }
+    else if (this.data.phone === '' || this.data.phone.length != 11) {
+      console.log("手机号", this.data.phone, this.data.phone.length )
+      wx.showToast({
+        title:"手机号格式不正确！",
+        icon:'none',
+        duration: 2000
+      })
+      return
+    }
+    else if(this.data.userName.length != 12 || (this.data.userName[0] != 5 && this.data.userName[1] != 4))
+    {
+      console.log("54开头", this.data.userName[0], userName[1])
+      wx.showToast({
+        title:"学号格式不正确！",
+        icon:'none',
+        duration: 2000
+      })
+      return
+    }
+
+    this.setData({
+      success:true
+    })
 
     await db.collection('Stu').add({
       data: {
         username: userName,
         password: NewChanges,
+        userInfo:{
+          "校区":this.data.college_index,
+          "手机号": this.data.phone,
+          "姓名":this.data.college_array[this.data.college_index] + "的小可爱",
+        } 
       },
-    })
-
-    this.setData({
-      success: true
     })
 
   },
@@ -187,4 +208,12 @@ Page({
   onShareAppMessage: function () {
 
   },
+  bindPickerChange(e){
+    let pickerId = e.currentTarget.dataset.id
+    if(pickerId == "campus"){
+      this.setData({
+        college_index: e.detail.value
+      })
+    }
+  }
 })
