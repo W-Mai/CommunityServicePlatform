@@ -1,0 +1,17 @@
+<!--pages/pdw_change/pdw_change.wxml-->
+<view>
+	<view class="SuoJin">我想要修改我的密码？</view>
+  <view class="inputBlock">
+		<input type="username" class="underline_input" placeholder="请输入您的手机号" bindinput="bindTel"></input>
+	</view>
+	<view class="inputBlock">
+		<input type="password" class="underline_input" placeholder="请输入您的新密码" bindinput="bindPassword"></input>
+	</view>
+	<view class="inputBlock">
+		<input type="password" class="underline_input" placeholder="请再次确定您的新密码" bindinput="bindPasswordAgain"></input>
+	</view>
+
+	<button class="buttonStyle" form-type="submit" type="primary" bindtap="bindChange">一键修改</button>
+
+
+</view>

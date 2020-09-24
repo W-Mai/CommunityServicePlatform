@@ -1,3 +1,5 @@
+const utils = require('../../utils/util.js')
+
 var app = getApp();
 const db = wx.cloud.database()
 // 查询当前用户所有的 counters
@@ -13,6 +15,7 @@ Page({
     currentPage:0,
     db_filter:{},
     ascategories:[
+      {"name":"校级组织","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/学校.png","cate":"校级组织"},
       {"name":"思想政治","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/更新变更.png","cate":"思想政治类"},
       {"name":"学术科技","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/专家人才.png","cate":"学术科技类"},
       {"name":"创新创业","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/企业公司.png","cate":"创新创业类"},
@@ -29,8 +32,16 @@ Page({
       "cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/IMG_0029.jpg"
     ],
 
-    scrollView_left:0
+    scrollView_left:0,
+
+    default_logo:"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/ASLogos/ZZULI Logo Blue.png",
+    
+   },
+// 作用于wxml中的函数
+  cleanFormat (text){
+    return text.replace(/([#]*)/g,"").replace(/(&.*;)/g,"")
   },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -53,6 +64,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    console.log("need",app.globalData.index_need_refresh)
+    if(app.globalData.index_need_refresh){
+      app.globalData.index_need_refresh = false
+
+      this.setData({
+        infoData:[],
+        currentPage:0
+      })
+      this.fetchData()
+    }
     setTimeout(() => {
       this.setData({
         scrollView_left:45
@@ -109,17 +130,45 @@ Page({
   },
   async fetchData(){
     try {
-      let res = null;
-      console.log(this.data.currentFilterIndex == -1)
+      let id = this.data.currentFilterIndex
+      if(id == -1) {
+        this.setData({
+          db_filter:{}
+        })
+      } else{
+        this.setData({
+          db_filter:{
+            category:this.data.ascategories[id].cate
+          }
+        })
+      }
 
-      
+      if(app.globalData.is_logged_in){
+        let campusCode = app.globalData.user_info["校区"]
+        let tmpDbFilter = this.data.db_filter
+        if(campusCode == 0){
+          tmpDbFilter["campus"] = "科学校区"
+        }else if(campusCode == 1){
+          tmpDbFilter["campus"] = "东风校区"
+        }
+      }
+
+
+      let res = null;
+      // console.log(this.data.currentFilterIndex == -1)
+
       res = await db.collection('ASInformations')
       .where(this.data.db_filter)
       .limit(MAX_LIMIT)
       .skip(this.data.currentPage*MAX_LIMIT).get()
 
       this.setData({
-        infoData:this.data.infoData.concat(res.data)
+        infoData:this.data.infoData.concat((res=>{ //过滤掉markdown格式文本
+          res.forEach(elem=>{
+            elem["filter_content"] = app.cleanFormat(elem.information)
+          })
+          return res
+        })(res.data))
       })
     } catch (error) {
       console.log(error);
@@ -131,17 +180,15 @@ Page({
     if(this.data.currentFilterIndex == id) {
       this.setData({
         currentFilterIndex:-1,
-        db_filter:{}
       })
     } else{
       this.setData({
         currentFilterIndex:id,
-        db_filter:{
-          category:this.data.ascategories[id].cate
-        }
       })
     }
 
+
+    
     this.setData({
       infoData:[],
       currentPage:0
@@ -149,3 +196,4 @@ Page({
     this.fetchData()
   }
 })
+

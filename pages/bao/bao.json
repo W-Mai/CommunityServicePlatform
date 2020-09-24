@@ -1,9 +1,9 @@
 {
   "usingComponents": {},
     "backgroundColor": "#888",
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#3366ff",
     "navigationBarTitleText": "报名页面",
-    "navigationBarTextStyle": "black"
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#6699FF",
+    "navigationBarTextStyle":"white"
 
 }

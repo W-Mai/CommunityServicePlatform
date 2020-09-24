@@ -103,6 +103,17 @@ exports.main = async (event, context) => {
         return false
       }
     )
+
+    cloud.callFunction({
+      name: "manageApplication",
+      data: {
+        form_info:{
+          user_id: user_id,
+          join_id: join_id
+        },
+        op:"del"
+      }
+    })
   }
 
  

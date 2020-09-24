@@ -72,3 +72,49 @@ page {
   border-radius: 15rpx;
   color: #FFFFFF;
 }
+
+.guidence{
+  background-color: white;
+  margin:0rpx 30rpx;
+}
+.guidence text{
+  display: block;
+  margin: 10rpx 20rpx;
+}
+
+.guidence .top-header-wrapper{
+  padding: 35vh 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.guidence .top-header{
+  text-align: center;
+  font-size: xx-large;
+
+  padding: 30rpx 0rpx;
+  /* border: 1rpx solid #666; */
+  border-radius: 15rpx;
+  color: #AAA;
+}
+
+.guidence .help-content-line{
+  display: flex;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+}
+
+.guidence .bottom-attention-view{
+  margin: 60rpx;
+  padding: 60rpx 0rpx;
+}
+.guidence .bottom-attention{
+  font-size: xx-small;
+}
+
+.guidence .top-header-wrapper image{
+  display: block;
+  width: 200rpx;
+  height: 200rpx;
+}

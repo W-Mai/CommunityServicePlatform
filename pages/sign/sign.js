@@ -197,7 +197,9 @@ Page({
           "校区":this.data.college_index,
           "手机号": this.data.phone,
           "姓名":this.data.college_array[this.data.college_index] + "的小可爱",
-        } 
+          "学号":userName
+        },
+        is_verified: false
       },
     })
 

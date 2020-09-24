@@ -20,18 +20,25 @@ Page({
         }
       ],
         text1:"报名信息填写",
-        text2:"取消报名"
-    },
-    ASVerifiedList:[],
+        text2:"取消报名",
+        help_content:[
+          "单击“社团/组织”底部菜单栏。",
+          "最上边可以选择分类，单击即可只显示当前分类的社团详情。",
+          "单击喜欢的社团后，查看完简介后，即可单击底部绿色“报名”按钮。",
+          "报名后，已报名的社团会出现在“审核”页面。",
+          "在审核页面“提交报名表”后，等待审核详细结果。"
+        ],
+        ASVerifiedList:[],
+      },
+    
      
     /****删除*///这个事件有错误
     async delete(e) {
       wx.showLoading({
         title: '取消中……'
       })
-
-      let currentIndex = e.currentTarget.dataset.index
-      let join_id = this.data.nameList[currentIndex]
+      console.log(e)
+      let join_id = e.currentTarget.dataset.id
       // let tmpList = this.data.nameList
       // tmpList.splice(currentIndex, 1)
       
@@ -61,7 +68,18 @@ Page({
     baoming:function(e){
       let id = e.currentTarget.dataset.id
       let name = e.currentTarget.dataset.name
-      
+      let is_verified = app.globalData.is_verified
+
+      console.log(is_verified)
+
+      if(!is_verified){
+        wx.showToast({
+          title:    '请先在个人中心完善信息后再填写报名表',
+          icon:     "none",
+          duration: 2000
+        })
+        return
+      }
       wx.navigateTo({
         url: `../../pages/bao/bao?id=${id}&name=${name}`,//要跳转到的页面路径
       })
@@ -69,12 +87,16 @@ Page({
 
     /**获取输入框信息**/
     async onShow(options) {
-      if(!app.globalData.is_logged_in) return
+      if(!app.globalData.is_logged_in) {
+        this.setData({
+          is_logged_in:false
+        })
+        return
+      }
       await app.loadJointASList(app.globalData.user_Id)
       this.setData({
         is_logged_in:app.globalData.is_logged_in,
         nameList:app.globalData.user_joint_ids,
-        ASVerifiedList:[]
       })
       if(!this.data.is_logged_in)return;
       wx.showLoading({
@@ -88,17 +110,32 @@ Page({
         name : true
       })
       .get()
-      console.log()
+      console.log(res.data)
       let tmpList = []
-      res.data.forEach(element => {
+      let user_id = app.globalData.user_Id
+
+      for(let index in res.data){
+        let element = res.data[index]
+        let appinfo = (await wx.cloud.callFunction({
+          name: "manageApplication",
+          data:{
+            "form_info":{
+                "user_id": user_id,
+                "join_id": element._id
+            },
+            "op":"get"
+        }
+        })).result
+        console.log(element)
         tmpList.push(
           {
             name : element.name,
-            status : "待审核收取那哦i回家oaks的法兰克偶就喀什酱豆腐",
+            status : appinfo?appinfo.msg:"未提交报名表",
             join_id : element._id
           }
         )
-      });
+      };
+
       this.setData({
         ASVerifiedList:tmpList
       })

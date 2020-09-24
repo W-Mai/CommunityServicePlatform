@@ -23,7 +23,7 @@ Page({
     ],
     currentDate:"1999-04-04",
 
-    userInfo:{}
+    userInfo:{},
   },
 
   /**
@@ -33,6 +33,12 @@ Page({
     this.setData({
       userInfo:app.globalData.user_info
     })
+    this.setData({
+      college_index : this.data.userInfo["校区"],
+      gender_index : this.data.userInfo["性别"],
+      currentDate : this.data.userInfo["生日"],
+    })
+    
     console.log(this.data.userInfo)
   },
 
@@ -105,13 +111,6 @@ Page({
       title: '提交中……',
     })
     let user_id = app.globalData.user_Id
-    wx.cloud.callFunction({
-      name: "update",
-      data: {
-        user_id: user_id,
-        userInfo: this.data.userInfo,
-      }
-    })
 
     wx.hideLoading()
     wx.showLoading({
@@ -120,11 +119,106 @@ Page({
     setTimeout(() => {
       wx.hideLoading({
         success: (res) => {
-          wx.showToast({
-            title: '审核完毕',
-          })
+          if(this.checkIsOk()){
+            wx.showToast({
+              title: '审核成功',
+            })
+            setTimeout(()=>{
+              wx.showLoading({
+                title: '加载中……',
+              })
+
+              let tmpUserInfo = this.data.userInfo
+              tmpUserInfo["生日"] = this.data.currentDate
+              tmpUserInfo["性别"] = this.data.gender_index
+              tmpUserInfo["校区"] = this.data.college_index
+
+              wx.cloud.callFunction({
+                name: "update",
+                data: {
+                  user_id: user_id,
+                  userInfo: tmpUserInfo,
+
+                  is_verified : true
+                }
+              })
+
+              app.globalData.is_verified = true
+              setTimeout(()=>{
+                wx.hideLoading()
+              },1000)
+            }, 1000)
+
+          }else{
+            setTimeout(()=>{
+              wx.showToast({
+                title: '审核失败',
+              })
+            }, 2000)
+            
+          }
+
+
+          
         },
       })
     }, 2000);
+  },
+  objGetVal(key){
+    let res = this.data.userInfo[key]
+
+    if(res){
+      let res2 = res.toString().trim()
+      return res2.length ? res2 : ""
+    }
+    return ""
+  }
+  ,
+  checkIsOk(){
+    if(!this.objGetVal("姓名").length){
+      console.log(this.objGetVal("姓名"))
+      wx.showToast({
+        title: '请完善姓名',
+        icon : "none"
+      })
+      return false
+    } else if(!this.objGetVal("政治面貌").length){
+      wx.showToast({
+        title: '请完善政治面貌',
+        icon : "none"
+      })
+      return false
+    } else if(!this.objGetVal("籍贯").length){
+      wx.showToast({
+        title: '请完善籍贯',
+        icon : "none"
+      })
+      return false
+    } else if(!this.objGetVal("民族").length){
+      wx.showToast({
+        title: '请完善民族',
+        icon : "none"
+      })
+      return false
+    } else if(!this.objGetVal("QQ").length){
+      wx.showToast({
+        title: '请完善QQ号',
+        icon : "none"
+      })
+      return false
+    } else if(!this.objGetVal("学院").length){
+      wx.showToast({
+        title: '请完善学院',
+        icon : "none"
+      })
+      return false
+    } else if(!this.objGetVal("班级").length){
+      wx.showToast({
+        title: '请完善班级',
+        icon : "none"
+      })
+      return false
+    } 
+    return true
   }
 })

@@ -1,0 +1,11 @@
+var filters = {
+  cleanFormat : function (text){
+   
+    return text.replace(RegExp('([#]*)', 'g'),"").replace( RegExp('(&.*;)', 'g'),"")
+  }
+  
+}
+
+module.exports = {
+  filters:filters.cleanFormat
+}

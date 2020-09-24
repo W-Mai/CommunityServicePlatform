@@ -1,9 +1,9 @@
 {
   "usingComponents": {},
     "backgroundColor": "#888",
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#3366ff",
-    "navigationBarTitleText": "审核页面",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh":false
+    "enablePullDownRefresh":false,
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#6699FF",
+    "navigationBarTitleText": "审核",
+    "navigationBarTextStyle":"white"
 }

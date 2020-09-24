@@ -1,3 +1,19 @@
+<!-- <wxs module="filters" src="../../utils/filter.wxs"></wxs> -->
+
+<wxs module="filters">
+var filters = {
+  cleanFormat : function (text){
+   console.log(text)
+    return text.replace(RegExp('([#]*)', 'g'),"").replace( RegExp('(&.*;)', 'g'),"")
+  }
+  
+}
+module.exports = {
+  filters:filters.cleanFormat
+}
+
+</wxs>
+
 <view class="banner">
 	<swiper indicator-dots indicator-dots="rgba(255,255,255,0.5)" indicator-active-color="#fff" circular autoplay>
 		<block wx:for="{{banner_srcs}}">
@@ -59,14 +75,14 @@
 				<view class="info-toast">
 					<navigator class="dyItem"  url = "/pages/main/main?id={{item._id}}" >
 					<view class="pic">
-						<image src="{{ item.thumbnail }}"  mode = "aspectFit"></image>
+						<image src="{{ item.thumbnail?item.thumbnail:default_logo }}"  mode = "aspectFit"></image>
 					</view>
 					<view class="text">
 						<view class="title"> 
 							{{ item.name }}
 						</view>
 						<view class="content">
-							{{ item.information }}
+							{{ item.filter_content }}
 						</view>
 					</view>
 				

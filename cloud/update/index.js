@@ -20,7 +20,8 @@ exports.main = async (event, context) => {
   db.collection('Stu').doc(event.user_id)
     .update({
       data: {
-        userInfo: event.userInfo
+        userInfo: event.userInfo,
+        is_verified: event.is_verified
       }
     })
 }

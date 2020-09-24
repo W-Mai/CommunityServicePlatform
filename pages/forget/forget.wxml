@@ -6,7 +6,7 @@
     <input type="username" class="underline_input" placeholder="请输入您的手机号" bindinput="bindTel"></input>
   </view>
   <!-- <navigator url="/pages/warn/warn"> -->
-    <button class="buttonStyle" form-type="submit" type="primary" bindtap="bindreset">一键重置</button>
+  <button class="buttonStyle" form-type="submit" type="primary" bindtap="bindreset">一键重置</button>
   <!-- </navigator> -->
 
 </view>

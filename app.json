@@ -23,12 +23,13 @@
     "pages/inform/inform",
     "pages/help/help",
     "pages/editior_page/editior_page",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/pdw_change/pdw_change"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#6699FF",
-    "navigationBarTitleText": "郑轻社团招新",
+    "navigationBarTitleText": "郑轻大开放平台",
     "navigationBarTextStyle":"white"
   },
   "tabBar":{
@@ -38,7 +39,7 @@
          "pagePath":"pages/index/index",
          "iconPath": "images/home.png",
         "selectedIconPath": "images/_home.png",
-         "text":"社团"
+         "text":"社团/组织"
       },{
         "pagePath":"pages/verify/verify",
         "iconPath": "images/my.png",

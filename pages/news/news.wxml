@@ -64,6 +64,21 @@
         </view>
       </view>
     </navigator>
+
+    <navigator url="/pages/pdw_change/pdw_change">
+      <view class="chink">
+        <view class="perfect">
+          <view class="row-left">
+            <image class="icon"
+              src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/修改密码.png"></image>
+            <view>
+              <text class="note">修改密码</text>
+            </view>
+          </view>
+          <text class="editmark">›</text>
+        </view>
+      </view>
+    </navigator>
   </view>
 
 
@@ -96,7 +111,7 @@
     <!-- <view class="lefttext">密码</view> -->
     <view class="inputBlock">
       <input type="password" class="underline_input" adjust-position="true" placeholder="请输入密码"
-        bindinput="bindPasswordInput"></input>
+        bindinput="bindPasswordInput" bindconfirm="bindConfirm"></input>
     </view>
     <!-- <view class="line"></view> -->
     <view class="samelevel">

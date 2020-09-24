@@ -20,6 +20,7 @@ Page({
     joint:false,
     nameList: [],
     open_ID: "",
+    md:"### fuckyou\n**A**bcdefg"
   },
 
   async fetchData(id){

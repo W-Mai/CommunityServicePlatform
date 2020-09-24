@@ -94,9 +94,17 @@ Page({
         app.globalData.user_name= res.data[0].username;
         app.globalData.is_logged_in = true
         app.globalData.user_info = res.data[0].userInfo
+        app.globalData.is_verified = res.data[0].is_verified
+        app.globalData.index_need_refresh = true
 
         db.collection('Stu').doc(res.data[0]._id).watch({
           onChange: function(snapshot) {
+            let changes = snapshot.docChanges[0].updatedFields
+              for (let obj in changes) {
+                let key = obj.slice(obj.search("\\.")+1)
+                app.globalData.user_info[key] = changes[obj];
+                console.log(key, changes[obj])
+              }
             console.log('snapshot', snapshot)
           },
           onError: function(err) {
@@ -117,6 +125,10 @@ Page({
         
     }
   },
+  bindConfirm(e){
+    this.bindingSuccess()
+  }
+  ,
   onShow() {
     this.setData({
       is_logged_in : app.globalData.is_logged_in
@@ -136,8 +148,15 @@ Page({
   },
   logoutOnClick(event) {
     app.globalData.is_logged_in = false;
+    app.globalData.user_Id = "";
+    app.globalData.user_name= "";
+    app.globalData.user_info = {}
+    app.globalData.is_verified = false
+    app.globalData.index_need_refresh = true
     this.setData({
-      is_logged_in: app.globalData.is_logged_in
+      is_logged_in: app.globalData.is_logged_in,
+      bindName: '',
+      bindPassword: '',
     })
   },
   blocksBtOnClick(){

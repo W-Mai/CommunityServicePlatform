@@ -1,31 +1,58 @@
 <view wx:if="{{is_logged_in}}">
 
-    <view class="price-detail" wx:for="{{ASVerifiedList}}" wx:key="*this">
-        <view class='row'>
-            <view class='info-input'>
-                <text class="small-fuck">社团名称：{{item.name}}</text>
-            </view>
-            <view class='info-input'>
-                <text class="small-fuck">当前状态：
-                    {{item.status}}</text>
-            </view>
-            <view class='info-input-button'>
-                <button class='buttonl' size="mini" bindtap='baoming' disabled='{{disabled}}'
-                    style="background-color:{{color}}" data-id="{{item.join_id}}" data-name="{{item.name}}">{{text1}}</button>
-                <button class='buttonr' size="mini" bindtap='delete' data-index="{{index}}" disabled='{{disabled}}'
-                    style="background-color:{{color}}">{{text2}}</button>
+    <block wx:if="{{ASVerifiedList.length!=0}}">
+
+        <view class="price-detail" wx:for="{{ASVerifiedList}}" wx:key="*this">
+            <view class='row'>
+                <view class='info-input'>
+                    <text class="small-fuck">社团名称：{{item.name}}</text>
+                </view>
+                <view class='info-input'>
+                    <text class="small-fuck">当前状态：{{item.status}}</text>
+                </view>
+                <view class='info-input-button'>
+                    <button class='buttonl' size="mini" bindtap='baoming' disabled='{{disabled}}'
+                        style="background-color:{{color}}" data-id="{{item.join_id}}"
+                        data-name="{{item.name}}">{{text1}}</button>
+                    <button class='buttonr' size="mini" bindtap='delete' data-index="{{index}}" disabled='{{disabled}}'
+                        style="background-color:{{color}}" data-id="{{item.join_id}}">{{text2}}</button>
+                </view>
+
             </view>
 
         </view>
+    </block>
+    <block wx:else>
+        <view class="guidence">
+            <navigator url="/pages/index/index" open-type="switchTab">
+                <view class="top-header-wrapper">
+                    <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/空白.png" mode="aspectFit"></image>
+                    <cover-view class="top-header">空空如也</cover-view>
+                </view>
+            </navigator>
+            <block wx:for="{{help_content}}" wx:key="*this">
+                <view class="help-content-line">
+                    <view><text>{{index+1}}</text></view>
+                    <view><text class="mid-content">{{item}}</text></view>
+                </view>
+            </block>
+            <!-- <text class="mid-content">快去选择心仪的社团吧~</text>
+            <text class="mid-content">1、单击“社团/组织”底部菜单栏。</text>
+            <text class="mid-content">2、最上边可以选择分类，单击即可只显示当前分类的社团详情。</text>
+            <text class="mid-content">3、单击喜欢的社团后，查看完简介后，即可单击底部绿色“报名”按钮。</text>
+            <text class="mid-content">4、报名后，已报名的社团会出现在“审核”页面。</text>
+            <text class="mid-content">5、在审核页面“提交报名表”后，等待审核详细结果。</text> -->
 
-    </view>
+            <view class="bottom-attention-view">
+                <text class="bottom-attention">※ 如果不太喜欢当前的社团可以单击“取消报名”按钮。</text>
+                <text class="bottom-attention">※ 本次报名最多支持报名2个社团噢，请谨慎选择。</text>
+                <text class="bottom-attention">※ 不要频繁的报名取消，否则会被关进小黑屋的！</text>
+            </view>
+        </view>
+
+    </block>
 
 </view>
-
-
-
-
-
 <view wx:else>
 
     <view>

@@ -51,7 +51,11 @@ App({
     // console.log(res.data)
     if(!res.data[0].join_ids) return
     this.globalData.user_joint_ids = res.data[0].join_ids
+  },
+  cleanFormat(text){
+    return text.replace(/([#]*)/g,"").replace(/(&.*;)/g,"")
   }
+  
   ,
   globalData: {
     userInfo: null,
@@ -60,6 +64,9 @@ App({
     user_Id:"",
     user_name:"",
     user_info:{},
-    user_joint_ids:[]
+    is_verified:false,
+    user_joint_ids:[],
+
+    index_need_refresh : false
   }
 })
