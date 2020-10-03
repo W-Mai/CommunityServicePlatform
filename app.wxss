@@ -1,3 +1,5 @@
+@import './utils/animate.wxss';
+
 .container{
   padding:0 26rpx;
   box-sizing: border-box;

@@ -1,0 +1,59 @@
+<!--pages/select_main_page/select_main_page.wxml-->
+
+<view class="total-page">
+
+  <block wx:if="{{user_group == 'student' || user_group == ''}}">
+    <navigator url="{{path}}" open-type="{{openType}}">
+      <view class="one-line-wrapper n1 animated wobble">
+        <view class="icon">
+          <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/学生会管理.png"
+            mode="aspectFit"></image>
+        </view>
+        <view class="info">
+          <text>校学生会</text>
+        </view>
+      </view>
+    </navigator>
+  </block>
+  <block wx:elif="{{user_group == 'teacher'}}">
+    <navigator url="/pages/teacher_manager/teacher_manager">
+      <view class="one-line-wrapper n1 animated wobble">
+        <view class="icon">
+          <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/列表控件.png"
+            mode="aspectFit"></image>
+        </view>
+        <view class="info">
+          <text>报名列表</text>
+        </view>
+      </view>
+    </navigator>
+  </block>
+
+
+  <block wx:if="{{user_group == 'student' || user_group == ''}}">
+    <navigator url="/pages/index/index?re_st_flag=1">
+      <view class="one-line-wrapper n2 animated wobble">
+        <view class="icon">
+          <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/学校.png"
+            mode="aspectFit"></image>
+        </view>
+        <view class="info">
+          <text>相关学生组织</text>
+        </view>
+      </view>
+    </navigator>
+
+    <navigator url="/pages/index/index">
+      <view class="one-line-wrapper n3 animated wobble">
+        <view class="icon">
+          <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/社团 (2).png"
+            mode="aspectFit"></image>
+        </view>
+        <view class="info">
+          <text>学生社团</text>
+        </view>
+      </view>
+    </navigator>
+  </block>
+
+</view>

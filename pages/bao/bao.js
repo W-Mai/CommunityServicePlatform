@@ -1,5 +1,5 @@
 const app = getApp()
-
+const db = wx.cloud.database()
 
 Page({
  
@@ -60,9 +60,17 @@ Page({
     user_form:{},
     userInfo:{},
     need_disable:false,
-    msg : "报名"
+    msg : "报名",
+    info:{}
   },
-  
+  async fetchData(id){
+    let res = await db.collection('ASInformations').where({
+      _id:id
+    }).get()
+    this.setData({
+      info:res.data[0]
+    })
+  },
   async onLoad(option){
     this.setData({
       as_id:option.id,
@@ -70,6 +78,7 @@ Page({
       userInfo:app.globalData.user_info
     })
 
+    await this.fetchData(option.id)
     let tmpUserForm = {
       "姓名":this.data.userInfo["姓名"],
       "性别":["女", "男", "其他"][this.data.userInfo["性别"]],

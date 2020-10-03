@@ -49,27 +49,21 @@
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "search": {
-      "current": -1,
       "list": []
     },
     "conversation": {
-      "current": -1,
       "list": []
     },
     "plugin": {
-      "current": -1,
       "list": []
     },
     "game": {
-      "current": -1,
       "list": []
     },
     "gamePlugin": {
-      "current": -1,
       "list": []
     },
     "miniprogram": {
-      "current": -1,
       "list": [
         {
           "id": -1,
@@ -118,6 +112,19 @@
           "name": "pages/verify/verify",
           "pathName": "pages/verify/verify",
           "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/forget/forget",
+          "pathName": "pages/forget/forget",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/teacher_manager/teacher_manager",
+          "pathName": "pages/teacher_manager/teacher_manager",
           "scene": null
         }
       ]

@@ -8,16 +8,16 @@
 	</swiper>
 </view>
 
-<block>
-
-	
-</block>
 
 <view class="middle">
 	<view class="txtbox">
 		<view class="txt-title">
-			<text >{{info.name}}</text>
+			<text>{{info.name}}</text>
+			<view class="txt-campus">
+				<text>{{info.campus}}</text>
+			</view>
 		</view>
+		
 		<view class="txt">
 			<wemark class="intro" md="{{info.information}}" link highlight type="wemark"></wemark>
 		</view>
@@ -32,7 +32,7 @@
 				</view>
 
 				<view class="box" wx:if="{{info.qqgroup}}">
-					<button type="primary" size="mini">加群</button>
+					<button type="primary" size="mini" bindtap="btcopy">复制</button>
 				</view>
 			</block>
 		</view>
@@ -44,7 +44,7 @@
 <view class="base">
 	<!-- <navigator url=""> -->
 		<view>
-			<button class="register" bindtap="bindRegister" disabled="{{joint}}">{{joint?"已报名":"报名"}}</button>
+			<button class="register" bindtap="bindRegister" disabled="{{joint || !info.enable}}">{{ info.enable?(joint?"已报名":"报名"):info.msg}}</button>
 		</view>
 		
 	<!-- </navigator> -->

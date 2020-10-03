@@ -2,6 +2,11 @@
 
 App({
   onLaunch: function () {
+    // wx.setTabBarItem({
+    //   index: 4,
+    //   text: 'asdf'
+    // })
+
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -61,6 +66,9 @@ App({
     userInfo: null,
     as_infos: null,
     is_logged_in:false,
+
+    user_group:'',
+
     user_Id:"",
     user_name:"",
     user_info:{},

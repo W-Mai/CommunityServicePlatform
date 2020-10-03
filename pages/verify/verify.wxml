@@ -2,7 +2,7 @@
 
     <block wx:if="{{ASVerifiedList.length!=0}}">
 
-        <view class="price-detail" wx:for="{{ASVerifiedList}}" wx:key="*this">
+        <view class="price-detail animated bounceInDown" wx:for="{{ASVerifiedList}}" wx:key="*this" style="--animate-delay:{{0.3*index}}s">
             <view class='row'>
                 <view class='info-input'>
                     <text class="small-fuck">社团名称：{{item.name}}</text>
@@ -24,9 +24,10 @@
     </block>
     <block wx:else>
         <view class="guidence">
-            <navigator url="/pages/index/index" open-type="switchTab">
+            <navigator url="/pages/select_main_page/select_main_page" open-type="switchTab">
                 <view class="top-header-wrapper">
-                    <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/空白.png" mode="aspectFit"></image>
+                    <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/空白.png"
+                        mode="aspectFit"></image>
                     <cover-view class="top-header">空空如也</cover-view>
                 </view>
             </navigator>
@@ -36,16 +37,12 @@
                     <view><text class="mid-content">{{item}}</text></view>
                 </view>
             </block>
-            <!-- <text class="mid-content">快去选择心仪的社团吧~</text>
-            <text class="mid-content">1、单击“社团/组织”底部菜单栏。</text>
-            <text class="mid-content">2、最上边可以选择分类，单击即可只显示当前分类的社团详情。</text>
-            <text class="mid-content">3、单击喜欢的社团后，查看完简介后，即可单击底部绿色“报名”按钮。</text>
-            <text class="mid-content">4、报名后，已报名的社团会出现在“审核”页面。</text>
-            <text class="mid-content">5、在审核页面“提交报名表”后，等待审核详细结果。</text> -->
 
             <view class="bottom-attention-view">
                 <text class="bottom-attention">※ 如果不太喜欢当前的社团可以单击“取消报名”按钮。</text>
                 <text class="bottom-attention">※ 本次报名最多支持报名2个社团噢，请谨慎选择。</text>
+                <text class="bottom-attention">※ 本次报名学生组织不受限制。</text>
+                <text class="bottom-attention">※ 本次报名学生会只做宣传，不参与报名登记。</text>
                 <text class="bottom-attention">※ 不要频繁的报名取消，否则会被关进小黑屋的！</text>
             </view>
         </view>
@@ -53,15 +50,39 @@
     </block>
 
 </view>
-<view wx:else>
+<view wx:else class="unlogged-in-wrapper">
 
-    <view>
-        <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/waiVqs.jpg"
-            class="ptc" />
+
+    <view class="unlogged-in animated bounceInDown">
+
+        <view>
+            <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/waiVqs.jpg"
+                class="ptc" />
+        </view>
+
+        <view>
+            <button bindtap="submitHandler" size="mini" class="btn">您还未登录，点击跳转登录面</button>
+        </view>
+
+
+
     </view>
 
-    <view>
-        <button bindtap="submitHandler" size="mini" class="btn">您还未登录，点击跳转登录面</button>
-    </view>
+    <view class="guidence">
 
+        <block wx:for="{{help_content}}" wx:key="*this">
+            <view class="help-content-line">
+                <view><text>{{index+1}}</text></view>
+                <view><text class="mid-content">{{item}}</text></view>
+            </view>
+        </block>
+
+        <view class="bottom-attention-view">
+            <text class="bottom-attention">※ 如果不太喜欢当前的社团可以单击“取消报名”按钮。</text>
+            <text class="bottom-attention">※ 本次报名最多支持报名2个社团噢，请谨慎选择。</text>
+            <text class="bottom-attention">※ 本次报名学生组织不受限制。</text>
+            <text class="bottom-attention">※ 本次报名学生会只做宣传，不参与报名登记。</text>
+            <text class="bottom-attention">※ 不要频繁的报名取消，否则会被关进小黑屋的！</text>
+        </view>
+    </view>
 </view>

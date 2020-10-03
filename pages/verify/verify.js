@@ -22,10 +22,10 @@ Page({
         text1:"报名信息填写",
         text2:"取消报名",
         help_content:[
-          "单击“社团/组织”底部菜单栏。",
-          "最上边可以选择分类，单击即可只显示当前分类的社团详情。",
-          "单击喜欢的社团后，查看完简介后，即可单击底部绿色“报名”按钮。",
-          "报名后，已报名的社团会出现在“审核”页面。",
+          "单击“主页”底部菜单栏。",
+          "可以分别选择三种分类，单击“相关学生组织”和“学生社团”即可只显示当前分类的详情。",
+          "单击喜欢的社团或组织后，查看完简介，即可单击底部绿色“报名”按钮。",
+          "报名后，已报名的社团或组织会出现在“审核”页面。",
           "在审核页面“提交报名表”后，等待审核详细结果。"
         ],
         ASVerifiedList:[],
@@ -93,6 +93,14 @@ Page({
         })
         return
       }
+
+      if(app.globalData.user_group == 'teacher'){
+        wx.switchTab({
+          url: '/pages/select_main_page/select_main_page',
+        })
+        return
+      }
+
       await app.loadJointASList(app.globalData.user_Id)
       this.setData({
         is_logged_in:app.globalData.is_logged_in,

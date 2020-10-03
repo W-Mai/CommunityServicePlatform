@@ -1,9 +1,10 @@
 {
-  "usingComponents": {},
-    "backgroundColor": "#888",
-    "navigationBarTitleText": "报名页面",
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#6699FF",
-    "navigationBarTextStyle":"white"
-
+  "usingComponents": {
+    "wemark": "../wemark/wemark"
+  },
+  "backgroundColor": "#888",
+  "navigationBarTitleText": "报名页面",
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#6699FF",
+  "navigationBarTextStyle": "white"
 }

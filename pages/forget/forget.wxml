@@ -8,5 +8,7 @@
   <!-- <navigator url="/pages/warn/warn"> -->
   <button class="buttonStyle" form-type="submit" type="primary" bindtap="bindreset">一键重置</button>
   <!-- </navigator> -->
-
+  <view class="warn">
+    <text>重置后密码为学号后 6 位</text>
+  </view>
 </view>

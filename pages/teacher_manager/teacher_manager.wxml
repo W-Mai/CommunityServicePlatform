@@ -1,0 +1,37 @@
+<!--pages/teacher_manager/teacher_manager.wxml-->
+
+<view class="block-wrapper">
+  <view class="pubTile">
+    <view class="txt">科学校区</view>
+  </view>
+  <view class="toast-wrapper">
+    <block wx:for="{{each_toast_data_kexue}}" wx:key="{{index}}">
+      <navigator>
+        <view class="each-toast animated bounceInLeft">
+          <view class="title-wrapper"><text>{{item.name}}</text></view>
+          <view class="count-wrapper">
+            <view class="left-number">{{item.real}}</view>/<view class="right-number">{{item.ideal}}</view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>
+
+<view class="block-wrapper">
+  <view class="pubTile">
+    <view class="txt">东风校区</view>
+  </view>
+  <view class="toast-wrapper">
+    <block wx:for="{{each_toast_data_dongfeng}}" wx:key="{{index}}">
+      <navigator>
+        <view class="each-toast animated bounceInLeft">
+          <view class="title-wrapper"><text>{{item.name}}</text></view>
+          <view class="count-wrapper">
+            <view class="left-number">{{item.real}}</view>/<view class="right-number">{{item.ideal}}</view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>

@@ -2,6 +2,11 @@ page {
   background: #F0F0F0;
 }
 
+
+.public{display: flex;height:50rpx;padding: 20rpx;border: 2px solid #eee;background: #FFFA;}
+.pic{width:30rpx;height: 30rpx;position: absolute;display: block;content: "";}
+.public .txt{flex:9;padding:10rpx 30rpx 10rpx;font-size: 35rpx;font-weight:bold;color: steelblue;position: absolute;}
+
 .top-title{
   padding-left: 45rpx;
   font-size: x-large;
@@ -148,4 +153,13 @@ page {
 radio-group{
   display: flex;
   justify-content: space-evenly;
+}
+
+.intro-text {
+  margin: 0rpx 25rpx;
+  margin-bottom: 150rpx;
+  box-shadow: 0rpx 10rpx 50rpx -6rpx #CCC;
+  padding: 25rpx;
+  border-radius: 0rpx 0rpx 25rpx 25rpx;
+  background-color: white;
 }

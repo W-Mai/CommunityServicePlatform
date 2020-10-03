@@ -93,6 +93,7 @@ Page({
         app.globalData.user_Id = res.data[0]._id;
         app.globalData.user_name= res.data[0].username;
         app.globalData.is_logged_in = true
+        app.globalData.user_group = res.data[0].user_group
         app.globalData.user_info = res.data[0].userInfo
         app.globalData.is_verified = res.data[0].is_verified
         app.globalData.index_need_refresh = true
@@ -117,7 +118,7 @@ Page({
         console.log(res.data[0])
         setTimeout(() => {
           wx.switchTab({
-            url:'../index/index'
+            url:'../select_main_page/select_main_page'
           })
         }, 1000);
  
@@ -148,6 +149,7 @@ Page({
   },
   logoutOnClick(event) {
     app.globalData.is_logged_in = false;
+    app.globalData.user_group = ""
     app.globalData.user_Id = "";
     app.globalData.user_name= "";
     app.globalData.user_info = {}

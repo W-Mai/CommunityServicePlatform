@@ -2,6 +2,7 @@ const utils = require('../../utils/util.js')
 
 var app = getApp();
 const db = wx.cloud.database()
+const _ = db.command
 // 查询当前用户所有的 counters
 const MAX_LIMIT = 10;
 
@@ -14,15 +15,7 @@ Page({
     infoData: [],
     currentPage:0,
     db_filter:{},
-    ascategories:[
-      {"name":"校级组织","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/学校.png","cate":"校级组织"},
-      {"name":"思想政治","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/更新变更.png","cate":"思想政治类"},
-      {"name":"学术科技","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/专家人才.png","cate":"学术科技类"},
-      {"name":"创新创业","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/企业公司.png","cate":"创新创业类"},
-      {"name":"文化体育","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/运动比赛.png","cate":"文化体育类"},
-      {"name":"志愿公益","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/同事群组.png","cate":"志愿公益类"},
-      {"name":"自律互助","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/健康安全.png","cate":"自律互助类"},
-    ],
+    ascategories:[],
     currentFilterIndex: -1,
     is_logged_in:false,
 
@@ -36,6 +29,7 @@ Page({
 
     default_logo:"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/ASLogos/ZZULI Logo Blue.png",
     
+    re_st_flag:0,
    },
 // 作用于wxml中的函数
   cleanFormat (text){
@@ -47,10 +41,36 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // console.log("OnLoad")
     this.setData({
-      is_logged_in:app.globalData.is_logged_in
+      is_logged_in : app.globalData.is_logged_in,
+      re_st_flag : options.re_st_flag,
+      infoData: [],
     })
+    if(this.data.re_st_flag == 1){
+      this.setData({
+        ascategories:[
+          {"name":"校级组织","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/学校.png","cate":"校级组织"},
+        ],
+        currentFilterIndex:0,
+        
+        currentPage:0
+      })
+    }else{
+      this.setData({
+        ascategories:[
+          {"name":"思想政治","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/更新变更.png","cate":"思想政治类"},
+          {"name":"学术科技","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/专家人才.png","cate":"学术科技类"},
+          {"name":"创新创业","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/企业公司.png","cate":"创新创业类"},
+          {"name":"文化体育","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/运动比赛.png","cate":"文化体育类"},
+          {"name":"志愿公益","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/同事群组.png","cate":"志愿公益类"},
+          {"name":"自律互助","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/健康安全.png","cate":"自律互助类"},
+        ],
+        infoData: []
+      })
+    }
     this.fetchData()
+    app.globalData.index_need_refresh = false
   },
 
   /**
@@ -64,6 +84,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    // console.log("OnShow")
     console.log("need",app.globalData.index_need_refresh)
     if(app.globalData.index_need_refresh){
       app.globalData.index_need_refresh = false
@@ -114,7 +135,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log("chudi");
+    // console.log("chudi");
     
     this.setData({
       currentPage:this.data.currentPage+1
@@ -133,7 +154,9 @@ Page({
       let id = this.data.currentFilterIndex
       if(id == -1) {
         this.setData({
-          db_filter:{}
+          db_filter:{
+            category:_.neq('校级组织')
+          }
         })
       } else{
         this.setData({

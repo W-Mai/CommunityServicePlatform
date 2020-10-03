@@ -19,11 +19,13 @@
 }
 .txt-title{
   font-size: x-large;
-  /* padding: 30rpx; */
   padding: 60rpx 0rpx;
   text-align: center;
-  /* height: 40rpx; */
   border-bottom: 1rpx solid rgba(102, 102, 102, 0.534);
+}
+.txt-campus{
+  padding-top: 10rpx;
+  font-size: x-small;
 }
 .txt{
   /* text-indent: 2em; */

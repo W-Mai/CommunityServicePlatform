@@ -16,3 +16,9 @@
 .buttonStyle{
   margin-top: 50rpx;
 }
+
+.warn{
+  margin-top: 50vh;
+  text-align: center;
+  font-size: x-small;
+}

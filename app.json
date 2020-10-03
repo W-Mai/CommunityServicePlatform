@@ -1,6 +1,6 @@
 {
   "pages":[
-    
+    "pages/select_main_page/select_main_page",
     "pages/index/index",
     "pages/one/one",
     "pages/many/many",
@@ -24,22 +24,24 @@
     "pages/help/help",
     "pages/editior_page/editior_page",
     "pages/about/about",
-    "pages/pdw_change/pdw_change"
+    "pages/pdw_change/pdw_change",
+    "pages/some_student_as/some_student_as",
+    "pages/teacher_manager/teacher_manager"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#6699FF",
-    "navigationBarTitleText": "郑轻大开放平台",
+    "navigationBarTitleText": "郑轻大学生组织开放平台",
     "navigationBarTextStyle":"white"
   },
   "tabBar":{
     "borderStyle": "black",
     "list":[
       {
-         "pagePath":"pages/index/index",
+         "pagePath":"pages/select_main_page/select_main_page",
          "iconPath": "images/home.png",
         "selectedIconPath": "images/_home.png",
-         "text":"社团/组织"
+         "text":"主页"
       },{
         "pagePath":"pages/verify/verify",
         "iconPath": "images/my.png",

@@ -14,13 +14,12 @@ Page({
     info:{
       name : "正在加载中……",
       information : "正在加载中……",
-     
+      campus:"正在加载中……"
     },
     is_logged_in:false,
     joint:false,
     nameList: [],
     open_ID: "",
-    md:"### fuckyou\n**A**bcdefg"
   },
 
   async fetchData(id){
@@ -60,7 +59,28 @@ Page({
       title: '请求中……',
     })
 
-    if(app.globalData.user_joint_ids.length>=MAX_JOINT_COUNT){
+    let applied_type_list = await db.collection('ASInformations').where({
+      _id:_.in(app.globalData.user_joint_ids)
+    }).field({
+      category:true
+    }).get().catch(res => {
+      wx.showToast({
+        title: '网络错误，大概……',
+        icon: 'none',
+        duration: 2000
+      })
+    })
+
+    let student_as_count = 0;
+    for(let ele_type in applied_type_list.data){
+      if(applied_type_list.data[ele_type].category!="校级组织"){
+        student_as_count += 1;
+      }
+    }
+
+    console.log(applied_type_list, student_as_count)
+
+    if(this.data.info.category != "校级组织" && student_as_count>=MAX_JOINT_COUNT){
       wx.hideLoading()
       wx.showToast({
         title: `报名个数已达上限${MAX_JOINT_COUNT}个`,
@@ -90,6 +110,12 @@ Page({
       this.setData({
         joint: true
       })
+      setTimeout(() => {
+        wx.showToast({
+          title: '请到“审核”页面填写报名表',
+          icon:"none"
+        })
+      }, 1500);
       await app.loadJointASList(app.globalData.user_Id)
     }
     // console.log(this.data.info._id, app.globalData.user_Id, res)
@@ -141,5 +167,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  btcopy(){
+    wx.setClipboardData({
+      data: this.data.info.qqgroup.toString(),
+    })
   }
 })

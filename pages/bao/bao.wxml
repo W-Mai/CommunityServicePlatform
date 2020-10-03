@@ -1,5 +1,13 @@
 <view wx:if="{{!success}}">
     <form bindsubmit="formSubmit">
+        <view class="intro-text animated fadeInDownBig ">
+            <wemark class="intro" md="{{info.information}}" link highlight type="wemark"></wemark>
+        </view>
+
+        <view class="public">
+            <image class="pic" src="/image/居左.png" mode="widthFix"></image>
+            <text class="txt">个人详细信息</text>
+        </view>
         <!-- <view class="big-form">
             <text class="top-title">请填写报名表</text>
         </view> -->
@@ -12,7 +20,7 @@
                 </view>
             </view>
 
-            
+
             <view class='row'>
                 <view class="tip">性别:</view>
                 <view class='info'>
@@ -40,6 +48,10 @@
                 </view>
             </view>
 
+            <view class="public">
+                <image class="pic" src="/image/居左.png" mode="widthFix"></image>
+                <text class="txt">社团信息</text>
+            </view>
             <view class='row'>
                 <view class="tip">服从调剂:</view>
                 <view class='info'>
@@ -51,7 +63,8 @@
             </view>
 
             <view class="row2">
-                <view class="tip">自我评定（思想，工作，学习和获奖情况等）:</view>
+                <view class="tip">自我评定（思想，工作，学习和获
+                    奖情况等）:</view>
                 <view class='textarea-count'>
                     <textarea class="big-area" name="自我评定" placeholder='请输入文字' bindinput="getWords"
                         maxlength='{{maxTextLen[0]}}' data-id="1" value="{{user_form['自我评定']}}"
