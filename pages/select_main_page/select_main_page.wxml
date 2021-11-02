@@ -6,7 +6,7 @@
     <navigator url="{{path}}" open-type="{{openType}}">
       <view class="one-line-wrapper n1 animated wobble">
         <view class="icon">
-          <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/学生会管理.png"
+          <image src="http://com-sp.xclz.tech:5050/static/ui_logos/学生会管理.png"
             mode="aspectFit"></image>
         </view>
         <view class="info">
