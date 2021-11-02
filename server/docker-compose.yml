@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - cspdatabase:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=cspdb
+      - POSTGRES_USER=csp
+      - POSTGRES_PASSWORD=452125D727E64D02B3196A310C4DE7DC
+    ports:
+      - "5432:5432"
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: csp:server
+    container_name: cspServer
+    command: python3 manage.py runserver 0.0.0.0:8000
+#    volumes:
+#      - .:/code
+    ports:
+      - "5050:8000"
+    depends_on:
+      - db
+volumes:
+  cspdatabase: {}
