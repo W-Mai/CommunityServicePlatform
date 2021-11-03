@@ -15,9 +15,9 @@ Page({
     imgs: {
       logos: [
         img_url("ui_logos", "学生会管理.png"),
-        img_url("ui_logos", "学生会管理.png"),
-        img_url("ui_logos", "学生会管理.png"),
-        img_url("ui_logos", "学生会管理.png"),
+        img_url("ui_logos", "列表控件.png"),
+        img_url("ui_logos", "学校.png"),
+        img_url("ui_logos", "社团.png"),
       ],
       bg: img_url("ui_bg", "indexBG.jpg")
     }
