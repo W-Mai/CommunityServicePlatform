@@ -3,6 +3,7 @@
   "packOptions": {
     "ignore": []
   },
+  "cloudfunctionRoot": "cloud/",
   "setting": {
     "urlCheck": true,
     "es6": true,
@@ -21,6 +22,7 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
     "useApiHostProcess": true,
@@ -44,16 +46,21 @@
   "libVersion": "2.12.2",
   "appid": "wx94cdd39b86daef99",
   "projectname": "CommunityServicePlatform",
-  "cloudfunctionRoot": "cloud/",
-  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
-  "watchOptions": {
-    "ignore": []
-  },
   "debugOptions": {
     "hidedInDevtools": []
   },
   "scripts": {},
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
     "plugin": {
       "list": []
     },
@@ -66,6 +73,7 @@
     "miniprogram": {
       "list": [
         {
+          "id": -1,
           "name": "demo",
           "pathName": "pages/demo/demo",
           "query": "",
@@ -124,13 +132,6 @@
           "id": -1,
           "name": "pages/teacher_manager/teacher_manager",
           "pathName": "pages/teacher_manager/teacher_manager",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/about/about",
-          "pathName": "pages/about/about",
-          "query": "",
           "scene": null
         }
       ]
