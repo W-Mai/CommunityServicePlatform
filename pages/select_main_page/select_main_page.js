@@ -2,14 +2,27 @@
 
 const app = getApp()
 
+import {img_url} from "../../utils/api";
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    is_logged_in:false,
-    
+    is_logged_in: false,
+
+    imgs: {
+      logos: [
+        img_url("ui_logos", "学生会管理.png"),
+        img_url("ui_logos", "学生会管理.png"),
+        img_url("ui_logos", "学生会管理.png"),
+        img_url("ui_logos", "学生会管理.png"),
+      ],
+      bg: img_url("ui_bg", "indexBG.jpg")
+    }
+    ,
+
     path:"",
     openType:"switchTab",
 

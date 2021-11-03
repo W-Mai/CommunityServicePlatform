@@ -1,55 +1,54 @@
 /* pages/select_main_page/select_main_page.wxss */
 
-.total-page{
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  /* background-image: linear-gradient(135deg, #ffffffbd, #9cf0ffc4); */
-  background: url('https://7a7a-zzuli-as-open-plt-qfh5y-1303166244.tcb.qcloud.la/SomePics/indexBG.jpg?sign=88ba98ba8e3c3c712107aadf0c2f4ca7&t=1601031806');
-  background-repeat:no-repeat;
-  background-attachment:fixed;
-  background-position:center;
-  background-size: cover;
+.total-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.one-line-wrapper{
-  margin: 50rpx 100rpx;
-  padding: 30rpx 30rpx;
+.one-line-wrapper {
+    margin: 50rpx 100rpx;
+    padding: 30rpx 30rpx;
 
-  display: flex;
-  align-items: center;
-  border-radius: 30rpx;
-  /* border: 1rpx solid #666; */
-  box-shadow: 0rpx 8rpx 30rpx 2rpx rgba(161, 161, 161, 0.8);
+    display: flex;
+    align-items: center;
+    border-radius: 30rpx;
+    /* border: 1rpx solid #666; */
+    box-shadow: 0rpx 8rpx 30rpx 2rpx rgba(161, 161, 161, 0.8);
 
-  color: white;
+    color: white;
 }
-.n1{
-  background-image: linear-gradient(135deg, #f12711, #f5af19);
+
+.n1 {
+    background-image: linear-gradient(135deg, #f12711, #f5af19);
 }
-.n2{
-  background-image: linear-gradient(135deg,#ff416c, #ff4b2b);
+
+.n2 {
+    background-image: linear-gradient(135deg, #ff416c, #ff4b2b);
 }
-.n3{
-  background-image: linear-gradient(135deg,#fdc830, #f37335);
+
+.n3 {
+    background-image: linear-gradient(135deg, #fdc830, #f37335);
 }
-.one-line-wrapper .icon{
-  flex: 2;
-  height: 135rpx;
-  width: 135rpx;
+
+.one-line-wrapper .icon {
+    flex: 2;
+    height: 135rpx;
+    width: 135rpx;
 }
-.one-line-wrapper image{
-  
-  width: 130rpx;
-  height: 130rpx;
+
+.one-line-wrapper image {
+
+    width: 130rpx;
+    height: 130rpx;
 }
-.one-line-wrapper .info{
-  flex:9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: large;
-  font-weight: 600;
+
+.one-line-wrapper .info {
+    flex: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-weight: 600;
 }

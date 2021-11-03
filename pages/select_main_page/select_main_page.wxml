@@ -1,12 +1,12 @@
 <!--pages/select_main_page/select_main_page.wxml-->
 
-<view class="total-page">
+<view class="total-page" style="background: url('{{ imgs.bg }}');background-repeat: no-repeat;background-attachment: fixed;background-position: center;background-size: cover;">
 
   <block wx:if="{{user_group == 'student' || user_group == ''}}">
     <navigator url="{{path}}" open-type="{{openType}}">
       <view class="one-line-wrapper n1 animated wobble">
         <view class="icon">
-          <image src="http://com-sp.xclz.tech:5050/static/ui_logos/学生会管理.png"
+          <image src="{{ imgs.logos[0] }}"
             mode="aspectFit"></image>
         </view>
         <view class="info">
@@ -19,7 +19,7 @@
     <navigator url="/pages/teacher_manager/teacher_manager">
       <view class="one-line-wrapper n1 animated wobble">
         <view class="icon">
-          <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/列表控件.png"
+          <image src="{{ imgs.logos[1] }}"
             mode="aspectFit"></image>
         </view>
         <view class="info">
@@ -34,7 +34,7 @@
     <navigator url="/pages/index/index?re_st_flag=1">
       <view class="one-line-wrapper n2 animated wobble">
         <view class="icon">
-          <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/学校.png"
+          <image src="{{ imgs.logos[2] }}"
             mode="aspectFit"></image>
         </view>
         <view class="info">
@@ -46,7 +46,7 @@
     <navigator url="/pages/index/index">
       <view class="one-line-wrapper n3 animated wobble">
         <view class="icon">
-          <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/社团 (2).png"
+          <image src="{{ imgs.logos[3] }}"
             mode="aspectFit"></image>
         </view>
         <view class="info">
