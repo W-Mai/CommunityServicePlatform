@@ -1,0 +1,86 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "demo",
+          "pathName": "pages/demo/demo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "one",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "many",
+          "pathName": "pages/many/many",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "main",
+          "pathName": "pages/main/main",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 5,
+          "name": "pages/inform_new/inform_new",
+          "pathName": "pages/inform_new/inform_new",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/verify/verify",
+          "pathName": "pages/verify/verify",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/forget/forget",
+          "pathName": "pages/forget/forget",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/teacher_manager/teacher_manager",
+          "pathName": "pages/teacher_manager/teacher_manager",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/about/about",
+          "pathName": "pages/about/about",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}
