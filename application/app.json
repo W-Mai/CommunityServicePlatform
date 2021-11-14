@@ -1,32 +1,25 @@
 {
   "pages":[
     "pages/select_main_page/select_main_page",
-    "pages/index/index",
-    "pages/one/one",
-    "pages/many/many",
+    "pages/com-list_page/com-list_page",
     
     "pages/logs/logs",
-    "pages/search/search",
-    "pages/main/main",
+    "pages/com-post_page/com-post_page",
     
+    "pages/sign-up_page/sign-up_page",
     
-    "pages/list/list",
-    "pages/sign/sign",
-    
-    "pages/verify/verify",
+    "pages/review_page/review_page",
 
-    "pages/news/news",
-    "pages/demo/demo",
-    "pages/forget/forget",
-    "pages/warn/warn",
-    "pages/bao/bao",
-    "pages/inform/inform",
+    "pages/my_info_and_login_page/my_info_and_login_page",
+    "pages/forgot_account_page/forgot_account_page",
+    "pages/registration_page/registration_page",
+    "pages/my_information_page/my_information_page",
     "pages/help/help",
     "pages/editior_page/editior_page",
     "pages/about/about",
     "pages/pdw_change/pdw_change",
-    "pages/some_student_as/some_student_as",
-    "pages/teacher_manager/teacher_manager"
+    "pages/teacher_manager/teacher_manager",
+    "pages/demo/demo"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -43,12 +36,12 @@
         "selectedIconPath": "images/_home.png",
          "text":"主页"
       },{
-        "pagePath":"pages/verify/verify",
+        "pagePath":"pages/review_page/review_page",
         "iconPath": "images/my.png",
         "selectedIconPath": "images/_my.png",
         "text":"审核"
       },{
-        "pagePath":"pages/news/news",
+        "pagePath":"pages/my_info_and_login_page/my_info_and_login_page",
         "iconPath": "images/search.png",
         "selectedIconPath": "images/_search.png",
         "text":"个人中心"

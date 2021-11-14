@@ -1,0 +1,131 @@
+<view class="info-page" wx:if="{{is_logged_in}}">
+  <!-- pages/center/center.wxml -->
+  <view class="blocks" bindtap="blocksBtOnClick">
+    <view class="top-logo">
+      <image class="whitePic" src="/images/ZZULI Logo Blue.png"></image>
+    </view>
+    <view class="top-Names">
+      <view class="name">{{userInfo.name}}</view>
+      <view class="college">{{userInfo.college}}</view>
+    </view>
+    <view class="top-editbox">
+      <text>编辑</text>
+      <text class="editmark">›</text>
+      <!-- <image class="right" src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/右箭头_白.png"></image> -->
+    </view>
+  </view>
+
+  <view class="first-row">
+    <navigator url="/pages/review_page/review_page" open-type="switchTab">
+      <view class="chink">
+        <view class="perfect">
+          <view class="row-left">
+            <view>
+              <image class="icon"
+                src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/社团.png"></image>
+            </view>
+            <view>
+              <text class="note">我的社团</text>
+            </view>
+          </view>
+          <text class="editmark">›</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+
+  <view class="first-row">
+    <navigator url="">
+      <view class="chink">
+        <view class="perfect">
+          <view class="row-left">
+            <image class="icon"
+              src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/帮助.png"></image>
+            <view>
+              <text class="note">帮助</text>
+            </view>
+          </view>
+          <text class="editmark">›</text>
+        </view>
+      </view>
+    </navigator>
+
+    <navigator url="/pages/about/about">
+      <view class="chink">
+        <view class="perfect">
+          <view class="row-left">
+            <image class="icon"
+              src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/关于.png"></image>
+            <view>
+              <text class="note">关于</text>
+            </view>
+          </view>
+          <text class="editmark">›</text>
+        </view>
+      </view>
+    </navigator>
+
+    <navigator url="/pages/pdw_change/pdw_change">
+      <view class="chink">
+        <view class="perfect">
+          <view class="row-left">
+            <image class="icon"
+              src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/修改密码.png"></image>
+            <view>
+              <text class="note">修改密码</text>
+            </view>
+          </view>
+          <text class="editmark">›</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+
+
+  <view class="exit-row">
+    <view class="chink">
+      <view class="perfect">
+        <text class="note" bindtap="logoutOnClick">退出登录</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="loggin-page" wx:else>
+  <view class="top-bg">
+    <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/图书馆图层.png"
+      mode="widthFix"></image>
+  </view>
+  <view>
+    <image class="whitePic" src="/images/白色.png"></image>
+    <image class="writing"
+      src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/hb字.png"></image>
+  </view>
+  <view class="middle-form">
+    <!-- <view class="lefttext">学号</view> -->
+    <view class="inputBlock">
+      <input type="username" class="underline_input" adjust-position="true" placeholder="请输入学号"
+        bindinput="bindNameInput"></input>
+    </view>
+    <!-- <view class="line"></view> -->
+    <!-- <view class="lefttext">密码</view> -->
+    <view class="inputBlock">
+      <input type="password" class="underline_input" adjust-position="true" placeholder="请输入密码"
+        bindinput="bindPasswordInput" bindconfirm="bindConfirm"></input>
+    </view>
+    <!-- <view class="line"></view> -->
+    <view class="samelevel">
+      <navigator url="/pages/sign-up_page/sign-up_page">
+        <view class="fontRed">没有账号？点此注册</view>
+      </navigator>
+      <navigator url="/pages/forgot_account_page/forgot_account_page">
+        <view class="ForgetPassward">忘记密码？</view>
+      </navigator>
+    </view>
+    <!-- <navigator url="/pages/center/center"> -->
+    <button class="submitbutton" form-type="submit" type="primary" bindtap='bindingSuccess'>
+      登录
+    </button>
+    <!-- </navigator> -->
+  </view>
+</view>

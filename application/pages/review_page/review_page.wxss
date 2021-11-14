@@ -1,0 +1,136 @@
+/* pages/review_page/review_page.wxss */
+page {
+  background-color: aliceblue;
+}
+
+.unlogged-in{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: white;
+
+
+  margin: 50rpx;
+  margin-top: 0rpx;
+  padding-top: 160rpx;
+  padding-bottom: 120rpx;
+  box-shadow: 0rpx 20rpx 50rpx -10rpx lightgray;
+  border-bottom-left-radius: 25rpx;
+  border-bottom-right-radius: 25rpx;
+}
+.btn {
+  margin-top: 80rpx;
+  font-size: 25rpx;
+  background: rgb(255, 139, 45);
+  color: rgb(255, 255, 255);
+}
+
+.ptc {
+  width: 560rpx;
+  height: 336rpx;
+}
+
+.addButton {
+  margin-top: 100rpx;
+}
+
+.row {
+  margin: 20rpx;
+  padding: 25rpx;
+  box-shadow: 8rpx 8rpx 30rpx rgba(44, 40, 40, 0.12);
+  background: #fff;
+
+  /* border:  1px solid red; */
+  border-radius: 30rpx;
+}
+
+.info-input {
+  margin: 30rpx 50rpx;
+  color: black;
+}
+
+.small-fuck {
+  padding: 20rpx 10rpx;
+  padding-left: 2em;
+  display: block;
+  /* height: 70rpx; */
+  box-shadow: 5rpx 5rpx 20rpx rgba(44, 40, 40, 0.15);
+  border-radius: 15rpx;
+  text-overflow:ellipsis;
+
+  word-wrap:break-word
+}
+
+.info-input-button {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 0rpx 50rpx;
+}
+
+.buttonl {
+  font-size: 20rpx;
+  background: #339cff;
+
+  border-radius: 15rpx;
+  color: #FFFFFF;
+}
+
+.buttonr {
+  font-size: 20rpx;
+  background: #339cff;
+
+  border-radius: 15rpx;
+  color: #FFFFFF;
+}
+
+.guidence{
+  background-color: white;
+  margin:0rpx 30rpx;
+}
+.guidence text{
+  display: block;
+  margin: 10rpx 20rpx;
+}
+
+.guidence .top-header-wrapper{
+  padding: 35vh 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.guidence .top-header{
+  text-align: center;
+  font-size: xx-large;
+
+  padding: 30rpx 0rpx;
+  /* border: 1rpx solid #666; */
+  border-radius: 15rpx;
+  color: #AAA;
+}
+
+.guidence .help-content-line{
+  display: flex;
+  align-items: center;
+}
+
+.guidence .bottom-attention-view{
+  margin: 60rpx;
+  padding: 60rpx 0rpx;
+}
+.guidence .bottom-attention{
+  font-size: xx-small;
+}
+
+.guidence .top-header-wrapper image{
+  display: block;
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.unlogged-in-wrapper .guidence{
+  margin-top: 30vh;
+  background-color: aliceblue;
+}

@@ -31,7 +31,7 @@
 
 
   <block wx:if="{{user_group == 'student' || user_group == ''}}">
-    <navigator url="/pages/index/index?re_st_flag=1">
+    <navigator url="/pages/com-list_page/com-list_page?re_st_flag=1">
       <view class="one-line-wrapper n2 animated wobble">
         <view class="icon">
           <image src="{{ imgs.logos[2] }}"
@@ -43,7 +43,7 @@
       </view>
     </navigator>
 
-    <navigator url="/pages/index/index">
+    <navigator url="/pages/com-list_page/com-list_page">
       <view class="one-line-wrapper n3 animated wobble">
         <view class="icon">
           <image src="{{ imgs.logos[3] }}"

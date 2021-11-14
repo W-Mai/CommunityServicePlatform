@@ -5,8 +5,5 @@
   <view class="inputBlock">
     <input type="username" class="underline_input" placeholder="请输入您的{{info}}" value="{{passback}}" bindinput="updateValue"></input>
   </view>
-  <!-- <navigator url="/pages/warn/warn"> -->
-    <button class="buttonStyle" form-type="submit" type="primary" bindtap="onClick">保存</button>
-  <!-- </navigator> -->
-
+  <button class="buttonStyle" form-type="submit" type="primary" bindtap="onClick">保存</button>
 </view>

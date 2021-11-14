@@ -1,16 +1,15 @@
-    <view class='box'>
-      <block wx:for="{{textList}}" wx:key="id">
-        <view class='text-item'>
-          <view class='text-name'>{{item.title}}</view>
-          <view class='text-desc' style="{{item.upStatus?'':'display:-webkit-box'}}">{{item.description}}</view>
-          <view class='text-bottom'>
-            <view class='text-btn' data-index="{{index}}" bindtap='upDown'>
-              <image hidden='{{item.upStatus}}' src='/images/slide.png'></image>
-              <image hidden='{{!item.upStatus}}' src='/images/up.png'></image>
-              <text>{{!item.upStatus?'展开':'收起'}}</text>
-            </view>
-          </view>
+<view class='box'>
+  <block wx:for="{{textList}}" wx:key="id">
+    <view class='text-item'>
+      <view class='text-name'>{{item.title}}</view>
+      <view class='text-desc' style="{{item.upStatus?'':'display:-webkit-box'}}">{{item.description}}</view>
+      <view class='text-bottom'>
+        <view class='text-btn' data-index="{{index}}" bindtap='upDown'>
+          <image hidden='{{item.upStatus}}' src='/images/slide.png'></image>
+          <image hidden='{{!item.upStatus}}' src='/images/up.png'></image>
+          <text>{{!item.upStatus?'展开':'收起'}}</text>
         </view>
-      </block>
+      </view>
     </view>
-
+  </block>
+</view>

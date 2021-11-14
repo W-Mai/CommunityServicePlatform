@@ -1,0 +1,191 @@
+<view class="top-block">
+  <view class="one-row">
+    <view class="one-row-key">头像</view>
+    <view>
+      <view class="one-row-value">
+        <view>
+          <image class="profile"
+            src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/ASLogos/ZZULI Logo Blue.png"
+            mode="aspectFit"></image>
+        </view>
+        <view class="one-row-more-button">›</view>
+      </view>
+    </view>
+  </view>
+
+  <navigator url="/pages/editior_page/editior_page?info=姓名&data={{userInfo['姓名']}}">
+    <view class="one-row">
+      <view class="one-row-key">姓名</view>
+      <view>
+        <view class="one-row-value">
+          <view>{{userInfo["姓名"]}}</view>
+          <view class="one-row-more-button">›</view>
+        </view>
+      </view>
+    </view>
+  </navigator>
+
+  <picker bindchange="bindPickerChange" value="{{gender_index}}" range="{{gender_array}}" data-id="gender">
+    <view class="one-row">
+      <view class="one-row-key">性别</view>
+      <view>
+        <view class="one-row-value">
+          {{gender_array[gender_index]}}
+          <view class="one-row-more-button">›</view>
+        </view>
+        <!-- <view class="one-row-value"><view>{{name}}</view><view class="one-row-more-button">›</view></view> -->
+      </view>
+    </view>
+  </picker>
+
+  <picker mode="date" bindchange="bindPickerChange" value="{{currentDate}}" data-id="birthday" start="1995-01-01" end="2099-12-31">
+    <view class="one-row">
+      <view class="one-row-key">出生日期</view>
+      <view>
+        <view class="one-row-value">
+          {{currentDate}}
+          <view class="one-row-more-button">›</view>
+        </view>
+        <!-- <view class="one-row-value"><view>{{name}}</view><view class="one-row-more-button">›</view></view> -->
+      </view>
+    </view>
+  </picker>
+
+  <navigator url="/pages/editior_page/editior_page?info=政治面貌&data={{userInfo['政治面貌']}}">
+    <view class="one-row">
+      <view class="one-row-key">政治面貌</view>
+      <view>
+        <view class="one-row-value">
+          <view>{{userInfo["政治面貌"]}}</view>
+          <view class="one-row-more-button">›</view>
+        </view>
+      </view>
+    </view>
+  </navigator>
+
+  <navigator url="/pages/editior_page/editior_page?info=籍贯&data={{userInfo['籍贯']}}">
+    <view class="one-row">
+      <view class="one-row-key">籍贯</view>
+      <view>
+        <view class="one-row-value">
+          <view>{{userInfo["籍贯"]}}</view>
+          <view class="one-row-more-button">›</view>
+        </view>
+      </view>
+    </view>
+  </navigator>
+
+  <navigator url="/pages/editior_page/editior_page?info=民族&data={{userInfo['民族']}}">
+    <view class="one-row">
+      <view class="one-row-key">民族</view>
+      <view>
+        <view class="one-row-value">
+          <view>{{userInfo["民族"]}}</view>
+          <view class="one-row-more-button">›</view>
+        </view>
+      </view>
+    </view>
+  </navigator>
+  
+  <navigator url="/pages/editior_page/editior_page?info=手机号&data={{userInfo['手机号']}}">
+    <view class="one-row">
+      <view class="one-row-key">手机号</view>
+      <view>
+        <view class="one-row-value">
+          <view>{{userInfo["手机号"]}}</view>
+          <view class="one-row-more-button">›</view>
+        </view>
+      </view>
+    </view>
+  </navigator>
+
+  <navigator url="/pages/editior_page/editior_page?info=QQ&data={{userInfo['QQ']}}">
+    <view class="one-row">
+      <view class="one-row-key">QQ</view>
+      <view>
+        <view class="one-row-value">
+          <view>{{userInfo["QQ"]}}</view>
+          <view class="one-row-more-button">›</view>
+        </view>
+      </view>
+    </view>
+  </navigator>
+
+  <navigator url="/pages/editior_page/editior_page?info=学院&data={{userInfo['学院']}}">
+    <view class="one-row">
+      <view class="one-row-key">学院</view>
+      <view>
+        <view class="one-row-value">
+          <view>{{userInfo["学院"]}}</view>
+          <view class="one-row-more-button">›</view>
+        </view>
+      </view>
+    </view>
+  </navigator>
+
+  <navigator url="/pages/editior_page/editior_page?info=班级&data={{userInfo['班级']}}">
+    <view class="one-row">
+      <view class="one-row-key">班级</view>
+      <view>
+        <view class="one-row-value">
+          <view>{{userInfo["班级"]}}</view>
+          <view class="one-row-more-button">›</view>
+        </view>
+      </view>
+    </view>
+  </navigator>
+
+  <!-- <navigator url="/pages/editior_page/editior_page?info=校区"> -->
+  <picker bindchange="bindPickerChange" value="{{college_index}}" range="{{college_array}}" data-id="campus">
+    <view class="one-row">
+      <view class="one-row-key">校区</view>
+      <view>
+        <view class="one-row-value">
+          {{college_array[college_index]}}
+          <view class="one-row-more-button">›</view>
+        </view>
+        <!-- <view class="one-row-value"><view>{{name}}</view><view class="one-row-more-button">›</view></view> -->
+      </view>
+    </view>
+  </picker>
+  <!-- </navigator> -->
+
+</view>
+
+<view class="medium-block">
+  <view class="one-row">
+    <view class="one-row-key">学号</view>
+    <view>
+      <view class="one-row-value-name">
+        <view>{{userInfo["学号"]}}</view>
+        <!-- <view class="one-row-more-button">›</view> -->
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="bottom-block">
+  <view class="one-row-studentidcard">
+    <view>
+      <text>学生证</text>
+    </view>
+  </view>
+  <view class="one-row-studentidcard-img">
+    <view>
+      <image class="profile"
+        src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/ASLogos/ZZULI Logo Blue.png"
+        mode="aspectFit"></image>
+    </view>
+    <view>
+      <image class="profile"
+        src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/ASLogos/ZZULI Logo Blue.png"
+        mode="aspectFit"></image>
+    </view>
+  </view>
+</view>
+
+<!-- <view class="bottom-block"> -->
+  <view class="button-submit">
+    <button bindtap="submit_info">提交审核</button>
+  </view>
+<!-- </view> -->
