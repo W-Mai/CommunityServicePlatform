@@ -2,7 +2,7 @@
 
 const app = getApp()
 
-import {img_url} from "../../utils/api";
+import { srvImg } from "../../utils/api";
 
 Page({
 
@@ -14,12 +14,12 @@ Page({
 
     imgs: {
       logos: [
-        img_url("ui_logos", "学生会管理.png"),
-        img_url("ui_logos", "列表控件.png"),
-        img_url("ui_logos", "学校.png"),
-        img_url("ui_logos", "社团.png"),
+        srvImg.ui_logos("学生会管理.png"),
+        srvImg.ui_logos("列表控件.png"),
+        srvImg.ui_logos("学校.png"),
+        srvImg.ui_logos("社团.png"),
       ],
-      bg: img_url("ui_bg", "indexBG.jpg")
+      bg: srvImg.ui_bg("indexBG.jpg")
     }
     ,
 

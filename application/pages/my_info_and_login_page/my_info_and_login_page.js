@@ -1,4 +1,4 @@
-import {img_url} from "../../utils/api";
+import { srvImg } from "../../utils/api";
 
 var app = getApp();
 // pages/login/login.js
@@ -10,12 +10,12 @@ Page({
      */
     data: {
         imgs: {
-            "school": img_url("ui_imgs", "school.jpg"),
-            "word": img_url("ui_imgs", "hb字.png"),
-            "com": img_url("ui_logos", "com.png"),
-            "help": img_url("ui_logos", "help.png"),
-            "about": img_url("ui_logos", "about.png"),
-            "password": img_url("ui_logos", "24gl-lock2.png"),
+            "school": srvImg.ui_imgs("school.jpg"),
+            "word": srvImg.ui_imgs("hb字.png"),
+            "com": srvImg.ui_imgs("com.png"),
+            "help": srvImg.ui_imgs("help.png"),
+            "about": srvImg.ui_imgs("about.png"),
+            "password": srvImg.ui_imgs("24gl-lock2.png"),
         },
         bindName: '',
         bindPassword: '',

@@ -1,4 +1,4 @@
-import {img_url} from "../../utils/api";
+import { srvImg } from "../../utils/api";
 
 var app = getApp();
 const db = wx.cloud.database()
@@ -8,8 +8,8 @@ Page({
     data: {
         is_logged_in: false,
         imgs: {
-            "whitespace": img_url("ui_imgs", "whitespace.png"),
-            "waiVqs": img_url("ui_imgs", "waiVqs.jpg")
+            "whitespace": srvImg.ui_imgs("whitespace.png"),
+            "waiVqs": srvImg.ui_imgs("waiVqs.jpg")
         },
         nameList: [],
         //初始化数组

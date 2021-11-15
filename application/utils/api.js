@@ -15,13 +15,33 @@ const test = async (code) => {
     })).data
 }
 
-const img_url = (category, name) => {
-    return `${SITE_URL}/static/${category}/${name}`
+let ServerImage = {
+    innerClass(last, name) {
+        let resPath = `${last.path}/${name}`
+        let res = (filename) => {
+            if(filename) return `${resPath}/${filename}`
+            else return resPath
+        }
+        res.path = resPath
+        return res
+    },
+    newProxy(last, name) {
+        return new Proxy(this.innerClass(last, name), {
+            get(target, name) {
+                if (name === "path") return target.path
+                return ServerImage.newProxy(target, name)
+            }
+        })
+    },
+    init(path){
+        return this.newProxy({path: path}, "static")
+    }
 }
 
-module.exports = {
-    SITE_URL, test,
-    // rest api
+let srvImg = ServerImage.init(SITE_URL)
 
-    img_url
+module.exports = {
+    SITE_URL, test, srvImg
+    // rest api
+   
 }
