@@ -16,10 +16,7 @@
   color: white;
   width: auto;
   height: auto;
-  /* position: absolute; */
 
-  /* right: 3rpx;
-  top: 3rpx; */
   padding-top: 6rpx;
   padding-right: 20rpx;
 }
@@ -29,28 +26,35 @@
   height: 268rpx;
   background-color: rgba(0, 26, 255, 0.233);
 } */
+
+.img-text-group {
+  position: absolute; 
+  left: 50%; top: 50%; 
+  transform: translate(-50%, -50%);
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+}
+
 .loggin-page .whitePic {
-  position: absolute;
-  text-align: center;
-  display: block;
-  top:40rpx;
-  left:300rpx;
-  /* margin: 0 auto;
-  margin-top: 150rpx; */
   width: 150rpx;
   height: 150rpx;
 }
+
 .loggin-page .top-bg {
-  height: 268rpx;
-  margin-bottom: 150rpx;
+  margin-bottom: 100rpx;
+
+  position: relative;
 }
+
 .loggin-page .writing {
-  position: absolute;
-  top: 220rpx;
-  left: 180rpx;
-  height: 70rpx;
-  width: 400rpx;
+  color: white; 
+  font-size: larger; 
+  margin-top: 20rpx; 
+  letter-spacing: 10rpx;
 }
+
 .lefttext{
   color: white;
   margin-left: 40rpx;

@@ -5,7 +5,7 @@
       <view class="one-row-value">
         <view>
           <image class="profile"
-            src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/ASLogos/ZZULI Logo Blue.png"
+            src="/images/ZZULI Logo Blue.png"
             mode="aspectFit"></image>
         </view>
         <view class="one-row-more-button">›</view>
@@ -173,12 +173,12 @@
   <view class="one-row-studentidcard-img">
     <view>
       <image class="profile"
-        src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/ASLogos/ZZULI Logo Blue.png"
+        src="/images/ZZULI Logo Blue.png"
         mode="aspectFit"></image>
     </view>
     <view>
       <image class="profile"
-        src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/ASLogos/ZZULI Logo Blue.png"
+        src="/images/ZZULI Logo Blue.png"
         mode="aspectFit"></image>
     </view>
   </view>

@@ -2,7 +2,8 @@
 
     <block wx:if="{{ASVerifiedList.length!=0}}">
 
-        <view class="price-detail animated bounceInDown" wx:for="{{ASVerifiedList}}" wx:key="*this" style="--animate-delay:{{0.3*index}}s">
+        <view class="price-detail animated bounceInDown" wx:for="{{ASVerifiedList}}" wx:key="*this"
+              style="--animate-delay:{{0.3*index}}s">
             <view class='row'>
                 <view class='info-input'>
                     <text class="small-fuck">社团名称：{{item.name}}</text>
@@ -12,10 +13,12 @@
                 </view>
                 <view class='info-input-button'>
                     <button class='buttonl' size="mini" bindtap='baoming' disabled='{{disabled}}'
-                        style="background-color:{{color}}" data-id="{{item.join_id}}"
-                        data-name="{{item.name}}">{{text1}}</button>
+                            style="background-color:{{color}}" data-id="{{item.join_id}}"
+                            data-name="{{item.name}}">{{text1}}
+                    </button>
                     <button class='buttonr' size="mini" bindtap='delete' data-index="{{index}}" disabled='{{disabled}}'
-                        style="background-color:{{color}}" data-id="{{item.join_id}}">{{text2}}</button>
+                            style="background-color:{{color}}" data-id="{{item.join_id}}">{{text2}}
+                    </button>
                 </view>
 
             </view>
@@ -26,15 +29,19 @@
         <view class="guidence">
             <navigator url="/pages/select_main_page/select_main_page" open-type="switchTab">
                 <view class="top-header-wrapper">
-                    <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/空白.png"
-                        mode="aspectFit"></image>
+                    <image src="{{ imgs.whitespace }}"
+                           mode="aspectFit"></image>
                     <cover-view class="top-header">空空如也</cover-view>
                 </view>
             </navigator>
             <block wx:for="{{help_content}}" wx:key="*this">
                 <view class="help-content-line">
-                    <view><text>{{index+1}}</text></view>
-                    <view><text class="mid-content">{{item}}</text></view>
+                    <view>
+                        <text>{{index + 1}}</text>
+                    </view>
+                    <view>
+                        <text class="mid-content">{{item}}</text>
+                    </view>
                 </view>
             </block>
 
@@ -56,14 +63,13 @@
     <view class="unlogged-in animated bounceInDown">
 
         <view>
-            <image src="cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/waiVqs.jpg"
-                class="ptc" />
+            <image src="{{ imgs.waiVqs }}"
+                   class="ptc"/>
         </view>
 
         <view>
             <button bindtap="submitHandler" size="mini" class="btn">您还未登录，点击跳转登录面</button>
         </view>
-
 
 
     </view>
@@ -72,8 +78,12 @@
 
         <block wx:for="{{help_content}}" wx:key="*this">
             <view class="help-content-line">
-                <view><text>{{index+1}}</text></view>
-                <view><text class="mid-content">{{item}}</text></view>
+                <view>
+                    <text>{{index + 1}}</text>
+                </view>
+                <view>
+                    <text class="mid-content">{{item}}</text>
+                </view>
             </view>
         </block>
 
