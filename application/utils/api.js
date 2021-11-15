@@ -15,7 +15,7 @@ const test = async (code) => {
     })).data
 }
 
-let ServerImage = {
+let ServerStaticRes = {
     innerClass(last, name) {
         let resPath = `${last.path}/${name}`
         let res = (filename) => {
@@ -29,16 +29,18 @@ let ServerImage = {
         return new Proxy(this.innerClass(last, name), {
             get(target, name) {
                 if (name === "path") return target.path
-                return ServerImage.newProxy(target, name)
+                return ServerStaticRes.newProxy(target, name)
             }
         })
     },
-    init(path){
-        return this.newProxy({path: path}, "static")
+    init(path, category){
+        return this.newProxy({
+            path: path
+        }, `static/${category}`)
     }
 }
 
-let srvImg = ServerImage.init(SITE_URL)
+let srvImg = ServerStaticRes.init(SITE_URL, "imgs")
 
 module.exports = {
     SITE_URL, test, srvImg
