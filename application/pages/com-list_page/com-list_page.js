@@ -1,4 +1,5 @@
 const utils = require('../../utils/util.js')
+import { srvImg } from "../../utils/api"
 
 var app = getApp();
 const db = wx.cloud.database()
@@ -20,14 +21,14 @@ Page({
     is_logged_in:false,
 
     banner_srcs:[
-      "cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/IMG_0030.jpg",
-      "cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/IMG_0028.jpg",
-      "cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/IMG_0029.jpg"
+      srvImg.banner("IMG_0030.jpg"),
+      srvImg.banner("IMG_0029.jpg"),
+      srvImg.banner("IMG_0028.jpg"),
     ],
 
     scrollView_left:0,
 
-    default_logo:"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/ASLogos/ZZULI Logo Blue.png",
+    default_logo:"/images/ZZULI Logo Blue.png",
     
     re_st_flag:0,
    },
@@ -50,7 +51,7 @@ Page({
     if(this.data.re_st_flag == 1){
       this.setData({
         ascategories:[
-          {"name":"校级组织","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/学校.png","cate":"校级组织"},
+          {"name":"校级组织","url":srvImg.ui_logos("学校.png"),"cate":"校级组织"},
         ],
         currentFilterIndex:0,
         
@@ -59,12 +60,12 @@ Page({
     }else{
       this.setData({
         ascategories:[
-          {"name":"思想政治","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/更新变更.png","cate":"思想政治类"},
-          {"name":"学术科技","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/专家人才.png","cate":"学术科技类"},
-          {"name":"创新创业","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/企业公司.png","cate":"创新创业类"},
-          {"name":"文化体育","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/运动比赛.png","cate":"文化体育类"},
-          {"name":"志愿公益","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/同事群组.png","cate":"志愿公益类"},
-          {"name":"自律互助","url":"cloud://zzuli-as-open-plt-qfh5y.7a7a-zzuli-as-open-plt-qfh5y-1303166244/SomePics/健康安全.png","cate":"自律互助类"},
+          {"name":"思想政治","url":srvImg.ui_logos("更新变更.png"),"cate":"思想政治类"},
+          {"name":"学术科技","url":srvImg.ui_logos("专家人才.png"),"cate":"学术科技类"},
+          {"name":"创新创业","url":srvImg.ui_logos("企业公司.png"),"cate":"创新创业类"},
+          {"name":"文化体育","url":srvImg.ui_logos("运动比赛.png"),"cate":"文化体育类"},
+          {"name":"志愿公益","url":srvImg.ui_logos("同事群组.png"),"cate":"志愿公益类"},
+          {"name":"自律互助","url":srvImg.ui_logos("健康安全.png"),"cate":"自律互助类"},
         ],
         infoData: []
       })
