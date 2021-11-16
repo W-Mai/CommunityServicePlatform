@@ -25,6 +25,9 @@ class University(BaseModel):
     name = CharField('University name', max_length=50)
     description = TextField("What's up")
 
+    def __str__(self):
+        return f"{self.name}"
+
 
 class Campus(BaseModel):
     name = CharField("Campus Name", max_length=50)
@@ -32,11 +35,21 @@ class Campus(BaseModel):
     description = TextField("What's up")
     university = ForeignKey("University", on_delete=SET_NULL, null=True)
 
+    def __str__(self):
+        return f"{self.name}"
+
+    @property
+    def fullName(self):
+        return f"{self.university}({self.name})"
+
 
 class Major(BaseModel):
     name = CharField("Major Name", max_length=50)
     description = TextField("What's Up")
     campus = ForeignKey("Campus", on_delete=SET_NULL, null=True)
+
+    def __str__(self):
+        return f"{self.name}"
 
 
 # User related models
@@ -70,6 +83,9 @@ class User(BaseModel):
     isVerified = BooleanField()
     group = UserGroupField()
     joinedCommunities = ManyToManyField("Community", symmetrical=False)
+
+    def __str__(self):
+        return f"{self.username} - {self.userinformation.name}"
 
 
 class UserInformation(BaseModel):
@@ -106,17 +122,30 @@ class Community(BaseModel):
     category = ForeignKey("CommunityCategory", on_delete=SET_NULL, null=True)
     campus = ForeignKey("Campus", on_delete=SET_NULL, null=True)
 
+    def __str__(self):
+        return f"{self.name}"
+
+    @property
+    def campusFullName(self):
+        return self.campus.fullName
+
 
 class CommunityDepartment(BaseModel):
     name = CharField("Department name", max_length=50)
     information = TextField("What's up")
     community = ForeignKey("Community", on_delete=SET_NULL, null=True)
 
+    def __str__(self):
+        return self.name
+
 
 class CommunityCategory(BaseModel):
     name = CharField("Category name", max_length=50)
     information = TextField("What's up")
     logo = TextField()
+
+    def __str__(self):
+        return self.name
 
 
 # Registration related models
@@ -125,7 +154,13 @@ class RegistrationForm(BaseModel):
     user = ForeignKey("User", on_delete=SET_NULL, null=True)
     community = ForeignKey("Community", on_delete=SET_NULL, null=True)
     whetherToAdjust = BooleanField()
-    department1 = ForeignKey("CommunityDepartment", on_delete=SET_NULL, null=True, related_name="registrationFormDepartment1")
-    department2 = ForeignKey("CommunityDepartment", on_delete=SET_NULL, null=True, related_name="registrationFormDepartment2")
+    selfAssessment = TextField("Self introduce")
+    department1 = ForeignKey("CommunityDepartment", on_delete=SET_NULL, null=True,
+                             related_name="registrationFormDepartment1")
+    department2 = ForeignKey("CommunityDepartment", on_delete=SET_NULL, null=True,
+                             related_name="registrationFormDepartment2")
     # status =
-    message = TextField()
+    message = TextField("Return Message")
+
+    def __str__(self):
+        return f"{self.community}-{self.user}"
