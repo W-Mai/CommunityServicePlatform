@@ -22,21 +22,21 @@ class BaseModel(Model):
 
 # University related models
 class University(BaseModel):
-    name = CharField('University name')
+    name = CharField('University name', max_length=50)
     description = TextField("What's up")
-    campus = ForeignKey("Campus", related_name="university", on_delete=SET_NULL, null=True)
 
 
 class Campus(BaseModel):
-    name = CharField("Campus Name")
-    address = CharField("Address of this campus")
+    name = CharField("Campus Name", max_length=50)
+    address = CharField("Address of this campus", max_length=100)
     description = TextField("What's up")
-    majors = ForeignKey("Major", related_name="campus", on_delete=SET_NULL, null=True)
+    university = ForeignKey("University", on_delete=SET_NULL, null=True)
 
 
 class Major(BaseModel):
-    name = CharField("Major Name")
+    name = CharField("Major Name", max_length=50)
     description = TextField("What's Up")
+    campus = ForeignKey("Campus", on_delete=SET_NULL, null=True)
 
 
 # User related models
@@ -54,18 +54,18 @@ class Gender(TextChoices):
 
 
 class UserGroupField(CharField):
-    def __init__(self, *args, choices=UserGroup.choices, default=UserGroup.student, **kwargs):
-        super().__init__(*args, choices=choices, default=default, **kwargs)
+    def __init__(self, *args, choices=UserGroup.choices, default=UserGroup.student, max_length=20, **kwargs):
+        super().__init__(*args, choices=choices, default=default, max_length=max_length, **kwargs)
 
 
 class GenderField(CharField):
-    def __init__(self, *args, choices=Gender.choices, default=Gender.others, **kwargs):
-        super().__init__(*args, choices=choices, default=default, **kwargs)
+    def __init__(self, *args, choices=Gender.choices, default=Gender.others, max_length=20, **kwargs):
+        super().__init__(*args, choices=choices, default=default, max_length=max_length, **kwargs)
 
 
 class User(BaseModel):
-    openid = CharField("wx openid")
-    username = CharField()
+    openid = CharField("wx openid", max_length=50)
+    username = CharField(max_length=50)
     password = TextField()
     isVerified = BooleanField()
     group = UserGroupField()
@@ -74,17 +74,17 @@ class User(BaseModel):
 
 
 class UserInformation(BaseModel):
-    tel = CharField("Telephone Number")
-    name = CharField("What's your name")
-    schoolNumber = CharField("School Number or some IDs")
-    QQ = CharField("QQ Number (A social media platform)")
-    college = CharField("What's your college")
+    tel = CharField("Telephone Number", max_length=20)
+    name = CharField("What's your name", max_length=16)
+    schoolNumber = CharField("School Number or some IDs", max_length=30)
+    QQ = CharField("QQ Number (A social media platform)", max_length=20)
+    college = CharField("What's your college", max_length=50)
     gender = GenderField()
-    politicalLandscape = CharField()
-    national = CharField()
+    politicalLandscape = CharField(max_length=20)
+    national = CharField(max_length=50)
     birthday = DateField()
-    nativePlace = CharField()
-    headPortrait = CharField()
+    nativePlace = CharField(max_length=50)
+    headPortrait = TextField()
     personalProfile = TextField("Introduce yourself")
     campus = ForeignKey("Campus", on_delete=SET_NULL, null=True)
     major = ForeignKey("Major", on_delete=SET_NULL, null=True)
@@ -93,13 +93,13 @@ class UserInformation(BaseModel):
 # Community related models
 
 class Community(BaseModel):
-    name = CharField("Community name")
+    name = CharField("Community name", max_length=50)
     rank = FloatField(default=0.0)
     information = TextField("What's up")
-    department = ForeignKey("CommunityDepartment")
+    department = ForeignKey("CommunityDepartment", on_delete=SET_NULL, null=True)
     images = JSONField()
-    thumbnail = CharField()
-    qqGroup = CharField()
+    thumbnail = TextField()
+    qqGroup = CharField(max_length=20)
     openUpDateStart = DateTimeField()
     openUpDateEnd = DateTimeField()
     message = TextField("Message this community will notice")
@@ -108,14 +108,14 @@ class Community(BaseModel):
 
 
 class CommunityDepartment(BaseModel):
-    name = CharField("Department name")
+    name = CharField("Department name", max_length=50)
     information = TextField("What's up")
 
 
 class CommunityCategory(BaseModel):
-    name = CharField("Category name")
+    name = CharField("Category name", max_length=50)
     information = TextField("What's up")
-    logo = CharField()
+    logo = TextField()
 
 
 # Registration related models
@@ -124,7 +124,7 @@ class RegistrationForm(BaseModel):
     user = ForeignKey("User", on_delete=SET_NULL, null=True)
     community = ForeignKey("Community", on_delete=SET_NULL, null=True)
     whetherToAdjust = BooleanField()
-    department1 = ForeignKey("CommunityDepartment", on_delete=SET_NULL, null=True)
-    department2 = ForeignKey("CommunityDepartment", on_delete=SET_NULL, null=True)
+    department1 = ForeignKey("CommunityDepartment", on_delete=SET_NULL, null=True, related_name="registrationFormDepartment1")
+    department2 = ForeignKey("CommunityDepartment", on_delete=SET_NULL, null=True, related_name="registrationFormDepartment2")
     # status =
     message = TextField()
