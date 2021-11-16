@@ -11,13 +11,13 @@ class BaseAdmin(ModelAdmin):
 @admin.register(University)
 class UniversityAdmin(NestedModelAdmin):
     class CampusInline(NestedTabularInline):
-        class MajorInline(NestedTabularInline):
-            model = Major
+        class CollegeInline(NestedTabularInline):
+            model = College
             extra = 0
 
         extra = 0
         model = Campus
-        inlines = [MajorInline]
+        inlines = [CollegeInline]
 
     def campus(self, obj: University):
         return [f"{c.name}({c.address})" for c in obj.campus_set.all()]
@@ -37,10 +37,10 @@ class UserAdmin(BaseAdmin):
 
     def schoolInformation(self, obj: User):
         info = obj.userinformation
-        major = info.major
-        campus = major.campus
+        college = info.college
+        campus = college.campus
         university = campus.university
-        return f"{university}({campus}), {major}, {info.college}"
+        return f"{university}({campus}), {college}, {info.college}"
 
     def otherInform(self, obj: User):
         info = obj.userinformation

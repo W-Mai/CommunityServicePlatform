@@ -1,6 +1,7 @@
 from typing import Optional
 
 from django.db.models import *
+from django.utils.translation import gettext_lazy as _
 
 
 # Create your models here.
@@ -25,6 +26,10 @@ class University(BaseModel):
     name = CharField('University name', max_length=50)
     description = TextField("What's up")
 
+    class Meta:
+        verbose_name = _("University")
+        verbose_name_plural = _('University')
+
     def __str__(self):
         return f"{self.name}"
 
@@ -35,6 +40,10 @@ class Campus(BaseModel):
     description = TextField("What's up")
     university = ForeignKey("University", on_delete=SET_NULL, null=True)
 
+    class Meta:
+        verbose_name = _("Campus")
+        verbose_name_plural = _('Campus')
+
     def __str__(self):
         return f"{self.name}"
 
@@ -43,10 +52,14 @@ class Campus(BaseModel):
         return f"{self.university}({self.name})"
 
 
-class Major(BaseModel):
+class College(BaseModel):
     name = CharField("Major Name", max_length=50)
     description = TextField("What's Up")
     campus = ForeignKey("Campus", on_delete=SET_NULL, null=True)
+
+    class Meta:
+        verbose_name = _("College")
+        verbose_name_plural = _('College')
 
     def __str__(self):
         return f"{self.name}"
@@ -93,7 +106,7 @@ class UserInformation(BaseModel):
     name = CharField("What's your name", max_length=16)
     schoolNumber = CharField("School Number or some IDs", max_length=30)
     QQ = CharField("QQ Number (A social media platform)", max_length=20)
-    college = CharField("What's your college", max_length=50)
+    major = CharField("What's your major", max_length=50)
     gender = GenderField()
     politicalLandscape = CharField(max_length=20)
     national = CharField(max_length=50)
@@ -102,7 +115,7 @@ class UserInformation(BaseModel):
     headPortrait = TextField()
     personalProfile = TextField("Introduce yourself")
     campus = ForeignKey("Campus", on_delete=SET_NULL, null=True)
-    major = ForeignKey("Major", on_delete=SET_NULL, null=True)
+    college = ForeignKey("College", on_delete=SET_NULL, null=True)
 
     user = OneToOneField("User", on_delete=CASCADE, null=True)
 
@@ -151,10 +164,10 @@ class CommunityCategory(BaseModel):
 # Registration related models
 
 class RegistrationForm(BaseModel):
-    user = ForeignKey("User", on_delete=SET_NULL, null=True)
+    user = ForeignKey("User", help_text=_("User"), on_delete=SET_NULL, null=True)
     community = ForeignKey("Community", on_delete=SET_NULL, null=True)
     whetherToAdjust = BooleanField()
-    selfAssessment = TextField("Self introduce")
+    selfAssessment = TextField(_("Self introduce"))
     department1 = ForeignKey("CommunityDepartment", on_delete=SET_NULL, null=True,
                              related_name="registrationFormDepartment1")
     department2 = ForeignKey("CommunityDepartment", on_delete=SET_NULL, null=True,
