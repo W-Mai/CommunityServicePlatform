@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-17 03:06+0800\n"
+"POT-Creation-Date: 2021-11-17 03:11+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,13 +30,43 @@ msgstr "校区"
 msgid "College"
 msgstr "学院"
 
-#: .\api\models.py:167
+#: .\api\models.py:76 .\api\models.py:77
+#, fuzzy
+#| msgid "User"
+msgid "UserGroup"
+msgstr "用户"
+
+#: .\api\models.py:86 .\api\models.py:87
+msgid "Gender"
+msgstr "性别"
+
+#: .\api\models.py:109 .\api\models.py:110 .\api\models.py:195
 msgid "User"
 msgstr "用户"
 
-#: .\api\models.py:170
+#: .\api\models.py:135 .\api\models.py:136
+msgid "UserInformation"
+msgstr "用户信息"
+
+#: .\api\models.py:155 .\api\models.py:156
+msgid "Community"
+msgstr "社团"
+
+#: .\api\models.py:172 .\api\models.py:173
+msgid "CommunityDepartment"
+msgstr "社团部门"
+
+#: .\api\models.py:185 .\api\models.py:186
+msgid "CommunityCategory"
+msgstr "社团类别"
+
+#: .\api\models.py:198
 msgid "Self introduce"
 msgstr "自我介绍"
+
+#: .\api\models.py:207 .\api\models.py:208
+msgid "RegistrationForm"
+msgstr "报名表"
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:7
 msgid "Messages"

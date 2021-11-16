@@ -72,11 +72,19 @@ class UserGroup(TextChoices):
     teacher = "TEACHER"
     admin = "ADMIN"
 
+    # class Meta:
+    #     verbose_name = _("UserGroup")
+    #     verbose_name_plural = _('UserGroup')
+
 
 class Gender(TextChoices):
     male = "MALE"
     female = "FEMALE"
     others = "OTHERS"
+
+    # class Meta:
+    #     verbose_name = _("Gender")
+    #     verbose_name_plural = _('Gender')
 
 
 class UserGroupField(CharField):
@@ -96,6 +104,10 @@ class User(BaseModel):
     isVerified = BooleanField()
     group = UserGroupField()
     joinedCommunities = ManyToManyField("Community", symmetrical=False)
+
+    class Meta:
+        verbose_name = _("User")
+        verbose_name_plural = _('User')
 
     def __str__(self):
         return f"{self.username} - {self.userinformation.name}"
@@ -119,6 +131,10 @@ class UserInformation(BaseModel):
 
     user = OneToOneField("User", on_delete=CASCADE, null=True)
 
+    class Meta:
+        verbose_name = _("UserInformation")
+        verbose_name_plural = _('UserInformation')
+
 
 # Community related models
 
@@ -135,6 +151,10 @@ class Community(BaseModel):
     category = ForeignKey("CommunityCategory", on_delete=SET_NULL, null=True)
     campus = ForeignKey("Campus", on_delete=SET_NULL, null=True)
 
+    class Meta:
+        verbose_name = _("Community")
+        verbose_name_plural = _('Community')
+
     def __str__(self):
         return f"{self.name}"
 
@@ -148,6 +168,10 @@ class CommunityDepartment(BaseModel):
     information = TextField("What's up")
     community = ForeignKey("Community", on_delete=SET_NULL, null=True)
 
+    class Meta:
+        verbose_name = _("CommunityDepartment")
+        verbose_name_plural = _('CommunityDepartment')
+
     def __str__(self):
         return self.name
 
@@ -156,6 +180,10 @@ class CommunityCategory(BaseModel):
     name = CharField("Category name", max_length=50)
     information = TextField("What's up")
     logo = TextField()
+
+    class Meta:
+        verbose_name = _("CommunityCategory")
+        verbose_name_plural = _('CommunityCategory')
 
     def __str__(self):
         return self.name
@@ -174,6 +202,10 @@ class RegistrationForm(BaseModel):
                              related_name="registrationFormDepartment2")
     # status =
     message = TextField("Return Message")
+
+    class Meta:
+        verbose_name = _("RegistrationForm")
+        verbose_name_plural = _('RegistrationForm')
 
     def __str__(self):
         return f"{self.community}-{self.user}"
