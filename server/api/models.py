@@ -23,8 +23,8 @@ class BaseModel(Model):
 
 # University related models
 class University(BaseModel):
-    name = CharField('University name', max_length=50)
-    description = TextField("What's up")
+    name = CharField(_('University name'), max_length=50)
+    description = TextField(_("What's Up"))
 
     class Meta:
         verbose_name = _("University")
@@ -35,9 +35,9 @@ class University(BaseModel):
 
 
 class Campus(BaseModel):
-    name = CharField("Campus Name", max_length=50)
-    address = CharField("Address of this campus", max_length=100)
-    description = TextField("What's up")
+    name = CharField(_("Campus Name"), max_length=50)
+    address = CharField(_("Address of this campus"), max_length=100)
+    description = TextField(_("What's Up"))
     university = ForeignKey("University", on_delete=SET_NULL, null=True)
 
     class Meta:
@@ -53,8 +53,8 @@ class Campus(BaseModel):
 
 
 class College(BaseModel):
-    name = CharField("Major Name", max_length=50)
-    description = TextField("What's Up")
+    name = CharField(_("College Name"), max_length=50)
+    description = TextField(_("What's Up"))
     campus = ForeignKey("Campus", on_delete=SET_NULL, null=True)
 
     class Meta:
@@ -98,10 +98,10 @@ class GenderField(CharField):
 
 
 class User(BaseModel):
-    openid = CharField("wx openid", max_length=50)
-    username = CharField(max_length=50)
-    password = TextField()
-    isVerified = BooleanField()
+    openid = CharField(_("wx openid"), max_length=50)
+    username = CharField(_("Username"), max_length=50)
+    password = TextField(_("Password"))
+    isVerified = BooleanField(_("Is Verified"))
     group = UserGroupField()
     joinedCommunities = ManyToManyField("Community", symmetrical=False)
 
@@ -114,18 +114,18 @@ class User(BaseModel):
 
 
 class UserInformation(BaseModel):
-    tel = CharField("Telephone Number", max_length=20)
-    name = CharField("What's your name", max_length=16)
-    schoolNumber = CharField("School Number or some IDs", max_length=30)
-    QQ = CharField("QQ Number (A social media platform)", max_length=20)
-    major = CharField("What's your major", max_length=50)
+    tel = CharField(_("Telephone Number"), max_length=20)
+    name = CharField(_("What's your name"), max_length=16)
+    schoolNumber = CharField(_("School Number or some IDs"), max_length=30)
+    QQ = CharField(_("QQ Number (A social media platform)"), max_length=20)
+    major = CharField(_("What's your major"), max_length=50)
     gender = GenderField()
-    politicalLandscape = CharField(max_length=20)
-    national = CharField(max_length=50)
-    birthday = DateField()
-    nativePlace = CharField(max_length=50)
-    headPortrait = TextField()
-    personalProfile = TextField("Introduce yourself")
+    politicalLandscape = CharField(_("Political Landscape"), max_length=20)
+    national = CharField(_("National"), max_length=50)
+    birthday = DateField(_("Birthday"))
+    nativePlace = CharField(_("Native Place"), max_length=50)
+    headPortrait = TextField(_("Head Portrait"))
+    personalProfile = TextField(_("Introduce yourself"))
     campus = ForeignKey("Campus", on_delete=SET_NULL, null=True)
     college = ForeignKey("College", on_delete=SET_NULL, null=True)
 
@@ -139,15 +139,15 @@ class UserInformation(BaseModel):
 # Community related models
 
 class Community(BaseModel):
-    name = CharField("Community name", max_length=50)
-    rank = FloatField(default=0.0)
-    information = TextField("What's up")
-    images = JSONField()
-    thumbnail = TextField()
-    qqGroup = CharField(max_length=20)
-    openUpDateStart = DateTimeField()
-    openUpDateEnd = DateTimeField()
-    message = TextField("Message this community will notice")
+    name = CharField(_("Community name"), max_length=50)
+    rank = FloatField(_("Rank"), default=0.0)
+    information = TextField(_("What's Up"))
+    images = JSONField(_("Images"))
+    thumbnail = TextField(_("Thumbnail"))
+    qqGroup = CharField(_("QQ Group Number"), max_length=20)
+    openUpDateStart = DateTimeField(_("Start Datetime of Recruiting New"))
+    openUpDateEnd = DateTimeField(_("End Datetime of Recruiting New"))
+    message = TextField(_("Message this community will notice"))
     category = ForeignKey("CommunityCategory", on_delete=SET_NULL, null=True)
     campus = ForeignKey("Campus", on_delete=SET_NULL, null=True)
 
@@ -164,8 +164,8 @@ class Community(BaseModel):
 
 
 class CommunityDepartment(BaseModel):
-    name = CharField("Department name", max_length=50)
-    information = TextField("What's up")
+    name = CharField(_("Department name"), max_length=50)
+    information = TextField(_("What's Up"))
     community = ForeignKey("Community", on_delete=SET_NULL, null=True)
 
     class Meta:
@@ -177,9 +177,9 @@ class CommunityDepartment(BaseModel):
 
 
 class CommunityCategory(BaseModel):
-    name = CharField("Category name", max_length=50)
-    information = TextField("What's up")
-    logo = TextField()
+    name = CharField(_("Category name"), max_length=50)
+    information = TextField(_("What's Up"))
+    logo = TextField(_("Logo of this category"))
 
     class Meta:
         verbose_name = _("CommunityCategory")
@@ -192,16 +192,16 @@ class CommunityCategory(BaseModel):
 # Registration related models
 
 class RegistrationForm(BaseModel):
-    user = ForeignKey("User", help_text=_("User"), on_delete=SET_NULL, null=True)
+    user = ForeignKey("User", on_delete=SET_NULL, null=True)
     community = ForeignKey("Community", on_delete=SET_NULL, null=True)
-    whetherToAdjust = BooleanField()
+    whetherToAdjust = BooleanField(_("Whether To Adjust"))
     selfAssessment = TextField(_("Self introduce"))
     department1 = ForeignKey("CommunityDepartment", on_delete=SET_NULL, null=True,
                              related_name="registrationFormDepartment1")
     department2 = ForeignKey("CommunityDepartment", on_delete=SET_NULL, null=True,
                              related_name="registrationFormDepartment2")
     # status =
-    message = TextField("Return Message")
+    message = TextField(_("Return Message"))
 
     class Meta:
         verbose_name = _("RegistrationForm")
