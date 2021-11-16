@@ -69,8 +69,7 @@ class User(BaseModel):
     password = TextField()
     isVerified = BooleanField()
     group = UserGroupField()
-    information = OneToOneField("UserInformation", on_delete=CASCADE)
-    joinedCommunities = ManyToManyField("Community")
+    joinedCommunities = ManyToManyField("Community", symmetrical=False)
 
 
 class UserInformation(BaseModel):
@@ -89,6 +88,8 @@ class UserInformation(BaseModel):
     campus = ForeignKey("Campus", on_delete=SET_NULL, null=True)
     major = ForeignKey("Major", on_delete=SET_NULL, null=True)
 
+    user = OneToOneField("User", on_delete=CASCADE, null=True)
+
 
 # Community related models
 
@@ -96,7 +97,6 @@ class Community(BaseModel):
     name = CharField("Community name", max_length=50)
     rank = FloatField(default=0.0)
     information = TextField("What's up")
-    department = ForeignKey("CommunityDepartment", on_delete=SET_NULL, null=True)
     images = JSONField()
     thumbnail = TextField()
     qqGroup = CharField(max_length=20)
@@ -110,6 +110,7 @@ class Community(BaseModel):
 class CommunityDepartment(BaseModel):
     name = CharField("Department name", max_length=50)
     information = TextField("What's up")
+    community = ForeignKey("Community", on_delete=SET_NULL, null=True)
 
 
 class CommunityCategory(BaseModel):
