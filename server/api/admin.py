@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import *
 from django.contrib.admin import ModelAdmin, TabularInline, StackedInline
-from nested_admin.nested import NestedModelAdmin, NestedTabularInline
+from nested_admin.nested import NestedModelAdmin, NestedTabularInline, NestedStackedInline
 
 
 class BaseAdmin(ModelAdmin):
@@ -23,7 +23,7 @@ class UniversityAdmin(NestedModelAdmin):
 
 
 @admin.register(User)
-class UserAdmin(ModelAdmin):
+class UserAdmin(BaseAdmin):
     class UserInformationAdmin(StackedInline):
         model = UserInformation
 
@@ -33,18 +33,18 @@ class UserAdmin(ModelAdmin):
 
 
 @admin.register(Community)
-class CommunityAdmin(ModelAdmin):
-    class CommunityDepartmentAdmin(StackedInline):
+class CommunityAdmin(NestedModelAdmin):
+    class CommunityDepartmentAdmin(NestedStackedInline):
         model = CommunityDepartment
         extra = 0
 
     #
-    class UserAdmin(StackedInline):
+    class cUserAdmin(NestedStackedInline):
         model = User.joinedCommunities.through
         extra = 0
 
     model = Community
-    inlines = [CommunityDepartmentAdmin, UserAdmin]
+    inlines = [CommunityDepartmentAdmin, cUserAdmin]
 
 
 # Register your models here.
