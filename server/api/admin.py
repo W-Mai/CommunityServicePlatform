@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import *
 from django.contrib.admin import ModelAdmin, TabularInline, StackedInline
 from nested_admin.nested import NestedModelAdmin, NestedTabularInline, NestedStackedInline
-
+from django.utils.translation import gettext_lazy as _
 
 class BaseAdmin(ModelAdmin):
     readonly_fields = ('id',)
@@ -19,6 +19,7 @@ class UniversityAdmin(NestedModelAdmin):
         model = Campus
         inlines = [CollegeInline]
 
+    @admin.display(description=_("Campus"))
     def campus(self, obj: University):
         return [f"{c.name}({c.address})" for c in obj.campus_set.all()]
 
@@ -32,9 +33,11 @@ class UserAdmin(BaseAdmin):
     class UserInformationAdmin(StackedInline):
         model = UserInformation
 
+    @admin.display(description=_("Real Name"))
     def realName(self, obj: User):
         return obj.userinformation.name
 
+    @admin.display(description=_("School Information"))
     def schoolInformation(self, obj: User):
         info = obj.userinformation
         college = info.college
@@ -42,9 +45,11 @@ class UserAdmin(BaseAdmin):
         university = campus.university
         return f"{university}({campus}), {college}, {info.college}"
 
+    @admin.display(description=_("Other Information"))
     def otherInform(self, obj: User):
         info = obj.userinformation
         return f"{info.gender} - {info.schoolNumber}"
+
 
     model = User
     extra = 0
@@ -56,6 +61,7 @@ class UserAdmin(BaseAdmin):
         "userinformation__campus__name",
     ]
     search_fields = ["username", "userinformation__name"]
+    date_hierarchy = "userinformation__birthday"
     inlines = [UserInformationAdmin]
 
 
@@ -69,6 +75,7 @@ class CommunityAdmin(NestedModelAdmin):
         model = User.joinedCommunities.through
         extra = 0
 
+    @admin.display(description=_("Departments"))
     def departments(self, obj: Community):
         return [d.name for d in obj.communitydepartment_set.all()]
 
@@ -82,6 +89,7 @@ class CommunityAdmin(NestedModelAdmin):
 @admin.register(RegistrationForm)
 class RegistrationFormAdmin(NestedModelAdmin):
 
+    @admin.display(description=_("Expected Departments"))
     def departments(self, obj: RegistrationForm):
         return obj.department1, obj.department2
 

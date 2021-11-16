@@ -5,6 +5,8 @@ from django.utils.translation import gettext_lazy as _
 
 
 # Create your models here.
+from django.contrib import admin
+
 
 class BaseManager(Manager):
     def get(self, *args, **kwargs) -> Optional[Model]:
@@ -159,6 +161,7 @@ class Community(BaseModel):
         return f"{self.name}"
 
     @property
+    @admin.display(description=_("Campus"))
     def campusFullName(self):
         return self.campus.fullName
 

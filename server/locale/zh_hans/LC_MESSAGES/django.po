@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-17 03:48+0800\n"
+"POT-Creation-Date: 2021-11-17 04:15+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,26 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\api\admin.py:35
+msgid "Real Name"
+msgstr "真实姓名"
+
+#: .\api\admin.py:39
+msgid "School Information"
+msgstr "学校信息"
+
+#: .\api\admin.py:47
+msgid "Other Information"
+msgstr "其他信息"
+
+#: .\api\admin.py:77
+msgid "Departments"
+msgstr "部门"
+
+#: .\api\admin.py:91
+msgid "Expected Departments"
+msgstr "填报部门"
 
 #: .\api\models.py:26
 msgid "University name"
