@@ -102,7 +102,7 @@ class User(BaseModel):
     password = TextField(_("Password"))
     isVerified = BooleanField(_("Is Verified"))
     group = UserGroupField(_("User Group"))
-    joinedCommunities = ManyToManyField("Community", verbose_name=_("Joined Communities"))
+    joinedCommunities = ManyToManyField("Community", verbose_name=_("Joined Communities"), null=True)
 
     class Meta:
         verbose_name = _("User")

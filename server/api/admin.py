@@ -93,7 +93,7 @@ class CommunityAdmin(NestedModelAdmin):
     model = Community
     list_display = ["name", "campusFullName", "departments", "category"]
     list_filter = ["campus__university__name", "category", "communitydepartment__name"]
-    search_fields = ["campus__university__name", "communitydepartment__name"]
+    search_fields = ["name", "information", "campus__university__name", "communitydepartment__name"]
     inlines = [CommunityDepartmentAdmin, cUserAdmin]
 
 
