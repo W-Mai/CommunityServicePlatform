@@ -3,7 +3,6 @@ from typing import Optional
 from django.db.models import *
 from django.utils.translation import gettext_lazy as _
 
-
 # Create your models here.
 from django.contrib import admin
 
@@ -40,7 +39,7 @@ class Campus(BaseModel):
     name = CharField(_("Campus Name"), max_length=50)
     address = CharField(_("Address of this campus"), max_length=100)
     description = TextField(("What's Up"))
-    university = ForeignKey("University", on_delete=SET_NULL, null=True)
+    university = ForeignKey("University", on_delete=SET_NULL, null=True, verbose_name=_("University"))
 
     class Meta:
         verbose_name = _("Campus")
@@ -57,7 +56,7 @@ class Campus(BaseModel):
 class College(BaseModel):
     name = CharField(_("College Name"), max_length=50)
     description = TextField(("What's Up"))
-    campus = ForeignKey("Campus", on_delete=SET_NULL, null=True)
+    campus = ForeignKey("Campus", on_delete=SET_NULL, null=True, verbose_name=_("Campus"))
 
     class Meta:
         verbose_name = _("College")
@@ -74,9 +73,7 @@ class UserGroup(TextChoices):
     teacher = "TEACHER"
     admin = "ADMIN"
 
-    # class Meta:
-    #     verbose_name = _("UserGroup")
-    #     verbose_name_plural = _('UserGroup')
+    _("Student"), _("Teacher"), _("Admin")
 
 
 class Gender(TextChoices):
@@ -84,19 +81,19 @@ class Gender(TextChoices):
     female = "FEMALE"
     others = "OTHERS"
 
-    # class Meta:
-    #     verbose_name = _("Gender")
-    #     verbose_name_plural = _('Gender')
+    _("Male"), _("Female"), _("Others")
 
 
 class UserGroupField(CharField):
     def __init__(self, *args, choices=UserGroup.choices, default=UserGroup.student, max_length=20, **kwargs):
-        super().__init__(*args, choices=choices, default=default, max_length=max_length, **kwargs)
+        tmp_choices = [(member[0], _(member[1])) for member in choices]
+        super().__init__(*args, choices=tmp_choices, default=default, max_length=max_length, **kwargs)
 
 
 class GenderField(CharField):
     def __init__(self, *args, choices=Gender.choices, default=Gender.others, max_length=20, **kwargs):
-        super().__init__(*args, choices=choices, default=default, max_length=max_length, **kwargs)
+        tmp_choices = [(member[0], _(member[1])) for member in choices]
+        super().__init__(*args, choices=tmp_choices, default=default, max_length=max_length, **kwargs)
 
 
 class User(BaseModel):
@@ -104,8 +101,8 @@ class User(BaseModel):
     username = CharField(_("Username"), max_length=50)
     password = TextField(_("Password"))
     isVerified = BooleanField(_("Is Verified"))
-    group = UserGroupField()
-    joinedCommunities = ManyToManyField("Community", symmetrical=False)
+    group = UserGroupField(_("User Group"))
+    joinedCommunities = ManyToManyField("Community", symmetrical=False, verbose_name=_("Joined Communities"))
 
     class Meta:
         verbose_name = _("User")
@@ -121,17 +118,17 @@ class UserInformation(BaseModel):
     schoolNumber = CharField(_("School Number or some IDs"), max_length=30)
     QQ = CharField(_("QQ Number (A social media platform)"), max_length=20)
     major = CharField(_("What's your major"), max_length=50)
-    gender = GenderField()
+    gender = GenderField(_("Gender"))
     politicalLandscape = CharField(_("Political Landscape"), max_length=20)
     national = CharField(_("National"), max_length=50)
     birthday = DateField(_("Birthday"))
     nativePlace = CharField(_("Native Place"), max_length=50)
     headPortrait = TextField(_("Head Portrait"))
     personalProfile = TextField(_("Introduce yourself"))
-    campus = ForeignKey("Campus", on_delete=SET_NULL, null=True)
-    college = ForeignKey("College", on_delete=SET_NULL, null=True)
+    campus = ForeignKey("Campus", on_delete=SET_NULL, null=True, verbose_name=_("Campus"))
+    college = ForeignKey("College", on_delete=SET_NULL, null=True, verbose_name=_("College"))
 
-    user = OneToOneField("User", on_delete=CASCADE, null=True)
+    user = OneToOneField("User", on_delete=CASCADE, null=True, verbose_name=_("User"))
 
     class Meta:
         verbose_name = _("UserInformation")
@@ -150,8 +147,8 @@ class Community(BaseModel):
     openUpDateStart = DateTimeField(_("Start Datetime of Recruiting New"))
     openUpDateEnd = DateTimeField(_("End Datetime of Recruiting New"))
     message = TextField(_("Message this community will notice"))
-    category = ForeignKey("CommunityCategory", on_delete=SET_NULL, null=True)
-    campus = ForeignKey("Campus", on_delete=SET_NULL, null=True)
+    category = ForeignKey("CommunityCategory", on_delete=SET_NULL, null=True, verbose_name=_("Community Category"))
+    campus = ForeignKey("Campus", on_delete=SET_NULL, null=True, verbose_name=_("Campus"))
 
     class Meta:
         verbose_name = _("Community")
@@ -169,7 +166,7 @@ class Community(BaseModel):
 class CommunityDepartment(BaseModel):
     name = CharField(_("Department name"), max_length=50)
     information = TextField(("What's Up"))
-    community = ForeignKey("Community", on_delete=SET_NULL, null=True)
+    community = ForeignKey("Community", on_delete=SET_NULL, null=True, verbose_name=_("Community"))
 
     class Meta:
         verbose_name = _("CommunityDepartment")
@@ -195,14 +192,14 @@ class CommunityCategory(BaseModel):
 # Registration related models
 
 class RegistrationForm(BaseModel):
-    user = ForeignKey("User", on_delete=SET_NULL, null=True)
-    community = ForeignKey("Community", on_delete=SET_NULL, null=True)
+    user = ForeignKey("User", on_delete=SET_NULL, null=True, verbose_name=_("User"))
+    community = ForeignKey("Community", on_delete=SET_NULL, null=True, verbose_name=_("Community"))
     whetherToAdjust = BooleanField(_("Whether To Adjust"))
     selfAssessment = TextField(_("Self introduce"))
     department1 = ForeignKey("CommunityDepartment", on_delete=SET_NULL, null=True,
-                             related_name="registrationFormDepartment1")
+                             related_name="registrationFormDepartment1", verbose_name=_("Department1"))
     department2 = ForeignKey("CommunityDepartment", on_delete=SET_NULL, null=True,
-                             related_name="registrationFormDepartment2")
+                             related_name="registrationFormDepartment2", verbose_name=_("Department2"))
     # status =
     message = TextField(_("Return Message"))
 
