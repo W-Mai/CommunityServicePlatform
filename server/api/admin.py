@@ -4,8 +4,19 @@ from django.contrib.admin import ModelAdmin, TabularInline, StackedInline
 from nested_admin.nested import NestedModelAdmin, NestedTabularInline, NestedStackedInline
 from django.utils.translation import gettext_lazy as _
 
+
 class BaseAdmin(ModelAdmin):
     readonly_fields = ('id',)
+
+
+@admin.register(Campus)
+class CampusAdmin(BaseAdmin):
+    search_fields = ["university__name", "name"]
+
+
+@admin.register(College)
+class CampusAdmin(BaseAdmin):
+    search_fields = ["campus__name", "name"]
 
 
 @admin.register(University)
@@ -32,6 +43,7 @@ class UniversityAdmin(NestedModelAdmin):
 class UserAdmin(BaseAdmin):
     class UserInformationAdmin(StackedInline):
         model = UserInformation
+        autocomplete_fields = ["university", "campus", "college"]
 
     @admin.display(description=_("Real Name"))
     def realName(self, obj: User):
@@ -49,7 +61,6 @@ class UserAdmin(BaseAdmin):
     def otherInform(self, obj: User):
         info = obj.userinformation
         return f"{info.gender} - {info.schoolNumber}"
-
 
     model = User
     extra = 0

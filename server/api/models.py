@@ -102,7 +102,7 @@ class User(BaseModel):
     password = TextField(_("Password"))
     isVerified = BooleanField(_("Is Verified"))
     group = UserGroupField(_("User Group"))
-    joinedCommunities = ManyToManyField("Community", symmetrical=False, verbose_name=_("Joined Communities"))
+    joinedCommunities = ManyToManyField("Community", verbose_name=_("Joined Communities"))
 
     class Meta:
         verbose_name = _("User")
@@ -125,6 +125,7 @@ class UserInformation(BaseModel):
     nativePlace = CharField(_("Native Place"), max_length=50)
     headPortrait = TextField(_("Head Portrait"))
     personalProfile = TextField(_("Introduce yourself"))
+    university = ForeignKey("University", on_delete=SET_NULL, null=True)
     campus = ForeignKey("Campus", on_delete=SET_NULL, null=True, verbose_name=_("Campus"))
     college = ForeignKey("College", on_delete=SET_NULL, null=True, verbose_name=_("College"))
 
@@ -133,6 +134,9 @@ class UserInformation(BaseModel):
     class Meta:
         verbose_name = _("UserInformation")
         verbose_name_plural = _('UserInformation')
+
+    def __str__(self):
+        return f"{self.schoolNumber} - {self.name}"
 
 
 # Community related models
