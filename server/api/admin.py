@@ -128,3 +128,5 @@ class RegistrationFormAdmin(NestedModelAdmin):
 # Register your models here.
 
 admin.site.register(CommunityCategory)
+admin.site.site_header = _("Community Management System")
+admin.site.site_title = _("Information Management")
