@@ -3,7 +3,7 @@ from .models import *
 from django.contrib.admin import ModelAdmin, TabularInline, StackedInline
 from nested_admin.nested import NestedModelAdmin, NestedTabularInline, NestedStackedInline
 from django.utils.translation import gettext_lazy as _
-
+from mdeditor.widgets import MDEditorWidget
 
 class BaseAdmin(ModelAdmin):
     readonly_fields = ('id',)
@@ -95,7 +95,9 @@ class CommunityAdmin(NestedModelAdmin):
     list_filter = ["campus__university__name", "category", "communitydepartment__name"]
     search_fields = ["name", "information", "campus__university__name", "communitydepartment__name"]
     inlines = [CommunityDepartmentAdmin, cUserAdmin]
-
+    formfield_overrides = {
+        MDTextField: {'widget': MDEditorWidget}
+    }
 
 @admin.register(RegistrationForm)
 class RegistrationFormAdmin(NestedModelAdmin):

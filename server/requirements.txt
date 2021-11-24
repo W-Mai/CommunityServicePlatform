@@ -2,3 +2,5 @@ Django==3.2
 psycopg2==2.9.1
 django-nested-admin==3.3.3
 django-simpleui
+markdown
+django-mdeditor

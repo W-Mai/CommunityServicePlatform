@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 from django.contrib import admin
-
+from mdeditor.fields import MDTextField
 
 class BaseManager(Manager):
     def get(self, *args, **kwargs) -> Optional[Model]:
@@ -144,7 +144,8 @@ class UserInformation(BaseModel):
 class Community(BaseModel):
     name = CharField(_("Community name"), max_length=50)
     rank = FloatField(_("Rank"), default=0.0)
-    information = TextField(("What's Up"))
+    # information = TextField(("What's Up"))
+    information = MDTextField(("What's Up"))
     images = JSONField(_("Images"))
     thumbnail = TextField(_("Thumbnail"))
     qqGroup = CharField(_("QQ Group Number"), max_length=20)
