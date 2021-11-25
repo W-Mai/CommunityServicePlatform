@@ -5,6 +5,7 @@ from nested_admin.nested import NestedModelAdmin, NestedTabularInline, NestedSta
 from django.utils.translation import gettext_lazy as _
 from mdeditor.widgets import MDEditorWidget
 
+
 class BaseAdmin(ModelAdmin):
     readonly_fields = ('id',)
 
@@ -43,13 +44,14 @@ class UniversityAdmin(NestedModelAdmin):
 class UserAdmin(BaseAdmin):
     class UserInformationAdmin(StackedInline):
         model = UserInformation
-        autocomplete_fields = ["university", "campus", "college"]
+
+        # autocomplete_fields = ["university", "campus", "college"]
 
     @admin.display(description=_("Real Name"))
     def realName(self, obj: User):
         return obj.userinformation.name
 
-    @admin.display(description=_("School Information"))
+    @admin.display(description=_("School Information`"))
     def schoolInformation(self, obj: User):
         info = obj.userinformation
         college = info.college
@@ -68,9 +70,10 @@ class UserAdmin(BaseAdmin):
     list_filter = [
         "userinformation__gender",
         "userinformation__national",
-        "userinformation__campus__university__name",
-        "userinformation__campus__name",
+        "userinformation__college__campus__university__name",
+        "userinformation__college__campus__name",
     ]
+    list_select_related = True
     search_fields = ["username", "userinformation__name"]
     date_hierarchy = "userinformation__birthday"
     inlines = [UserInformationAdmin]
@@ -95,9 +98,7 @@ class CommunityAdmin(NestedModelAdmin):
     list_filter = ["campus__university__name", "category", "communitydepartment__name"]
     search_fields = ["name", "information", "campus__university__name", "communitydepartment__name"]
     inlines = [CommunityDepartmentAdmin, cUserAdmin]
-    formfield_overrides = {
-        MDTextField: {'widget': MDEditorWidget}
-    }
+
 
 @admin.register(RegistrationForm)
 class RegistrationFormAdmin(NestedModelAdmin):
@@ -110,9 +111,9 @@ class RegistrationFormAdmin(NestedModelAdmin):
     list_display = ["__str__", "whetherToAdjust", "departments", "selfAssessment", "message"]
     list_filter = [
         "whetherToAdjust",
-        "user__userinformation__campus__university__name",
+        "user__userinformation__college__campus__university__name",
         "user__userinformation__college",
-        "user__userinformation__campus__name",
+        "user__userinformation__college__campus__name",
         "community__name",
         "department1",
         "department2",
@@ -125,6 +126,7 @@ class RegistrationFormAdmin(NestedModelAdmin):
         "user__userinformation__schoolNumber",
         "user__userinformation__name"
     ]
+    list_select_related = True
 
 
 # Register your models here.

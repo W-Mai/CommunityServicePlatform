@@ -125,8 +125,8 @@ class UserInformation(BaseModel):
     nativePlace = CharField(_("Native Place"), max_length=50)
     headPortrait = TextField(_("Head Portrait"))
     personalProfile = TextField(_("Introduce yourself"))
-    university = ForeignKey("University", on_delete=SET_NULL, null=True)
-    campus = ForeignKey("Campus", on_delete=SET_NULL, null=True, verbose_name=_("Campus"))
+    # university = ForeignKey("University", on_delete=SET_NULL, null=True)
+    # campus = ForeignKey("Campus", on_delete=SET_NULL, null=True, verbose_name=_("Campus"))
     college = ForeignKey("College", on_delete=SET_NULL, null=True, verbose_name=_("College"))
 
     user = OneToOneField("User", on_delete=CASCADE, null=True, verbose_name=_("User"))
@@ -138,13 +138,19 @@ class UserInformation(BaseModel):
     def __str__(self):
         return f"{self.schoolNumber} - {self.name}"
 
+    @property
+    def university(self):
+        return self.campus.university
+
+    @property
+    def campus(self):
+        return self.college.campus
 
 # Community related models
 
 class Community(BaseModel):
     name = CharField(_("Community name"), max_length=50)
     rank = FloatField(_("Rank"), default=0.0)
-    # information = TextField(("What’s Up"))
     information = MDTextField(("What’s Up"))
     images = JSONField(_("Images"))
     thumbnail = TextField(_("Thumbnail"))
