@@ -25,7 +25,7 @@ class BaseModel(Model):
 # University related models
 class University(BaseModel):
     name = CharField(_('University name'), max_length=50)
-    description = TextField(("What's Up"))
+    description = TextField(("What’s Up"))
 
     class Meta:
         verbose_name = _("University")
@@ -38,7 +38,7 @@ class University(BaseModel):
 class Campus(BaseModel):
     name = CharField(_("Campus Name"), max_length=50)
     address = CharField(_("Address of this campus"), max_length=100)
-    description = TextField(("What's Up"))
+    description = TextField(("What’s Up"))
     university = ForeignKey("University", on_delete=SET_NULL, null=True, verbose_name=_("University"))
 
     class Meta:
@@ -55,7 +55,7 @@ class Campus(BaseModel):
 
 class College(BaseModel):
     name = CharField(_("College Name"), max_length=50)
-    description = TextField(("What's Up"))
+    description = TextField(("What’s Up"))
     campus = ForeignKey("Campus", on_delete=SET_NULL, null=True, verbose_name=_("Campus"))
 
     class Meta:
@@ -144,8 +144,8 @@ class UserInformation(BaseModel):
 class Community(BaseModel):
     name = CharField(_("Community name"), max_length=50)
     rank = FloatField(_("Rank"), default=0.0)
-    # information = TextField(("What's Up"))
-    information = MDTextField(("What's Up"))
+    # information = TextField(("What’s Up"))
+    information = MDTextField(("What’s Up"))
     images = JSONField(_("Images"))
     thumbnail = TextField(_("Thumbnail"))
     qqGroup = CharField(_("QQ Group Number"), max_length=20)
@@ -170,7 +170,7 @@ class Community(BaseModel):
 
 class CommunityDepartment(BaseModel):
     name = CharField(_("Department name"), max_length=50)
-    information = TextField(("What's Up"))
+    information = TextField(("What’s Up"))
     community = ForeignKey("Community", on_delete=SET_NULL, null=True, verbose_name=_("Community"))
 
     class Meta:
@@ -183,7 +183,7 @@ class CommunityDepartment(BaseModel):
 
 class CommunityCategory(BaseModel):
     name = CharField(_("Category name"), max_length=50)
-    information = TextField(("What's Up"))
+    information = TextField(("What’s Up"))
     logo = TextField(_("Logo of this category"))
 
     class Meta:
