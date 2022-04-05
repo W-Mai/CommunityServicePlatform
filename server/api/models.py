@@ -7,6 +7,8 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib import admin
 from mdeditor.fields import MDTextField
 
+from smart_selects.db_fields import ChainedForeignKey
+
 
 class BaseManager(Manager):
     def get(self, *args, **kwargs) -> Optional[Model]:
@@ -40,7 +42,8 @@ class Campus(BaseModel):
     name = CharField(_("Campus Name"), max_length=50)
     address = CharField(_("Address of this campus"), max_length=100)
     description = TextField(("What’s Up"))
-    university = ForeignKey("University", on_delete=SET_NULL, null=True, verbose_name=_("University"))
+    university = ForeignKey("University", on_delete=SET_NULL, related_name="universities", null=True,
+                            verbose_name=_("University"))
 
     class Meta:
         verbose_name = _("Campus")
@@ -57,7 +60,7 @@ class Campus(BaseModel):
 class College(BaseModel):
     name = CharField(_("College Name"), max_length=50)
     description = TextField(("What’s Up"))
-    campus = ForeignKey("Campus", on_delete=SET_NULL, null=True, verbose_name=_("Campus"))
+    campus = ForeignKey("Campus", on_delete=SET_NULL, related_name="campuses", null=True, verbose_name=_("Campus"))
 
     class Meta:
         verbose_name = _("College")
@@ -103,7 +106,7 @@ class User(BaseModel):
     password = TextField(_("Password"))
     isVerified = BooleanField(_("Is Verified"))
     group = UserGroupField(_("User Group"))
-    joinedCommunities = ManyToManyField("Community", verbose_name=_("Joined Communities"), null=True)
+    joinedCommunities = ManyToManyField("Community", verbose_name=_("Joined Communities"), blank=True)
 
     class Meta:
         verbose_name = _("User")
@@ -126,10 +129,19 @@ class UserInformation(BaseModel):
     nativePlace = CharField(_("Native Place"), max_length=50)
     headPortrait = TextField(_("Head Portrait"))
     personalProfile = TextField(_("Introduce yourself"))
-    # university = ForeignKey("University", on_delete=SET_NULL, null=True)
-    # campus = ForeignKey("Campus", on_delete=SET_NULL, null=True, verbose_name=_("Campus"))
-    college = ForeignKey("College", on_delete=SET_NULL, null=True, verbose_name=_("College"))
-
+    university = ForeignKey("University", on_delete=SET_NULL, related_name="userinformation", null=True)
+    campus = ChainedForeignKey(Campus,
+                               chained_field="university",
+                               chained_model_field="university",
+                               on_delete=SET_NULL, null=True,
+                               related_name="userinformation",
+                               verbose_name=_("Campus"))
+    college = ChainedForeignKey(College,
+                                chained_field="campus",
+                                chained_model_field="campus",
+                                on_delete=SET_NULL, null=True,
+                                related_name="userinformation",
+                                verbose_name=_("College"))
     user = OneToOneField("User", on_delete=CASCADE, null=True, verbose_name=_("User"))
 
     class Meta:
@@ -138,14 +150,6 @@ class UserInformation(BaseModel):
 
     def __str__(self):
         return f"{self.schoolNumber} - {self.name}"
-
-    @property
-    def university(self):
-        return self.campus.university
-
-    @property
-    def campus(self):
-        return self.college.campus
 
 
 # Community related models
@@ -161,7 +165,14 @@ class Community(BaseModel):
     openUpDateEnd = DateTimeField(_("End Datetime of Recruiting New"))
     message = TextField(_("Message this community will notice"))
     category = ForeignKey("CommunityCategory", on_delete=SET_NULL, null=True, verbose_name=_("Community Category"))
-    campus = ForeignKey("Campus", on_delete=SET_NULL, null=True, verbose_name=_("Campus"))
+
+    university = ForeignKey("University", on_delete=SET_NULL, related_name="community_set", null=True)
+    campus = ChainedForeignKey(Campus,
+                               chained_field="university",
+                               chained_model_field="university",
+                               on_delete=SET_NULL, null=True,
+                               related_name="community_set",
+                               verbose_name=_("Campus"))
 
     class Meta:
         verbose_name = _("Community")

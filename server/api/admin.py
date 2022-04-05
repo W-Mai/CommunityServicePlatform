@@ -55,8 +55,8 @@ class UserAdmin(BaseAdmin):
     def schoolInformation(self, obj: User):
         info = obj.userinformation
         college = info.college
-        campus = college.campus
-        university = campus.university
+        campus = info.campus
+        university = info.university
         return f"{university}({campus}), {college}, {info.college}"
 
     @admin.display(description=_("Other Information"))
@@ -70,8 +70,8 @@ class UserAdmin(BaseAdmin):
     list_filter = [
         "userinformation__gender",
         "userinformation__national",
-        "userinformation__college__campus__university__name",
-        "userinformation__college__campus__name",
+        # "userinformation__college__campus__university__name",
+        # "userinformation__college__campus__name",
     ]
     list_select_related = True
     search_fields = ["username", "userinformation__name"]
@@ -111,9 +111,9 @@ class RegistrationFormAdmin(NestedModelAdmin):
     list_display = ["__str__", "whetherToAdjust", "departments", "selfAssessment", "message"]
     list_filter = [
         "whetherToAdjust",
-        "user__userinformation__college__campus__university__name",
+        # "user__userinformation__college__campus__university__name",
         "user__userinformation__college",
-        "user__userinformation__college__campus__name",
+        # "user__userinformation__college__campus__name",
         "community__name",
         "department1",
         "department2",
