@@ -4,3 +4,4 @@ django-nested-admin==3.3.3
 django-simpleui
 markdown
 django-mdeditor
+docutils

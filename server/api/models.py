@@ -7,6 +7,7 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib import admin
 from mdeditor.fields import MDTextField
 
+
 class BaseManager(Manager):
     def get(self, *args, **kwargs) -> Optional[Model]:
         try:
@@ -145,6 +146,7 @@ class UserInformation(BaseModel):
     @property
     def campus(self):
         return self.college.campus
+
 
 # Community related models
 
