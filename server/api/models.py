@@ -106,7 +106,7 @@ class User(BaseModel):
     password = TextField(_("Password"))
     isVerified = BooleanField(_("Is Verified"))
     group = UserGroupField(_("User Group"))
-    joinedCommunities = ManyToManyField("Community", verbose_name=_("Joined Communities"), null=True)
+    joinedCommunities = ManyToManyField("Community", verbose_name=_("Joined Communities"), blank=True)
 
     class Meta:
         verbose_name = _("User")
@@ -129,16 +129,14 @@ class UserInformation(BaseModel):
     nativePlace = CharField(_("Native Place"), max_length=50)
     headPortrait = TextField(_("Head Portrait"))
     personalProfile = TextField(_("Introduce yourself"))
-    university = ForeignKey("University", on_delete=SET_NULL, related_name="userinformation_set", null=True)
-    # campus = ForeignKey("Campus", on_delete=SET_NULL, null=True, verbose_name=_("Campus"))
-    campus = ChainedForeignKey(University,
+    university = ForeignKey("University", on_delete=SET_NULL, related_name="userinformation", null=True)
+    campus = ChainedForeignKey(Campus,
                                chained_field="university",
                                chained_model_field="university",
                                on_delete=SET_NULL, null=True,
                                related_name="userinformation",
                                verbose_name=_("Campus"))
-    # college = ForeignKey("College", on_delete=SET_NULL, null=True, verbose_name=_("College"))
-    college = ChainedForeignKey(Campus,
+    college = ChainedForeignKey(College,
                                 chained_field="campus",
                                 chained_model_field="campus",
                                 on_delete=SET_NULL, null=True,
@@ -167,7 +165,14 @@ class Community(BaseModel):
     openUpDateEnd = DateTimeField(_("End Datetime of Recruiting New"))
     message = TextField(_("Message this community will notice"))
     category = ForeignKey("CommunityCategory", on_delete=SET_NULL, null=True, verbose_name=_("Community Category"))
-    campus = ForeignKey("Campus", on_delete=SET_NULL, null=True, verbose_name=_("Campus"))
+
+    university = ForeignKey("University", on_delete=SET_NULL, related_name="community_set", null=True)
+    campus = ChainedForeignKey(Campus,
+                               chained_field="university",
+                               chained_model_field="university",
+                               on_delete=SET_NULL, null=True,
+                               related_name="community_set",
+                               verbose_name=_("Campus"))
 
     class Meta:
         verbose_name = _("Community")
