@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.admindocs',
     'nested_admin',
-
+    'smart_selects',
 ]
 
 MIDDLEWARE = [
