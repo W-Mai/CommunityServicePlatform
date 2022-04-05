@@ -7,6 +7,8 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib import admin
 from mdeditor.fields import MDTextField
 
+from smart_selects.db_fields import ChainedForeignKey
+
 
 class BaseManager(Manager):
     def get(self, *args, **kwargs) -> Optional[Model]:
@@ -40,7 +42,8 @@ class Campus(BaseModel):
     name = CharField(_("Campus Name"), max_length=50)
     address = CharField(_("Address of this campus"), max_length=100)
     description = TextField(("What’s Up"))
-    university = ForeignKey("University", on_delete=SET_NULL, null=True, verbose_name=_("University"))
+    university = ForeignKey("University", on_delete=SET_NULL, related_name="universities", null=True,
+                            verbose_name=_("University"))
 
     class Meta:
         verbose_name = _("Campus")
@@ -57,7 +60,7 @@ class Campus(BaseModel):
 class College(BaseModel):
     name = CharField(_("College Name"), max_length=50)
     description = TextField(("What’s Up"))
-    campus = ForeignKey("Campus", on_delete=SET_NULL, null=True, verbose_name=_("Campus"))
+    campus = ForeignKey("Campus", on_delete=SET_NULL, related_name="campuses", null=True, verbose_name=_("Campus"))
 
     class Meta:
         verbose_name = _("College")
@@ -126,10 +129,21 @@ class UserInformation(BaseModel):
     nativePlace = CharField(_("Native Place"), max_length=50)
     headPortrait = TextField(_("Head Portrait"))
     personalProfile = TextField(_("Introduce yourself"))
-    # university = ForeignKey("University", on_delete=SET_NULL, null=True)
+    university = ForeignKey("University", on_delete=SET_NULL, related_name="userinformation_set", null=True)
     # campus = ForeignKey("Campus", on_delete=SET_NULL, null=True, verbose_name=_("Campus"))
-    college = ForeignKey("College", on_delete=SET_NULL, null=True, verbose_name=_("College"))
-
+    campus = ChainedForeignKey(University,
+                               chained_field="university",
+                               chained_model_field="university",
+                               on_delete=SET_NULL, null=True,
+                               related_name="userinformation",
+                               verbose_name=_("Campus"))
+    # college = ForeignKey("College", on_delete=SET_NULL, null=True, verbose_name=_("College"))
+    college = ChainedForeignKey(Campus,
+                                chained_field="campus",
+                                chained_model_field="campus",
+                                on_delete=SET_NULL, null=True,
+                                related_name="userinformation",
+                                verbose_name=_("College"))
     user = OneToOneField("User", on_delete=CASCADE, null=True, verbose_name=_("User"))
 
     class Meta:
@@ -138,14 +152,6 @@ class UserInformation(BaseModel):
 
     def __str__(self):
         return f"{self.schoolNumber} - {self.name}"
-
-    @property
-    def university(self):
-        return self.campus.university
-
-    @property
-    def campus(self):
-        return self.college.campus
 
 
 # Community related models
