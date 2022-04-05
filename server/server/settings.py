@@ -147,3 +147,5 @@ SIMPLEUI_ANALYSIS = False
 # X_FRAME_OPTIONS = 'SAMEORIGIN'
 MEDIA_ROOT = BASE_DIR / 'uploads'
 MEDIA_URL = '/media/'
+
+JQUERY_URL = "https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
